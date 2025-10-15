@@ -8,7 +8,7 @@ Klassebibliotek som har som mål å løfte seg opp fra komplisert GraphQl, til m
 - 
 
 ## Innhold
-[Kjøre graphQL Class Generator](FS.SDK.GraphQL/Readme.md)
+[Kjøre graphQL Class Generator](FS.SDK.GraphQL.Generator/Readme.md)
 
 
 ## Resurrs linker
