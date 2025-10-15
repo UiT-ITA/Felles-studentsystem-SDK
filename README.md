@@ -1,14 +1,14 @@
 # Felles studentsystem SDK (FS.SDK)
 
 ## Beskrivelse
-Klassebibliotek som har som mål å løfte seg opp fra komplisert GraphQl, til mer ferdig etter vårt behov. 
+Klassebibliotek som har som mÃ¥l Ã¥ lÃ¸fte seg opp fra komplisert GraphQl, til mer ferdig etter vÃ¥rt behov. 
 
 ## Kontakt personer
 - Raymond Andreassen, Bestiller og utvikler. 
 - 
 
 ## Innhold
-[Kjøre graphQL Class Generator](FS.SDK.GraphQL.Generator/Readme.md)
+[KjÃ¸re graphQL Class Generator](FS.SDK.GraphQL/Readme.md)
 
 
 ## Resurrs linker
@@ -21,10 +21,10 @@ Klassebibliotek som har som mål å løfte seg opp fra komplisert GraphQl, til mer 
 ## Test coverage 
 (beskriv VELDIG kort hvor mye kode er dekket av tester)
 
-## Kjøre plattform 
+## KjÃ¸re plattform 
 (navn, konto brukt. Hva enn som man ser relevant. 
-- Hvis det er en Console app, hvordan kjøres den?
-- Hvis den kjører i Azure: Subscription, Resource group, kontoer, etc.
+- Hvis det er en Console app, hvordan kjÃ¸res den?
+- Hvis den kjÃ¸rer i Azure: Subscription, Resource group, kontoer, etc.
 - etc.
 
 ## Secrets
@@ -34,7 +34,7 @@ Klassebibliotek som har som mål å løfte seg opp fra komplisert GraphQl, til mer 
 - Omgivelser 
 - Mest brukte funksjonaliteter 
 - Smarte tips/how-to ihht. koden 
-- Hva trenger du? API nøkler/Secrets 
+- Hva trenger du? API nÃ¸kler/Secrets 
 
 
 
