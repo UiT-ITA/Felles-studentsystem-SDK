@@ -1,4 +1,10 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE.txt" />
+    <File Path="README.md" />
+  </Folder>
   <Project Path="FS.SDK.GraphQL.Model/FS.SDK.GraphQL.Model.csproj" Id="8707f161-9bce-4f59-bd35-f30c73f446bf" />
   <Project Path="FS.SDK.GraphQL/FS.SDK.GraphQL.Generator.csproj" Id="58f22ed7-cf6b-4601-9ec9-2a64593c5db2" />
 </Solution>

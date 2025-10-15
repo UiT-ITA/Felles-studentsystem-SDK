@@ -5,16 +5,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <DefineConstants>GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON</DefineConstants>
-  </PropertyGroup>
-
   <ItemGroup Condition="!$(DefineConstants.Contains(GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON))">
     <PackageReference Include="Newtonsoft.Json" Version="13.*" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="10.0.0-rc.2.25502.107" />
   </ItemGroup>
 
 </Project>

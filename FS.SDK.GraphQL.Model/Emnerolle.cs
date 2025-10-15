@@ -49,6 +49,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("fagperson")]
         public FagpersonVedLarested Fagperson { get; set; }
-        //IDatoperiode Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Emnerolle.Gyldighetsperiode\" property setter"); }
+        //IDatoperiode IPersonrolle.Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Emnerolle.Gyldighetsperiode\" property setter"); }
     }
 }

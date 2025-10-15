@@ -26,6 +26,12 @@
   </PropertyGroup>
 ´´´
 
-Legg til nuget pakke System.Text.Json i GraphQL.Model
+## Rutine for generering
+- appsettings.json må inneholde apikeyname og apikey
+- Branch ut "ClassGenerator {dato}" eller lignende
+- Kjør koden
+- Kommenter ut // IDatoperiode IPersonrolle.Gyldighetsperiode
+- Se hvilke filer som ble endret vha git
+- Kanskje må også nuget pakke System.Text.Json legges til i GraphQL.Model
 
 
