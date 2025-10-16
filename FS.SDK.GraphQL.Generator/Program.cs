@@ -24,13 +24,15 @@ Console.WriteLine($"Output directory: {sourceDir.FullName}");
 
 Console.WriteLine("Generating FS GraphQL classes");
 
+string baseurl = config["baseurl"] ?? throw new Exception("baseurl not found in appsettings.json");
 string apikeyname = config["apikeyname"] ?? throw new Exception("apikeyname not found in appsettings.json");
 string apikey = config["apikey"] ?? throw new Exception("apikey not found in appsettings.json");
 
 // Pass an empty list instead of a single KeyValuePair
 var schema = await GraphQlGenerator.RetrieveSchema(
     HttpMethod.Post,
-    "https://gw-uit.intark.uh-it.no/fs-graphql/",
+    baseurl,
+    //"https://gw-uit.intark.uh-it.no/fs-graphql/",
     new List<KeyValuePair<string, string>> { new KeyValuePair<string, string>(apikeyname, apikey) }
 );
 

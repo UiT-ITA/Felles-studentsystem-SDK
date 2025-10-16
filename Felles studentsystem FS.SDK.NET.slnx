@@ -7,4 +7,6 @@
   </Folder>
   <Project Path="FS.SDK.GraphQL.Generator/FS.SDK.GraphQL.Generator.csproj" />
   <Project Path="FS.SDK.GraphQL.Model/FS.SDK.GraphQL.Model.csproj" Id="8707f161-9bce-4f59-bd35-f30c73f446bf" />
+  <Project Path="FS.SDK.TestsTUnit/FS.SDK.TestsTUnit.csproj" />
+  <Project Path="FS.SDK/FS.SDK.csproj" Id="685aea57-917c-4c05-94cf-3e956483dabd" />
 </Solution>
