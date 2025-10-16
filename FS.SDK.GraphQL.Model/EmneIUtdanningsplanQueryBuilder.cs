@@ -24,9 +24,9 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "emne", IsComplex = true, QueryBuilderType = typeof(EmneQueryBuilder) },
             new() { Name = "samletResultatForEmne", IsComplex = true, QueryBuilderType = typeof(ResultatQueryBuilder) },
             new() { Name = "plassertPaUndervisningspartier", IsComplex = true, QueryBuilderType = typeof(UndervisningspartiplasseringQueryBuilder) },
+            new() { Name = "studieoppbygningsdel", IsComplex = true, QueryBuilderType = typeof(StudieoppbygningsdelQueryBuilder) },
             new() { Name = "undervisningstermin", IsComplex = true, QueryBuilderType = typeof(TerminQueryBuilder) },
             new() { Name = "vurderingstermin", IsComplex = true, QueryBuilderType = typeof(TerminQueryBuilder) },
-            new() { Name = "studieoppbygningsdel", IsComplex = true, QueryBuilderType = typeof(StudieoppbygningsdelQueryBuilder) },
             new() { Name = "emnekategori", IsComplex = true, QueryBuilderType = typeof(EmnekategoriQueryBuilder) },
             new() { Name = "valgregel", IsComplex = true, QueryBuilderType = typeof(EmnevalgregelQueryBuilder) },
             new() { Name = "erErstattet" },
@@ -100,6 +100,10 @@ namespace FS.SDK.GraphQL.Model
 
         public EmneIUtdanningsplanQueryBuilder ExceptPlassertPaUndervisningspartier() => ExceptField("plassertPaUndervisningspartier");
 
+        public EmneIUtdanningsplanQueryBuilder WithStudieoppbygningsdel(StudieoppbygningsdelQueryBuilder studieoppbygningsdelQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("studieoppbygningsdel", alias, studieoppbygningsdelQueryBuilder, [include, skip]);
+
+        public EmneIUtdanningsplanQueryBuilder ExceptStudieoppbygningsdel() => ExceptField("studieoppbygningsdel");
+
         public EmneIUtdanningsplanQueryBuilder WithUndervisningstermin(TerminQueryBuilder terminQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("undervisningstermin", alias, terminQueryBuilder, [include, skip]);
 
         public EmneIUtdanningsplanQueryBuilder ExceptUndervisningstermin() => ExceptField("undervisningstermin");
@@ -107,10 +111,6 @@ namespace FS.SDK.GraphQL.Model
         public EmneIUtdanningsplanQueryBuilder WithVurderingstermin(TerminQueryBuilder terminQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("vurderingstermin", alias, terminQueryBuilder, [include, skip]);
 
         public EmneIUtdanningsplanQueryBuilder ExceptVurderingstermin() => ExceptField("vurderingstermin");
-
-        public EmneIUtdanningsplanQueryBuilder WithStudieoppbygningsdel(StudieoppbygningsdelQueryBuilder studieoppbygningsdelQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("studieoppbygningsdel", alias, studieoppbygningsdelQueryBuilder, [include, skip]);
-
-        public EmneIUtdanningsplanQueryBuilder ExceptStudieoppbygningsdel() => ExceptField("studieoppbygningsdel");
 
         public EmneIUtdanningsplanQueryBuilder WithEmnekategori(EmnekategoriQueryBuilder emnekategoriQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("emnekategori", alias, emnekategoriQueryBuilder, [include, skip]);
 

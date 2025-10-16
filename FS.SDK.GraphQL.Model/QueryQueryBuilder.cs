@@ -29,6 +29,9 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "programStudieretter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryProgramStudieretterConnectionQueryBuilder) },
             new() { Name = "personProfiler", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryPersonProfilerConnectionQueryBuilder) },
             new() { Name = "studieoppbygninger", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryStudieoppbygningerConnectionQueryBuilder) },
+            new() { Name = "personProfilerGittPersonlopenumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
+            new() { Name = "personProfilerGittFodselsnumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
+            new() { Name = "personProfilerGittFeideBrukere", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
             new() { Name = "evuKurs", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryEvuKursConnectionQueryBuilder) },
             new() { Name = "campuser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryCampuserConnectionQueryBuilder) },
             new() { Name = "terminer", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryTerminerConnectionQueryBuilder) },
@@ -58,8 +61,6 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "timeplanrollehendelser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryTimeplanrollehendelserConnectionQueryBuilder) },
             new() { Name = "vektingsredukjonsregler", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryVektingsredukjonsreglerConnectionQueryBuilder) },
             new() { Name = "esiKandidater", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryEsiKandidaterConnectionQueryBuilder) },
-            new() { Name = "personProfilerGittFodselsnumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
-            new() { Name = "personProfilerGittPersonlopenumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
             new() { Name = "studenterGittFodselsnumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(StudentVedLarestedQueryBuilder) },
             new() { Name = "studenterGittLanetakerIder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(StudentVedLarestedQueryBuilder) },
             new() { Name = "organisasjoner", IsComplex = true, QueryBuilderType = typeof(QueryOrganisasjonerConnectionQueryBuilder) },
@@ -160,7 +161,6 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "semesterregistreringshendelser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QuerySemesterregistreringshendelserConnectionQueryBuilder) },
             new() { Name = "evuKursSoknaderGittLegacyIder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(EvuKursSoknadQueryBuilder) },
             new() { Name = "personProfilhendelser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryPersonProfilhendelserConnectionQueryBuilder) },
-            new() { Name = "personProfilerGittFeideBrukere", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
             new() { Name = "personProfilerGittAnsattnumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
             new() { Name = "vurderingsperioder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryVurderingsperioderConnectionQueryBuilder) },
             new() { Name = "vurderingsavviklingstyper", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryVurderingsavviklingstyperConnectionQueryBuilder) },
@@ -395,6 +395,36 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public QueryQueryBuilder ExceptStudieoppbygninger() => ExceptField("studieoppbygninger");
+
+        public QueryQueryBuilder WithPersonProfilerGittPersonlopenumre(PersonProfilQueryBuilder personProfilQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> personlopenumre, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "eierOrganisasjonskode", ArgumentValue = eierOrganisasjonskode} );
+            args.Add(new() { ArgumentName = "personlopenumre", ArgumentValue = personlopenumre} );
+            return WithObjectField("personProfilerGittPersonlopenumre", alias, personProfilQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptPersonProfilerGittPersonlopenumre() => ExceptField("personProfilerGittPersonlopenumre");
+
+        public QueryQueryBuilder WithPersonProfilerGittFodselsnumre(PersonProfilQueryBuilder personProfilQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> fodselsnumre, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "eierOrganisasjonskode", ArgumentValue = eierOrganisasjonskode} );
+            args.Add(new() { ArgumentName = "fodselsnumre", ArgumentValue = fodselsnumre} );
+            return WithObjectField("personProfilerGittFodselsnumre", alias, personProfilQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptPersonProfilerGittFodselsnumre() => ExceptField("personProfilerGittFodselsnumre");
+
+        public QueryQueryBuilder WithPersonProfilerGittFeideBrukere(PersonProfilQueryBuilder personProfilQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> feideBrukere, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "eierOrganisasjonskode", ArgumentValue = eierOrganisasjonskode} );
+            args.Add(new() { ArgumentName = "feideBrukere", ArgumentValue = feideBrukere} );
+            return WithObjectField("personProfilerGittFeideBrukere", alias, personProfilQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptPersonProfilerGittFeideBrukere() => ExceptField("personProfilerGittFeideBrukere");
 
         public QueryQueryBuilder WithEvuKurs(QueryEvuKursConnectionQueryBuilder queryEvuKursConnectionQueryBuilder, QueryBuilderParameter<EvuKursFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
@@ -821,26 +851,6 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public QueryQueryBuilder ExceptEsiKandidater() => ExceptField("esiKandidater");
-
-        public QueryQueryBuilder WithPersonProfilerGittFodselsnumre(PersonProfilQueryBuilder personProfilQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> fodselsnumre, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "eierOrganisasjonskode", ArgumentValue = eierOrganisasjonskode} );
-            args.Add(new() { ArgumentName = "fodselsnumre", ArgumentValue = fodselsnumre} );
-            return WithObjectField("personProfilerGittFodselsnumre", alias, personProfilQueryBuilder, [include, skip], args);
-        }
-
-        public QueryQueryBuilder ExceptPersonProfilerGittFodselsnumre() => ExceptField("personProfilerGittFodselsnumre");
-
-        public QueryQueryBuilder WithPersonProfilerGittPersonlopenumre(PersonProfilQueryBuilder personProfilQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> personlopenumre, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "eierOrganisasjonskode", ArgumentValue = eierOrganisasjonskode} );
-            args.Add(new() { ArgumentName = "personlopenumre", ArgumentValue = personlopenumre} );
-            return WithObjectField("personProfilerGittPersonlopenumre", alias, personProfilQueryBuilder, [include, skip], args);
-        }
-
-        public QueryQueryBuilder ExceptPersonProfilerGittPersonlopenumre() => ExceptField("personProfilerGittPersonlopenumre");
 
         public QueryQueryBuilder WithStudenterGittFodselsnumre(StudentVedLarestedQueryBuilder studentVedLarestedQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> fodselsnumre, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
@@ -2228,16 +2238,6 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public QueryQueryBuilder ExceptPersonProfilhendelser() => ExceptField("personProfilhendelser");
-
-        public QueryQueryBuilder WithPersonProfilerGittFeideBrukere(PersonProfilQueryBuilder personProfilQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> feideBrukere, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "eierOrganisasjonskode", ArgumentValue = eierOrganisasjonskode} );
-            args.Add(new() { ArgumentName = "feideBrukere", ArgumentValue = feideBrukere} );
-            return WithObjectField("personProfilerGittFeideBrukere", alias, personProfilQueryBuilder, [include, skip], args);
-        }
-
-        public QueryQueryBuilder ExceptPersonProfilerGittFeideBrukere() => ExceptField("personProfilerGittFeideBrukere");
 
         public QueryQueryBuilder WithPersonProfilerGittAnsattnumre(PersonProfilQueryBuilder personProfilQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> ansattnumre = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {

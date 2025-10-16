@@ -39,9 +39,13 @@ namespace FS.SDK.GraphQL.Model
 
         public ErrorQueryBuilder WithEmnebeskrivelseSperretForOppdateringFragment(EmnebeskrivelseSperretForOppdateringQueryBuilder emnebeskrivelseSperretForOppdateringQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(emnebeskrivelseSperretForOppdateringQueryBuilder, [include, skip]);
 
+        public ErrorQueryBuilder WithFagpersonFinnesForPersonFragment(FagpersonFinnesForPersonQueryBuilder fagpersonFinnesForPersonQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(fagpersonFinnesForPersonQueryBuilder, [include, skip]);
+
         public ErrorQueryBuilder WithFagpersonFinnsForPersonFragment(FagpersonFinnsForPersonQueryBuilder fagpersonFinnsForPersonQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(fagpersonFinnsForPersonQueryBuilder, [include, skip]);
 
         public ErrorQueryBuilder WithFeideBrukerErIkkeUnikFragment(FeideBrukerErIkkeUnikQueryBuilder feideBrukerErIkkeUnikQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(feideBrukerErIkkeUnikQueryBuilder, [include, skip]);
+
+        public ErrorQueryBuilder WithFeideBrukerUlovligCaseFragment(FeideBrukerUlovligCaseQueryBuilder feideBrukerUlovligCaseQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(feideBrukerUlovligCaseQueryBuilder, [include, skip]);
 
         public ErrorQueryBuilder WithForMangeTegnINavnErrorFragment(ForMangeTegnINavnErrorQueryBuilder forMangeTegnINavnErrorQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(forMangeTegnINavnErrorQueryBuilder, [include, skip]);
 
@@ -68,6 +72,8 @@ namespace FS.SDK.GraphQL.Model
         public ErrorQueryBuilder WithTerminErUtenforEmnetsUndervisningsperiodeFragment(TerminErUtenforEmnetsUndervisningsperiodeQueryBuilder terminErUtenforEmnetsUndervisningsperiodeQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(terminErUtenforEmnetsUndervisningsperiodeQueryBuilder, [include, skip]);
 
         public ErrorQueryBuilder WithUgyldigBankkontonummerFragment(UgyldigBankkontonummerQueryBuilder ugyldigBankkontonummerQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(ugyldigBankkontonummerQueryBuilder, [include, skip]);
+
+        public ErrorQueryBuilder WithUgyldigFodselsdatoFraFodselsnummerFragment(UgyldigFodselsdatoFraFodselsnummerQueryBuilder ugyldigFodselsdatoFraFodselsnummerQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(ugyldigFodselsdatoFraFodselsnummerQueryBuilder, [include, skip]);
 
         public ErrorQueryBuilder WithUgyldigFodselsdatoFraFodselsnummerErrorFragment(UgyldigFodselsdatoFraFodselsnummerErrorQueryBuilder ugyldigFodselsdatoFraFodselsnummerErrorQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(ugyldigFodselsdatoFraFodselsnummerErrorQueryBuilder, [include, skip]);
 

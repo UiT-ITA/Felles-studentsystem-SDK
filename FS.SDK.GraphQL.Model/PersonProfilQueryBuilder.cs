@@ -33,10 +33,11 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "fsSoknader", IsComplex = true, QueryBuilderType = typeof(PersonProfilFsSoknaderConnectionQueryBuilder) },
             new() { Name = "student", IsComplex = true, QueryBuilderType = typeof(StudentVedLarestedQueryBuilder) },
             new() { Name = "programStudieretter", IsComplex = true, QueryBuilderType = typeof(PersonProfilProgramStudieretterConnectionQueryBuilder) },
+            new() { Name = "ansattnummer" },
+            new() { Name = "fagperson", IsComplex = true, QueryBuilderType = typeof(FagpersonVedLarestedQueryBuilder) },
             new() { Name = "kanOverforesTilLms" },
             new() { Name = "statsborgerskap", IsComplex = true, QueryBuilderType = typeof(StatsborgerskapQueryBuilder) },
             new() { Name = "deltaker", IsComplex = true, QueryBuilderType = typeof(DeltakerVedLarestedQueryBuilder) },
-            new() { Name = "fagperson", IsComplex = true, QueryBuilderType = typeof(FagpersonVedLarestedQueryBuilder) },
             new() { Name = "larested", IsComplex = true, QueryBuilderType = typeof(OrganisasjonQueryBuilder) },
             new() { Name = "pass", IsComplex = true, QueryBuilderType = typeof(PassQueryBuilder) },
             new() { Name = "fodselsnummertype" },
@@ -47,7 +48,6 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "tidligerePersonNavn", IsComplex = true, QueryBuilderType = typeof(TidligerePersonNavnQueryBuilder) },
             new() { Name = "bankkontonummer" },
             new() { Name = "kriseKontaktperson", IsComplex = true, QueryBuilderType = typeof(KriseKontaktpersonQueryBuilder) },
-            new() { Name = "ansattnummer" },
             new() { Name = "personDataKanHentesFraFolkeregisteret" },
             new() { Name = "undervisningsenhetsroller", IsComplex = true, QueryBuilderType = typeof(UndervisningsenhetsrolleQueryBuilder) },
             new() { Name = "pinkode" }
@@ -158,6 +158,14 @@ namespace FS.SDK.GraphQL.Model
 
         public PersonProfilQueryBuilder ExceptProgramStudieretter() => ExceptField("programStudieretter");
 
+        public PersonProfilQueryBuilder WithAnsattnummer(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("ansattnummer", alias, [include, skip]);
+
+        public PersonProfilQueryBuilder ExceptAnsattnummer() => ExceptField("ansattnummer");
+
+        public PersonProfilQueryBuilder WithFagperson(FagpersonVedLarestedQueryBuilder fagpersonVedLarestedQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("fagperson", alias, fagpersonVedLarestedQueryBuilder, [include, skip]);
+
+        public PersonProfilQueryBuilder ExceptFagperson() => ExceptField("fagperson");
+
         public PersonProfilQueryBuilder WithKanOverforesTilLms(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("kanOverforesTilLms", alias, [include, skip]);
 
         public PersonProfilQueryBuilder ExceptKanOverforesTilLms() => ExceptField("kanOverforesTilLms");
@@ -169,10 +177,6 @@ namespace FS.SDK.GraphQL.Model
         public PersonProfilQueryBuilder WithDeltaker(DeltakerVedLarestedQueryBuilder deltakerVedLarestedQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("deltaker", alias, deltakerVedLarestedQueryBuilder, [include, skip]);
 
         public PersonProfilQueryBuilder ExceptDeltaker() => ExceptField("deltaker");
-
-        public PersonProfilQueryBuilder WithFagperson(FagpersonVedLarestedQueryBuilder fagpersonVedLarestedQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("fagperson", alias, fagpersonVedLarestedQueryBuilder, [include, skip]);
-
-        public PersonProfilQueryBuilder ExceptFagperson() => ExceptField("fagperson");
 
         public PersonProfilQueryBuilder WithLarested(OrganisasjonQueryBuilder organisasjonQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("larested", alias, organisasjonQueryBuilder, [include, skip]);
 
@@ -213,10 +217,6 @@ namespace FS.SDK.GraphQL.Model
         public PersonProfilQueryBuilder WithKriseKontaktperson(KriseKontaktpersonQueryBuilder kriseKontaktpersonQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("kriseKontaktperson", alias, kriseKontaktpersonQueryBuilder, [include, skip]);
 
         public PersonProfilQueryBuilder ExceptKriseKontaktperson() => ExceptField("kriseKontaktperson");
-
-        public PersonProfilQueryBuilder WithAnsattnummer(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("ansattnummer", alias, [include, skip]);
-
-        public PersonProfilQueryBuilder ExceptAnsattnummer() => ExceptField("ansattnummer");
 
         public PersonProfilQueryBuilder WithPersonDataKanHentesFraFolkeregisteret(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("personDataKanHentesFraFolkeregisteret", alias, [include, skip]);
 

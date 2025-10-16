@@ -326,12 +326,14 @@ namespace FS.SDK.GraphQL.Model
         public const string EvukursTjenestenummerForLmsEndret = "EvukursTjenestenummerForLmsEndret";
         public const string Fag = "Fag";
         public const string FagnavnAlleSprak = "FagnavnAlleSprak";
+        public const string FagpersonFinnesForPerson = "FagpersonFinnesForPerson";
         public const string FagpersonFinnsForPerson = "FagpersonFinnsForPerson";
         public const string Fagpersonkategori = "Fagpersonkategori";
         public const string FagpersonkategorinavnAlleSprak = "FagpersonkategorinavnAlleSprak";
         public const string FagpersonVedLarested = "FagpersonVedLarested";
         public const string FagpersonVedLarestedEmnerollerConnection = "FagpersonVedLarestedEmnerollerConnection";
         public const string FagpersonVedLarestedEmnerollerConnectionEdge = "FagpersonVedLarestedEmnerollerConnectionEdge";
+        public const string FagpersonVedLarestedStillingstittelAlleSprak = "FagpersonVedLarestedStillingstittelAlleSprak";
         public const string FagpersonVedlarestedStillingstittelNorskEngelsk = "FagpersonVedlarestedStillingstittelNorskEngelsk";
         public const string Faktura = "Faktura";
         public const string Fakturadetalj = "Fakturadetalj";
@@ -345,6 +347,7 @@ namespace FS.SDK.GraphQL.Model
         public const string FakultetOrganisasjonsenheterConnection = "FakultetOrganisasjonsenheterConnection";
         public const string FakultetOrganisasjonsenheterConnectionEdge = "FakultetOrganisasjonsenheterConnectionEdge";
         public const string FeideBrukerErIkkeUnik = "FeideBrukerErIkkeUnik";
+        public const string FeideBrukerUlovligCase = "FeideBrukerUlovligCase";
         public const string Finansieringstype = "Finansieringstype";
         public const string Finansieringstypenavn = "Finansieringstypenavn";
         public const string FjernEmnebegrensningerForProgramStudieretterPayload = "FjernEmnebegrensningerForProgramStudieretterPayload";
@@ -512,6 +515,10 @@ namespace FS.SDK.GraphQL.Model
         public const string OppretteStudierettPaLukketKullterminmError = "OppretteStudierettPaLukketKullterminmError";
         public const string OppretteStudierettPaLukketStartterminError = "OppretteStudierettPaLukketStartterminError";
         public const string OppretteStudierettPaUtgattStudieprogramError = "OppretteStudierettPaUtgattStudieprogramError";
+        public const string OpprettFagpersonerGittFodselsnumrePayload = "OpprettFagpersonerGittFodselsnumrePayload";
+        public const string OpprettFagpersonerGittFodselsnumreResult = "OpprettFagpersonerGittFodselsnumreResult";
+        public const string OpprettFagpersonerGittPassPayload = "OpprettFagpersonerGittPassPayload";
+        public const string OpprettFagpersonerGittPassResult = "OpprettFagpersonerGittPassResult";
         public const string OpprettFagpersonForGittFodselsnummerPayload = "OpprettFagpersonForGittFodselsnummerPayload";
         public const string OpprettFagpersonForGittFodselsnummerResult = "OpprettFagpersonForGittFodselsnummerResult";
         public const string OpprettFagpersonGittPassPayload = "OpprettFagpersonGittPassPayload";
@@ -866,6 +873,7 @@ namespace FS.SDK.GraphQL.Model
         public const string RegistrerStudentkortPayload = "RegistrerStudentkortPayload";
         public const string RegistrerUndervisningsenheterPayload = "RegistrerUndervisningsenheterPayload";
         public const string RegistrerUndervisningstilpasningerPayload = "RegistrerUndervisningstilpasningerPayload";
+        public const string RegistrerUtdanningsregisterIderForEmnePayload = "RegistrerUtdanningsregisterIderForEmnePayload";
         public const string RegistrerUtdanningsregisterIderForStudieprogramPayload = "RegistrerUtdanningsregisterIderForStudieprogramPayload";
         public const string RegistrerUtdanningsregisterIdForKullcampusPayload = "RegistrerUtdanningsregisterIdForKullcampusPayload";
         public const string RegistrerVedtakOmEkstraVurderingsforsokPayload = "RegistrerVedtakOmEkstraVurderingsforsokPayload";
@@ -885,6 +893,8 @@ namespace FS.SDK.GraphQL.Model
         public const string RomtypeNavnAlleSprak = "RomtypeNavnAlleSprak";
         public const string Romutstyrtype = "Romutstyrtype";
         public const string Romutstyrtypenavn = "Romutstyrtypenavn";
+        public const string Samarbeidstype = "Samarbeidstype";
+        public const string Samarbeidstypenavn = "Samarbeidstypenavn";
         public const string Samtykke = "Samtykke";
         public const string Samtykkekrav = "Samtykkekrav";
         public const string SamtykkekravForklaring = "SamtykkekravForklaring";
@@ -1028,6 +1038,8 @@ namespace FS.SDK.GraphQL.Model
         public const string StudieprogramrolleEndretFsRolle = "StudieprogramrolleEndretFsRolle";
         public const string StudieprogramrolleGyldighetsperiode = "StudieprogramrolleGyldighetsperiode";
         public const string StudieprogramrolleSlettet = "StudieprogramrolleSlettet";
+        public const string StudieprogramSamarbeid = "StudieprogramSamarbeid";
+        public const string StudieprogramSamarbeidGyldighetsperiode = "StudieprogramSamarbeidGyldighetsperiode";
         public const string StudieprogramSkalAktiveres = "StudieprogramSkalAktiveres";
         public const string StudieprogramSkalDeaktiveres = "StudieprogramSkalDeaktiveres";
         public const string StudieprogramSkalEksporteresTilLms = "StudieprogramSkalEksporteresTilLms";
@@ -1098,6 +1110,7 @@ namespace FS.SDK.GraphQL.Model
         public const string TrekkStudenterFraUtvekslingsoppholdPayload = "TrekkStudenterFraUtvekslingsoppholdPayload";
         public const string TrekkVurderingsmeldingerPayload = "TrekkVurderingsmeldingerPayload";
         public const string UgyldigBankkontonummer = "UgyldigBankkontonummer";
+        public const string UgyldigFodselsdatoFraFodselsnummer = "UgyldigFodselsdatoFraFodselsnummer";
         public const string UgyldigFodselsdatoFraFodselsnummerError = "UgyldigFodselsdatoFraFodselsnummerError";
         public const string UgyldigFodselsnummer = "UgyldigFodselsnummer";
         public const string UgyldigForhandsgodkjentVekting = "UgyldigForhandsgodkjentVekting";
@@ -1267,8 +1280,8 @@ namespace FS.SDK.GraphQL.Model
 
         public const string AktiverFagpersonerInput = "AktiverFagpersonerInput";
         public const string AktiverFagpersonerPersonNavnInput = "AktiverFagpersonerPersonNavnInput";
+        public const string AktiverFagpersonerStillingstittelInput = "AktiverFagpersonerStillingstittelInput";
         public const string AktiverFagpersonerTelefonInput = "AktiverFagpersonerTelefonInput";
-        public const string AktiverFapersonerStillingstittelInput = "AktiverFapersonerStillingstittelInput";
         public const string AngiBankkontonummerForPersonProfilInput = "AngiBankkontonummerForPersonProfilInput";
         public const string AngiBibliotekForStudenterInput = "AngiBibliotekForStudenterInput";
         public const string AngiBrukerinformasjonForPersonProfilerInput = "AngiBrukerinformasjonForPersonProfilerInput";
@@ -1391,6 +1404,13 @@ namespace FS.SDK.GraphQL.Model
         public const string OpprettAdministrativtAnsatteGittFodselsnummerInput = "OpprettAdministrativtAnsatteGittFodselsnummerInput";
         public const string OpprettAdministrativtAnsatteGittFodselsnummerTelefonnummerInput = "OpprettAdministrativtAnsatteGittFodselsnummerTelefonnummerInput";
         public const string OpprettAdministrativtAnstattGittFodselsnummerAdresseInput = "OpprettAdministrativtAnstattGittFodselsnummerAdresseInput";
+        public const string OpprettFagpersonerGittFodselsnumreAdresseInput = "OpprettFagpersonerGittFodselsnumreAdresseInput";
+        public const string OpprettFagpersonerGittFodselsnumreInput = "OpprettFagpersonerGittFodselsnumreInput";
+        public const string OpprettFagpersonerGittFodselsnumreTelefonnummerInput = "OpprettFagpersonerGittFodselsnumreTelefonnummerInput";
+        public const string OpprettFagpersonerGittPassAdresseInput = "OpprettFagpersonerGittPassAdresseInput";
+        public const string OpprettFagpersonerGittPassInput = "OpprettFagpersonerGittPassInput";
+        public const string OpprettFagpersonerGittPassTelefonnummerInput = "OpprettFagpersonerGittPassTelefonnummerInput";
+        public const string OpprettFagpersonerStillingstittelInput = "OpprettFagpersonerStillingstittelInput";
         public const string OpprettFagpersonForGittFodselsnummerAdresseInput = "OpprettFagpersonForGittFodselsnummerAdresseInput";
         public const string OpprettFagpersonForGittFodselsnummerInput = "OpprettFagpersonForGittFodselsnummerInput";
         public const string OpprettFagpersonForGittFodselsnummerTelefonnummerInput = "OpprettFagpersonForGittFodselsnummerTelefonnummerInput";
@@ -1427,6 +1447,7 @@ namespace FS.SDK.GraphQL.Model
         public const string OrganisasjonsenhetsutvekslingsavtalerFilterInput = "OrganisasjonsenhetsutvekslingsavtalerFilterInput";
         public const string OrganisasjonsnavnOrderBy = "OrganisasjonsnavnOrderBy";
         public const string Passinnput = "Passinnput";
+        public const string PassInput = "PassInput";
         public const string PermisjonProgramStudieretterOrderbyInput = "PermisjonProgramStudieretterOrderbyInput";
         public const string PersonProfilFsSoknaderFilterInput = "PersonProfilFsSoknaderFilterInput";
         public const string PersonProfilProgramStudieretterFilterInput = "PersonProfilProgramStudieretterFilterInput";
@@ -1566,6 +1587,7 @@ namespace FS.SDK.GraphQL.Model
         public const string RegistrerStudentkortInput = "RegistrerStudentkortInput";
         public const string RegistrerUndervisningsenheterInput = "RegistrerUndervisningsenheterInput";
         public const string RegistrerUndervisningstilpasningerInput = "RegistrerUndervisningstilpasningerInput";
+        public const string RegistrerUtdanningsregisterIderForEmneInput = "RegistrerUtdanningsregisterIderForEmneInput";
         public const string RegistrerUtdanningsregisterIderForStudieprogramInput = "RegistrerUtdanningsregisterIderForStudieprogramInput";
         public const string RegistrerUtdanningsregisterIdForKullcampusInput = "RegistrerUtdanningsregisterIdForKullcampusInput";
         public const string RegistrerVedtakOmEkstraVurderingsforsokInput = "RegistrerVedtakOmEkstraVurderingsforsokInput";
@@ -1685,6 +1707,8 @@ namespace FS.SDK.GraphQL.Model
         public const string FordelStudenterIKlasserError = "FordelStudenterIKlasserError";
         public const string MeldStudentTilVurderingErrors = "MeldStudentTilVurderingErrors";
         public const string OpprettAdministrativtAnsatteGittFodselsnummerError = "OpprettAdministrativtAnsatteGittFodselsnummerError";
+        public const string OpprettFagpersonerGittFodselsnumreErrors = "OpprettFagpersonerGittFodselsnumreErrors";
+        public const string OpprettFagpersonerGittPassErrors = "OpprettFagpersonerGittPassErrors";
         public const string OpprettFagpersonForGittFodselsnummerError = "OpprettFagpersonForGittFodselsnummerError";
         public const string OpprettFagpersonGittPassError = "OpprettFagpersonGittPassError";
         public const string OpprettKlassebetegnelserError = "OpprettKlassebetegnelserError";
@@ -1714,6 +1738,7 @@ namespace FS.SDK.GraphQL.Model
         public const string RegistrerSemesteravgiftBetaltForStudenterError = "RegistrerSemesteravgiftBetaltForStudenterError";
         public const string RegistrerStudentkortError = "RegistrerStudentkortError";
         public const string RegistrerUndervisningsenheterError = "RegistrerUndervisningsenheterError";
+        public const string RegistrerUtdanningsregisterIderForEmneError = "RegistrerUtdanningsregisterIderForEmneError";
         public const string RegistrerUtdanningsregisterIderForStudieprogramError = "RegistrerUtdanningsregisterIderForStudieprogramError";
         public const string RegistrerUtdanningsregisterIdForKullcampusError = "RegistrerUtdanningsregisterIdForKullcampusError";
         public const string RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerError = "RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerError";
@@ -1761,8 +1786,8 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(bool), "Boolean" },
                 { typeof(AktiverFagpersonerInput), "AktiverFagpersonerInput" },
                 { typeof(AktiverFagpersonerPersonNavnInput), "AktiverFagpersonerPersonNavnInput" },
+                { typeof(AktiverFagpersonerStillingstittelInput), "AktiverFagpersonerStillingstittelInput" },
                 { typeof(AktiverFagpersonerTelefonInput), "AktiverFagpersonerTelefonInput" },
-                { typeof(AktiverFapersonerStillingstittelInput), "AktiverFapersonerStillingstittelInput" },
                 { typeof(AngiBankkontonummerForPersonProfilInput), "AngiBankkontonummerForPersonProfilInput" },
                 { typeof(AngiBibliotekForStudenterInput), "AngiBibliotekForStudenterInput" },
                 { typeof(AngiBrukerinformasjonForPersonProfilerInput), "AngiBrukerinformasjonForPersonProfilerInput" },
@@ -1885,6 +1910,13 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(OpprettAdministrativtAnsatteGittFodselsnummerInput), "OpprettAdministrativtAnsatteGittFodselsnummerInput" },
                 { typeof(OpprettAdministrativtAnsatteGittFodselsnummerTelefonnummerInput), "OpprettAdministrativtAnsatteGittFodselsnummerTelefonnummerInput" },
                 { typeof(OpprettAdministrativtAnstattGittFodselsnummerAdresseInput), "OpprettAdministrativtAnstattGittFodselsnummerAdresseInput" },
+                { typeof(OpprettFagpersonerGittFodselsnumreAdresseInput), "OpprettFagpersonerGittFodselsnumreAdresseInput" },
+                { typeof(OpprettFagpersonerGittFodselsnumreInput), "OpprettFagpersonerGittFodselsnumreInput" },
+                { typeof(OpprettFagpersonerGittFodselsnumreTelefonnummerInput), "OpprettFagpersonerGittFodselsnumreTelefonnummerInput" },
+                { typeof(OpprettFagpersonerGittPassAdresseInput), "OpprettFagpersonerGittPassAdresseInput" },
+                { typeof(OpprettFagpersonerGittPassInput), "OpprettFagpersonerGittPassInput" },
+                { typeof(OpprettFagpersonerGittPassTelefonnummerInput), "OpprettFagpersonerGittPassTelefonnummerInput" },
+                { typeof(OpprettFagpersonerStillingstittelInput), "OpprettFagpersonerStillingstittelInput" },
                 { typeof(OpprettFagpersonForGittFodselsnummerAdresseInput), "OpprettFagpersonForGittFodselsnummerAdresseInput" },
                 { typeof(OpprettFagpersonForGittFodselsnummerInput), "OpprettFagpersonForGittFodselsnummerInput" },
                 { typeof(OpprettFagpersonForGittFodselsnummerTelefonnummerInput), "OpprettFagpersonForGittFodselsnummerTelefonnummerInput" },
@@ -1921,6 +1953,7 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(OrganisasjonsenhetsutvekslingsavtalerFilterInput), "OrganisasjonsenhetsutvekslingsavtalerFilterInput" },
                 { typeof(OrganisasjonsnavnOrderBy), "OrganisasjonsnavnOrderBy" },
                 { typeof(Passinnput), "Passinnput" },
+                { typeof(PassInput), "PassInput" },
                 { typeof(PermisjonProgramStudieretterOrderbyInput), "PermisjonProgramStudieretterOrderbyInput" },
                 { typeof(PersonProfilFsSoknaderFilterInput), "PersonProfilFsSoknaderFilterInput" },
                 { typeof(PersonProfilProgramStudieretterFilterInput), "PersonProfilProgramStudieretterFilterInput" },
@@ -2060,6 +2093,7 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(RegistrerStudentkortInput), "RegistrerStudentkortInput" },
                 { typeof(RegistrerUndervisningsenheterInput), "RegistrerUndervisningsenheterInput" },
                 { typeof(RegistrerUndervisningstilpasningerInput), "RegistrerUndervisningstilpasningerInput" },
+                { typeof(RegistrerUtdanningsregisterIderForEmneInput), "RegistrerUtdanningsregisterIderForEmneInput" },
                 { typeof(RegistrerUtdanningsregisterIderForStudieprogramInput), "RegistrerUtdanningsregisterIderForStudieprogramInput" },
                 { typeof(RegistrerUtdanningsregisterIdForKullcampusInput), "RegistrerUtdanningsregisterIdForKullcampusInput" },
                 { typeof(RegistrerVedtakOmEkstraVurderingsforsokInput), "RegistrerVedtakOmEkstraVurderingsforsokInput" },

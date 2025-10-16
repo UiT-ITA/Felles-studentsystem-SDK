@@ -20,6 +20,7 @@ namespace FS.SDK.GraphQL.Model
         private InputPropertyInfo _skalEksporteresTilUtdanningsregisteret;
         private InputPropertyInfo _erEksportertTilUtdanningsregisteret;
         private InputPropertyInfo _eqfniva;
+        private InputPropertyInfo _harSamarbeidsinstitusjoner;
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("eierOrganisasjonskode")]
@@ -98,6 +99,17 @@ namespace FS.SDK.GraphQL.Model
             set => _eqfniva = new() { Name = "eqfniva", Value = value };
         }
 
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("harSamarbeidsinstitusjoner")]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<bool?>))]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("harSamarbeidsinstitusjoner")]
+        public QueryBuilderParameter<bool?> HarSamarbeidsinstitusjoner
+        {
+            get => (QueryBuilderParameter<bool?>)_harSamarbeidsinstitusjoner.Value;
+            set => _harSamarbeidsinstitusjoner = new() { Name = "harSamarbeidsinstitusjoner", Value = value };
+        }
+
         IEnumerable<InputPropertyInfo> IGraphQlInputObject.GetPropertyValues()
         {
             if (_eierOrganisasjonskode.Name != null) yield return _eierOrganisasjonskode;
@@ -107,6 +119,7 @@ namespace FS.SDK.GraphQL.Model
             if (_skalEksporteresTilUtdanningsregisteret.Name != null) yield return _skalEksporteresTilUtdanningsregisteret;
             if (_erEksportertTilUtdanningsregisteret.Name != null) yield return _erEksportertTilUtdanningsregisteret;
             if (_eqfniva.Name != null) yield return _eqfniva;
+            if (_harSamarbeidsinstitusjoner.Name != null) yield return _harSamarbeidsinstitusjoner;
         }
     }
 }

@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace FS.SDK.GraphQL.Model
 {
     [GraphQlObjectType("UgyldigNorskTelefonnummer")]
-    public partial class UgyldigNorskTelefonnummer : IOpprettAdministrativtAnsatteGittFodselsnummerError, IOpprettFagpersonForGittFodselsnummerError, IOpprettFagpersonGittPassError, IOpprettStudenterError, IError
+    public partial class UgyldigNorskTelefonnummer : IOpprettAdministrativtAnsatteGittFodselsnummerError, IOpprettFagpersonForGittFodselsnummerError, IOpprettFagpersonGittPassError, IOpprettFagpersonerGittFodselsnumreErrors, IOpprettFagpersonerGittPassErrors, IOpprettStudenterError, IError
     {
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("path")]

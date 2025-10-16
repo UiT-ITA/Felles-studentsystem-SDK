@@ -43,12 +43,23 @@ public class MicrosoftDependencyInjectionDataSourceAttribute : DependencyInjecti
         //.AddEnvironmentVariables();
         Microsoft.Extensions.Configuration.IConfiguration config = builder.Build();
 
+        
+
         return new ServiceCollection()
-            .AddSingleton<FSApiClient>(new FSApiClient(
-                apikeyName: config["apikeyname"] ?? throw new Exception("apikeyname not found in appsettings.json"), 
-                apikey: config["apikey"] ?? throw new Exception("apikey not found in appsettings.json"), 
-                new System.Net.Http.Headers.ProductInfoHeaderValue("FS.SDK.NET TestClient"), 
-                baseUrl: config["baseurl"] ?? throw new Exception("baseurl not found in appsettings.json")))
+            .AddSingleton<FSApiClient>()
+            .AddSingleton<FSApiClientConfig>(sp =>
+            {
+                var configuration = sp.GetRequiredService<Microsoft.Extensions.Configuration.IConfiguration>();
+                var apiKeyName = configuration["apikeyname"];
+                var apiKey = configuration["apikey"];
+                var baseUrl = configuration["baseurl"] ?? "https://api.fellesstudentsystem.no/graphql";
+                return new FSApiClientConfig
+                {
+                    ApiKeyName = apiKeyName ?? throw new ArgumentNullException("apikeyname"),
+                    ApiKey = apiKey ?? throw new ArgumentNullException("apikey"),
+                    BaseUrl = baseUrl
+                };
+            })
             .AddSingleton<Microsoft.Extensions.Configuration.IConfiguration>(config)
             //.AddTransient<SomeClass3>()
             .BuildServiceProvider();

@@ -20,10 +20,10 @@ namespace FS.SDK.GraphQL.Model
         private InputPropertyInfo _arbeidsEpost;
         private InputPropertyInfo _institusjonsEpost;
         private InputPropertyInfo _feideBruker;
-        private InputPropertyInfo _ekstern;
+        private InputPropertyInfo _erEkstern;
         private InputPropertyInfo _stillingstittel;
         private InputPropertyInfo _ansattnummer;
-        private InputPropertyInfo _romPlassering;
+        private InputPropertyInfo _romId;
         private InputPropertyInfo _mobilTelefon;
         private InputPropertyInfo _navn;
 
@@ -105,24 +105,24 @@ namespace FS.SDK.GraphQL.Model
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("ekstern")]
+        [JsonProperty("erEkstern")]
         [JsonConverter(typeof(QueryBuilderParameterConverter<bool?>))]
         #endif
-        [System.Text.Json.Serialization.JsonPropertyName("ekstern")]
-        public QueryBuilderParameter<bool?> Ekstern
+        [System.Text.Json.Serialization.JsonPropertyName("erEkstern")]
+        public QueryBuilderParameter<bool?> ErEkstern
         {
-            get => (QueryBuilderParameter<bool?>)_ekstern.Value;
-            set => _ekstern = new() { Name = "ekstern", Value = value };
+            get => (QueryBuilderParameter<bool?>)_erEkstern.Value;
+            set => _erEkstern = new() { Name = "erEkstern", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("stillingstittel")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<AktiverFapersonerStillingstittelInput>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<AktiverFagpersonerStillingstittelInput>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("stillingstittel")]
-        public QueryBuilderParameter<AktiverFapersonerStillingstittelInput> Stillingstittel
+        public QueryBuilderParameter<AktiverFagpersonerStillingstittelInput> Stillingstittel
         {
-            get => (QueryBuilderParameter<AktiverFapersonerStillingstittelInput>)_stillingstittel.Value;
+            get => (QueryBuilderParameter<AktiverFagpersonerStillingstittelInput>)_stillingstittel.Value;
             set => _stillingstittel = new() { Name = "stillingstittel", Value = value };
         }
 
@@ -138,14 +138,14 @@ namespace FS.SDK.GraphQL.Model
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("romPlassering")]
+        [JsonProperty("romId")]
         [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
         #endif
-        [System.Text.Json.Serialization.JsonPropertyName("romPlassering")]
-        public QueryBuilderParameter<Guid?> RomPlassering
+        [System.Text.Json.Serialization.JsonPropertyName("romId")]
+        public QueryBuilderParameter<Guid?> RomId
         {
-            get => (QueryBuilderParameter<Guid?>)_romPlassering.Value;
-            set => _romPlassering = new() { Name = "romPlassering", Value = value };
+            get => (QueryBuilderParameter<Guid?>)_romId.Value;
+            set => _romId = new() { Name = "romId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
@@ -179,10 +179,10 @@ namespace FS.SDK.GraphQL.Model
             if (_arbeidsEpost.Name != null) yield return _arbeidsEpost;
             if (_institusjonsEpost.Name != null) yield return _institusjonsEpost;
             if (_feideBruker.Name != null) yield return _feideBruker;
-            if (_ekstern.Name != null) yield return _ekstern;
+            if (_erEkstern.Name != null) yield return _erEkstern;
             if (_stillingstittel.Name != null) yield return _stillingstittel;
             if (_ansattnummer.Name != null) yield return _ansattnummer;
-            if (_romPlassering.Name != null) yield return _romPlassering;
+            if (_romId.Name != null) yield return _romId;
             if (_mobilTelefon.Name != null) yield return _mobilTelefon;
             if (_navn.Name != null) yield return _navn;
         }

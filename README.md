@@ -18,6 +18,8 @@ Klassebibliotek som har som mål å løfte seg opp fra komplisert GraphQl, til m
 
 ## Test coverage 
 (beskriv VELDIG kort hvor mye kode er dekket av tester)
+- 2025.10.16 : 45/396, 37/0/189
+
 
 ## Kjøre plattform 
 (navn, konto brukt. Hva enn som man ser relevant.) 

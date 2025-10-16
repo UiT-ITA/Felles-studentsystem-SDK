@@ -15,6 +15,10 @@ namespace FS.SDK.GraphQL.Model
     {
         private static readonly GraphQlFieldMetadata[] AllFieldMetadata =
         {
+            new() { Name = "deaktiverFagpersoner", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(DeaktiverFagpersonerPayloadQueryBuilder) },
+            new() { Name = "angiBrukerinformasjonForPersonProfiler", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AngiBrukerinformasjonForPersonProfilerPayloadQueryBuilder) },
+            new() { Name = "aktiverFagpersoner", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AktiverFagpersonerPayloadQueryBuilder) },
+            new() { Name = "opprettFagpersonerGittPass", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(OpprettFagpersonerGittPassPayloadQueryBuilder) },
             new() { Name = "angiStatsborgerskap", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AngiStatsborgerskapPayloadQueryBuilder) },
             new() { Name = "registrerEsiForStudenter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(RegistrerEsiForStudenterPayloadQueryBuilder) },
             new() { Name = "endreFolkeregistrerteAdresser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(EndreFolkeregistrerteAdresserPayloadQueryBuilder) },
@@ -66,13 +70,9 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "deaktiverKull", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(DeaktiverKullPayloadQueryBuilder) },
             new() { Name = "endreGyldighetsperiodeForUtvekslingsavtaler", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(EndreGyldighetsperiodeForUtvekslingsavtalerPayloadQueryBuilder) },
             new() { Name = "endreTelefonnumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(EndreTelefonnumrePayloadQueryBuilder) },
-            new() { Name = "deaktiverFagpersoner", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(DeaktiverFagpersonerPayloadQueryBuilder) },
-            new() { Name = "aktiverFagpersoner", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AktiverFagpersonerPayloadQueryBuilder) },
             new() { Name = "angiMaalformForPersonProfiler", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AngiMaalformForPersonProfilerPayloadQueryBuilder) },
             new() { Name = "endreArbeidsadresseForFagpersoner", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(EndreArbeidsadresseForFagpersonerPayloadQueryBuilder) },
             new() { Name = "angiBankkontonummerForPersonProfil", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AngiBankkontonummerForPersonProfilPaylaodQueryBuilder) },
-            new() { Name = "opprettFagpersonForGittFodselsnummer", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(OpprettFagpersonForGittFodselsnummerPayloadQueryBuilder) },
-            new() { Name = "opprettFagpersonGittPass", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(OpprettFagpersonGittPassPayloadQueryBuilder) },
             new() { Name = "opprettStudenter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(OpprettStudenterPayloadQueryBuilder) },
             new() { Name = "begrensProgramStudieretterTilFag", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(BegrensProgramStudieretterTilFagPayloadQueryBuilder) },
             new() { Name = "fordelStudenterIKlasser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(FordelStudenterIKlasserPayloadQueryBuilder) },
@@ -82,7 +82,6 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "angiKriseKontaktpersonForPersonProfiler", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AngiKriseKontaktpersonForPersonProfilerPayloadQueryBuilder) },
             new() { Name = "registrerEmnesoknader", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(RegistrerEmnesoknaderPayloadQueryBuilder) },
             new() { Name = "taOppStudenterTilStudieprogrammer", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(TaOppStudenterTilStudieprogrammerPayloadQueryBuilder) },
-            new() { Name = "angiBrukerinformasjonForPersonProfiler", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AngiBrukerinformasjonForPersonProfilerPayloadQueryBuilder) },
             new() { Name = "endreKullForProgramStudieretter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(EndreKullForProgramStudieretterPayloadQueryBuilder) },
             new() { Name = "angiCampusForFagpersoner", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AngiCampusForFagpersonerPayloadQueryBuilder) },
             new() { Name = "opprettOpptaksgrupperForUndervisningsenheter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(OpprettOpptaksgrupperForUndervisningsenheterPayloadQueryBuilder) },
@@ -90,6 +89,7 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "opprettUndervisningsaktiviteter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(OpprettUndervisningsaktiviteterPayloadQueryBuilder) },
             new() { Name = "registrerUtdanningsregisterIdForKullcampus", IsComplex = true, QueryBuilderType = typeof(RegistrerUtdanningsregisterIdForKullcampusPayloadQueryBuilder) },
             new() { Name = "registrerUtdanningsregisterIderForStudieprogram", IsComplex = true, QueryBuilderType = typeof(RegistrerUtdanningsregisterIderForStudieprogramPayloadQueryBuilder) },
+            new() { Name = "registrerUtdanningsregisterIderForEmne", IsComplex = true, QueryBuilderType = typeof(RegistrerUtdanningsregisterIderForEmnePayloadQueryBuilder) },
             new() { Name = "endreStudieprogramSkalEksporteresTilUtdanningsregisteretStatus", IsComplex = true, QueryBuilderType = typeof(EndreStudieprogramSkalEksporteresTilUtdanningsregisteretStatusPayloadQueryBuilder) },
             new() { Name = "plasserFagpersonerPaaRom", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PlasserFagpersonerPaaRomPayloadQueryBuilder) },
             new() { Name = "angiBibliotekForStudenter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(AngiBibliotekForStudenterPayloadQueryBuilder) },
@@ -122,6 +122,42 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public MutationQueryBuilder WithParameter<T>(GraphQlQueryParameter<T> parameter) => WithParameterInternal(parameter);
+
+        public MutationQueryBuilder WithDeaktiverFagpersoner(DeaktiverFagpersonerPayloadQueryBuilder deaktiverFagpersonerPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<DeaktiverFagpersonerInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
+            return WithObjectField("deaktiverFagpersoner", alias, deaktiverFagpersonerPayloadQueryBuilder, [include, skip], args);
+        }
+
+        public MutationQueryBuilder ExceptDeaktiverFagpersoner() => ExceptField("deaktiverFagpersoner");
+
+        public MutationQueryBuilder WithAngiBrukerinformasjonForPersonProfiler(AngiBrukerinformasjonForPersonProfilerPayloadQueryBuilder angiBrukerinformasjonForPersonProfilerPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<AngiBrukerinformasjonForPersonProfilerInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
+            return WithObjectField("angiBrukerinformasjonForPersonProfiler", alias, angiBrukerinformasjonForPersonProfilerPayloadQueryBuilder, [include, skip], args);
+        }
+
+        public MutationQueryBuilder ExceptAngiBrukerinformasjonForPersonProfiler() => ExceptField("angiBrukerinformasjonForPersonProfiler");
+
+        public MutationQueryBuilder WithAktiverFagpersoner(AktiverFagpersonerPayloadQueryBuilder aktiverFagpersonerPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<AktiverFagpersonerInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
+            return WithObjectField("aktiverFagpersoner", alias, aktiverFagpersonerPayloadQueryBuilder, [include, skip], args);
+        }
+
+        public MutationQueryBuilder ExceptAktiverFagpersoner() => ExceptField("aktiverFagpersoner");
+
+        public MutationQueryBuilder WithOpprettFagpersonerGittPass(OpprettFagpersonerGittPassPayloadQueryBuilder opprettFagpersonerGittPassPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<OpprettFagpersonerGittPassInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
+            return WithObjectField("opprettFagpersonerGittPass", alias, opprettFagpersonerGittPassPayloadQueryBuilder, [include, skip], args);
+        }
+
+        public MutationQueryBuilder ExceptOpprettFagpersonerGittPass() => ExceptField("opprettFagpersonerGittPass");
 
         public MutationQueryBuilder WithAngiStatsborgerskap(AngiStatsborgerskapPayloadQueryBuilder angiStatsborgerskapPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<AngiStatsborgerskapInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
@@ -584,24 +620,6 @@ namespace FS.SDK.GraphQL.Model
 
         public MutationQueryBuilder ExceptEndreTelefonnumre() => ExceptField("endreTelefonnumre");
 
-        public MutationQueryBuilder WithDeaktiverFagpersoner(DeaktiverFagpersonerPayloadQueryBuilder deaktiverFagpersonerPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<DeaktiverFagpersonerInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
-            return WithObjectField("deaktiverFagpersoner", alias, deaktiverFagpersonerPayloadQueryBuilder, [include, skip], args);
-        }
-
-        public MutationQueryBuilder ExceptDeaktiverFagpersoner() => ExceptField("deaktiverFagpersoner");
-
-        public MutationQueryBuilder WithAktiverFagpersoner(AktiverFagpersonerPayloadQueryBuilder aktiverFagpersonerPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<AktiverFagpersonerInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
-            return WithObjectField("aktiverFagpersoner", alias, aktiverFagpersonerPayloadQueryBuilder, [include, skip], args);
-        }
-
-        public MutationQueryBuilder ExceptAktiverFagpersoner() => ExceptField("aktiverFagpersoner");
-
         public MutationQueryBuilder WithAngiMaalformForPersonProfiler(AngiMaalformForPersonProfilerPayloadQueryBuilder angiMaalformForPersonProfilerPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<AngiMaalformForPersonProfilerInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
@@ -628,24 +646,6 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public MutationQueryBuilder ExceptAngiBankkontonummerForPersonProfil() => ExceptField("angiBankkontonummerForPersonProfil");
-
-        public MutationQueryBuilder WithOpprettFagpersonForGittFodselsnummer(OpprettFagpersonForGittFodselsnummerPayloadQueryBuilder opprettFagpersonForGittFodselsnummerPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<OpprettFagpersonForGittFodselsnummerInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
-            return WithObjectField("opprettFagpersonForGittFodselsnummer", alias, opprettFagpersonForGittFodselsnummerPayloadQueryBuilder, [include, skip], args);
-        }
-
-        public MutationQueryBuilder ExceptOpprettFagpersonForGittFodselsnummer() => ExceptField("opprettFagpersonForGittFodselsnummer");
-
-        public MutationQueryBuilder WithOpprettFagpersonGittPass(OpprettFagpersonGittPassPayloadQueryBuilder opprettFagpersonGittPassPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<OpprettFagpersonGittPassInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
-            return WithObjectField("opprettFagpersonGittPass", alias, opprettFagpersonGittPassPayloadQueryBuilder, [include, skip], args);
-        }
-
-        public MutationQueryBuilder ExceptOpprettFagpersonGittPass() => ExceptField("opprettFagpersonGittPass");
 
         public MutationQueryBuilder WithOpprettStudenter(OpprettStudenterPayloadQueryBuilder opprettStudenterPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<OpprettStudenterInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
@@ -728,15 +728,6 @@ namespace FS.SDK.GraphQL.Model
 
         public MutationQueryBuilder ExceptTaOppStudenterTilStudieprogrammer() => ExceptField("taOppStudenterTilStudieprogrammer");
 
-        public MutationQueryBuilder WithAngiBrukerinformasjonForPersonProfiler(AngiBrukerinformasjonForPersonProfilerPayloadQueryBuilder angiBrukerinformasjonForPersonProfilerPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<AngiBrukerinformasjonForPersonProfilerInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
-            return WithObjectField("angiBrukerinformasjonForPersonProfiler", alias, angiBrukerinformasjonForPersonProfilerPayloadQueryBuilder, [include, skip], args);
-        }
-
-        public MutationQueryBuilder ExceptAngiBrukerinformasjonForPersonProfiler() => ExceptField("angiBrukerinformasjonForPersonProfiler");
-
         public MutationQueryBuilder WithEndreKullForProgramStudieretter(EndreKullForProgramStudieretterPayloadQueryBuilder endreKullForProgramStudieretterPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<EndreKullForProgramStudieretterInput>> input, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
@@ -803,6 +794,17 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public MutationQueryBuilder ExceptRegistrerUtdanningsregisterIderForStudieprogram() => ExceptField("registrerUtdanningsregisterIderForStudieprogram");
+
+        public MutationQueryBuilder WithRegistrerUtdanningsregisterIderForEmne(RegistrerUtdanningsregisterIderForEmnePayloadQueryBuilder registrerUtdanningsregisterIderForEmnePayloadQueryBuilder, QueryBuilderParameter<IEnumerable<RegistrerUtdanningsregisterIderForEmneInput>> input = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            if (input != null)
+                args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
+
+            return WithObjectField("registrerUtdanningsregisterIderForEmne", alias, registrerUtdanningsregisterIderForEmnePayloadQueryBuilder, [include, skip], args);
+        }
+
+        public MutationQueryBuilder ExceptRegistrerUtdanningsregisterIderForEmne() => ExceptField("registrerUtdanningsregisterIderForEmne");
 
         public MutationQueryBuilder WithEndreStudieprogramSkalEksporteresTilUtdanningsregisteretStatus(EndreStudieprogramSkalEksporteresTilUtdanningsregisteretStatusPayloadQueryBuilder endreStudieprogramSkalEksporteresTilUtdanningsregisteretStatusPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<EndreStudieprogramSkalEksporteresTilUtdanningsregisteretStatus>> input = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {

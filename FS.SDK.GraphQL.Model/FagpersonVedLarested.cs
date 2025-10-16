@@ -20,35 +20,45 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("id")]
         public Guid? Id { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("erAktiv")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("erAktiv")]
+        public bool? ErAktiv { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("erEkstern")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("erEkstern")]
+        public bool? ErEkstern { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfil")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personProfil")]
         public PersonProfil PersonProfil { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("feideBruker")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("feideBruker")]
-        public string FeideBruker { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("ansattVed")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("ansattVed")]
         public Organisasjonsenhet AnsattVed { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("aktiv")]
+        [JsonProperty("campus")]
         #endif
-        [System.Text.Json.Serialization.JsonPropertyName("aktiv")]
-        public bool? Aktiv { get; set; }
+        [System.Text.Json.Serialization.JsonPropertyName("campus")]
+        public Campus Campus { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("permisjon")]
+        [JsonProperty("stillingstittelAlleSprak")]
         #endif
-        [System.Text.Json.Serialization.JsonPropertyName("permisjon")]
-        public bool? Permisjon { get; set; }
+        [System.Text.Json.Serialization.JsonPropertyName("stillingstittelAlleSprak")]
+        public FagpersonVedLarestedStillingstittelAlleSprak StillingstittelAlleSprak { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("romPlassering")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("romPlassering")]
         public Rom RomPlassering { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("permisjon")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("permisjon")]
+        public bool? Permisjon { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("arbeidsadresse")]
         #endif
@@ -114,21 +124,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("evuKursroller")]
         public ICollection<EvuKursrolle> EvuKursroller { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("campus")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("campus")]
-        public Campus Campus { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("erEkstern")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("erEkstern")]
-        public bool? ErEkstern { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("stillingstittel")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("stillingstittel")]
-        public FagpersonVedlarestedStillingstittelNorskEngelsk Stillingstittel { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("fagpersonKategori")]
         #endif

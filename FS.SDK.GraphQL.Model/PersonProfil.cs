@@ -105,6 +105,16 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("programStudieretter")]
         public PersonProfilProgramStudieretterConnection ProgramStudieretter { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("ansattnummer")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("ansattnummer")]
+        public string Ansattnummer { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("fagperson")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("fagperson")]
+        public FagpersonVedLarested Fagperson { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("kanOverforesTilLms")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("kanOverforesTilLms")]
@@ -119,11 +129,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("deltaker")]
         public DeltakerVedLarested Deltaker { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("fagperson")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("fagperson")]
-        public FagpersonVedLarested Fagperson { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("larested")]
         #endif
@@ -174,11 +179,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("kriseKontaktperson")]
         public KriseKontaktperson KriseKontaktperson { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("ansattnummer")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("ansattnummer")]
-        public string Ansattnummer { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personDataKanHentesFraFolkeregisteret")]
         #endif

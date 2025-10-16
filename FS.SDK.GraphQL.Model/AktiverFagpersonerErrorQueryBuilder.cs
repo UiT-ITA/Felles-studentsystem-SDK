@@ -28,5 +28,7 @@ namespace FS.SDK.GraphQL.Model
         public AktiverFagpersonerErrorQueryBuilder WithFeideBrukerErIkkeUnikFragment(FeideBrukerErIkkeUnikQueryBuilder feideBrukerErIkkeUnikQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(feideBrukerErIkkeUnikQueryBuilder, [include, skip]);
 
         public AktiverFagpersonerErrorQueryBuilder WithInstitusjonsEpostErIkkeUnikFragment(InstitusjonsEpostErIkkeUnikQueryBuilder institusjonsEpostErIkkeUnikQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(institusjonsEpostErIkkeUnikQueryBuilder, [include, skip]);
+
+        public AktiverFagpersonerErrorQueryBuilder WithFeideBrukerUlovligCaseFragment(FeideBrukerUlovligCaseQueryBuilder feideBrukerUlovligCaseQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(feideBrukerUlovligCaseQueryBuilder, [include, skip]);
     }
 }

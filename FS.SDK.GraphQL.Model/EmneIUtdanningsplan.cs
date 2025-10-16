@@ -60,6 +60,11 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("plassertPaUndervisningspartier")]
         public ICollection<Undervisningspartiplassering> PlassertPaUndervisningspartier { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("studieoppbygningsdel")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("studieoppbygningsdel")]
+        public Studieoppbygningsdel Studieoppbygningsdel { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("undervisningstermin")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("undervisningstermin")]
@@ -69,11 +74,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("vurderingstermin")]
         public Termin Vurderingstermin { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("studieoppbygningsdel")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("studieoppbygningsdel")]
-        public Studieoppbygningsdel Studieoppbygningsdel { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("emnekategori")]
         #endif

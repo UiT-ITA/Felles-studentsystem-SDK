@@ -65,7 +65,8 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "utdanningsregisterMulighetsId" },
             new() { Name = "erGrunnstudium" },
             new() { Name = "tilbysIPeriode", IsComplex = true, QueryBuilderType = typeof(StudieprogramTilbudsPeriodeQueryBuilder) },
-            new() { Name = "skalEksporteresTilUtdanningsregisteret" }
+            new() { Name = "skalEksporteresTilUtdanningsregisteret" },
+            new() { Name = "samarbeidsinstitusjoner", IsComplex = true, QueryBuilderType = typeof(StudieprogramSamarbeidQueryBuilder) }
         };
 
         protected override string TypeName => "Studieprogram";
@@ -370,5 +371,9 @@ namespace FS.SDK.GraphQL.Model
         public StudieprogramQueryBuilder WithSkalEksporteresTilUtdanningsregisteret(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("skalEksporteresTilUtdanningsregisteret", alias, [include, skip]);
 
         public StudieprogramQueryBuilder ExceptSkalEksporteresTilUtdanningsregisteret() => ExceptField("skalEksporteresTilUtdanningsregisteret");
+
+        public StudieprogramQueryBuilder WithSamarbeidsinstitusjoner(StudieprogramSamarbeidQueryBuilder studieprogramSamarbeidQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("samarbeidsinstitusjoner", alias, studieprogramSamarbeidQueryBuilder, [include, skip]);
+
+        public StudieprogramQueryBuilder ExceptSamarbeidsinstitusjoner() => ExceptField("samarbeidsinstitusjoner");
     }
 }

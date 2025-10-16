@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace FS.SDK.GraphQL.Model
 {
     [GraphQlObjectType("UgyldigPassnummer")]
-    public partial class UgyldigPassnummer : IOpprettFagpersonGittPassError, IError
+    public partial class UgyldigPassnummer : IOpprettFagpersonGittPassError, IOpprettFagpersonerGittPassErrors, IError
     {
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("path")]

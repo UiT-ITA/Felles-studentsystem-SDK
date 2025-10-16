@@ -85,6 +85,21 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("studieoppbygninger")]
         public QueryStudieoppbygningerConnection Studieoppbygninger { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("personProfilerGittPersonlopenumre")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("personProfilerGittPersonlopenumre")]
+        public ICollection<PersonProfil> PersonProfilerGittPersonlopenumre { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("personProfilerGittFodselsnumre")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("personProfilerGittFodselsnumre")]
+        public ICollection<PersonProfil> PersonProfilerGittFodselsnumre { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("personProfilerGittFeideBrukere")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("personProfilerGittFeideBrukere")]
+        public ICollection<PersonProfil> PersonProfilerGittFeideBrukere { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("evuKurs")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("evuKurs")]
@@ -229,16 +244,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("esiKandidater")]
         public QueryEsiKandidaterConnection EsiKandidater { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("personProfilerGittFodselsnumre")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("personProfilerGittFodselsnumre")]
-        public ICollection<PersonProfil> PersonProfilerGittFodselsnumre { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("personProfilerGittPersonlopenumre")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("personProfilerGittPersonlopenumre")]
-        public ICollection<PersonProfil> PersonProfilerGittPersonlopenumre { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studenterGittFodselsnumre")]
         #endif
@@ -740,11 +745,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personProfilhendelser")]
         public QueryPersonProfilhendelserConnection PersonProfilhendelser { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("personProfilerGittFeideBrukere")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("personProfilerGittFeideBrukere")]
-        public ICollection<PersonProfil> PersonProfilerGittFeideBrukere { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfilerGittAnsattnumre")]
         #endif

@@ -14,6 +14,26 @@ namespace FS.SDK.GraphQL.Model
     public partial class Mutation
     {
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("deaktiverFagpersoner")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("deaktiverFagpersoner")]
+        public DeaktiverFagpersonerPayload DeaktiverFagpersoner { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("angiBrukerinformasjonForPersonProfiler")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("angiBrukerinformasjonForPersonProfiler")]
+        public AngiBrukerinformasjonForPersonProfilerPayload AngiBrukerinformasjonForPersonProfiler { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("aktiverFagpersoner")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("aktiverFagpersoner")]
+        public AktiverFagpersonerPayload AktiverFagpersoner { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("opprettFagpersonerGittPass")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("opprettFagpersonerGittPass")]
+        public OpprettFagpersonerGittPassPayload OpprettFagpersonerGittPass { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("angiStatsborgerskap")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("angiStatsborgerskap")]
@@ -269,16 +289,6 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("endreTelefonnumre")]
         public EndreTelefonnumrePayload EndreTelefonnumre { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("deaktiverFagpersoner")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("deaktiverFagpersoner")]
-        public DeaktiverFagpersonerPayload DeaktiverFagpersoner { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("aktiverFagpersoner")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("aktiverFagpersoner")]
-        public AktiverFagpersonerPayload AktiverFagpersoner { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("angiMaalformForPersonProfiler")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("angiMaalformForPersonProfiler")]
@@ -293,16 +303,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("angiBankkontonummerForPersonProfil")]
         public AngiBankkontonummerForPersonProfilPaylaod AngiBankkontonummerForPersonProfil { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("opprettFagpersonForGittFodselsnummer")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("opprettFagpersonForGittFodselsnummer")]
-        public OpprettFagpersonForGittFodselsnummerPayload OpprettFagpersonForGittFodselsnummer { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("opprettFagpersonGittPass")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("opprettFagpersonGittPass")]
-        public OpprettFagpersonGittPassPayload OpprettFagpersonGittPass { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("opprettStudenter")]
         #endif
@@ -349,11 +349,6 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("taOppStudenterTilStudieprogrammer")]
         public TaOppStudenterTilStudieprogrammerPayload TaOppStudenterTilStudieprogrammer { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("angiBrukerinformasjonForPersonProfiler")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("angiBrukerinformasjonForPersonProfiler")]
-        public AngiBrukerinformasjonForPersonProfilerPayload AngiBrukerinformasjonForPersonProfiler { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("endreKullForProgramStudieretter")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("endreKullForProgramStudieretter")]
@@ -388,6 +383,11 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("registrerUtdanningsregisterIderForStudieprogram")]
         public RegistrerUtdanningsregisterIderForStudieprogramPayload RegistrerUtdanningsregisterIderForStudieprogram { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("registrerUtdanningsregisterIderForEmne")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("registrerUtdanningsregisterIderForEmne")]
+        public RegistrerUtdanningsregisterIderForEmnePayload RegistrerUtdanningsregisterIderForEmne { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("endreStudieprogramSkalEksporteresTilUtdanningsregisteretStatus")]
         #endif

@@ -8,22 +8,20 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Windows.Markup;
 
 namespace FS.SDK;
+
 
 public class FSApiClient : IDisposable
 {
     // HttpClient Setup
     private readonly HttpClient _httpClient;
-    private readonly string _baseUrl;
-    private readonly string _defaultBaseUrl = "https://api.fellesstudentsystem.no/graphql";
-    private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(30);
-    private static readonly ProductInfoHeaderValue FSSdkUserAgent = new("FS.SDK.NET", "0.0.1-beta");
+    private readonly FSApiClientConfig _config = null!;
     internal static HttpHeaderValueCollection<ProductInfoHeaderValue>? UserAgent { get; private set; }
 
     // Serializer utility setup
     private static readonly JsonSerializer Serializer = JsonSerializer.Create(JsonSerializerSettings);
-
     internal static readonly JsonSerializerSettings JsonSerializerSettings = new()
     {
         ContractResolver = new CamelCasePropertyNamesContractResolver(),
@@ -31,39 +29,22 @@ public class FSApiClient : IDisposable
         DateParseHandling = DateParseHandling.DateTimeOffset
     };
 
-    // Constructors
-    public FSApiClient(string apikeyName, string apikey, ProductInfoHeaderValue? myUserAgent = null, HttpMessageHandler? messageHandler = null, TimeSpan? timeout = null, string? baseUrl = null)
+    // Constructor
+    public FSApiClient(FSApiClientConfig config)
     {
-        _baseUrl = baseUrl ?? _defaultBaseUrl;
+        //config.MessageHandler ??= new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
+        _config = config;
 
-        //if (String.IsNullOrWhiteSpace(accessToken))
-        //    throw new ArgumentException("access token required", nameof(accessToken));
-
-        if (String.IsNullOrWhiteSpace(apikeyName))
-            throw new ArgumentException("apikeyName required", nameof(apikeyName));
-
-        if (String.IsNullOrWhiteSpace(apikey))
-            throw new ArgumentException("apikey required", nameof(apikey));
-
-
-        messageHandler ??= new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
-
-        _httpClient = new HttpClient(messageHandler)
+        _httpClient = new HttpClient(config.MessageHandler)
         {
-            BaseAddress = new Uri(_baseUrl),
-            Timeout = timeout ?? DefaultTimeout,
-            // DefaultRequestHeaders = { Authorization = new AuthenticationHeaderValue("Bearer", accessToken), AcceptEncoding = { new StringWithQualityHeaderValue("gzip") } }
+            BaseAddress = new Uri(config.BaseUrl),
+            Timeout = config.Timeout,
             DefaultRequestHeaders = { AcceptEncoding = { new StringWithQualityHeaderValue("gzip") } }
         };
 
         // Add Gravitee-specific DefaultRequestHeaders
-        _httpClient.DefaultRequestHeaders.Add(apikeyName, apikey);
-
-        UserAgent = _httpClient.DefaultRequestHeaders.UserAgent;
-        if (myUserAgent is not null)
-            UserAgent.Add(myUserAgent);
-        else
-            UserAgent.Add(FSSdkUserAgent);
+        _httpClient.DefaultRequestHeaders.Add(config.ApiKeyName, config.ApiKey);
+        _httpClient.DefaultRequestHeaders.UserAgent.Add(config.UserAgent);
     }
 
     public void Dispose()
@@ -115,7 +96,7 @@ public class FSApiClient : IDisposable
         }
 
         if (!response.IsSuccessStatusCode)
-            throw await FsSdkApiHttpException.Create(new Uri(_baseUrl), HttpMethod.Post, response, DateTimeOffset.Now - requestStart).ConfigureAwait(false);
+            throw await FsSdkApiHttpException.Create(new Uri(_config.BaseUrl), HttpMethod.Post, response, DateTimeOffset.Now - requestStart).ConfigureAwait(false);
 
         using var stream = await response.Content.ReadAsStreamAsync();
         using var streamReader = new StreamReader(stream);
@@ -145,6 +126,8 @@ public class FSApiClient : IDisposable
         return result;
     }
 }
+
+
 
 
 public class FsSdkApiQueryResponse : GraphQlResponse<QueryData> { }

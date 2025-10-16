@@ -16,12 +16,14 @@ namespace FS.SDK.GraphQL.Model
         private static readonly GraphQlFieldMetadata[] AllFieldMetadata =
         {
             new() { Name = "id" },
+            new() { Name = "erAktiv" },
+            new() { Name = "erEkstern" },
             new() { Name = "personProfil", IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
-            new() { Name = "feideBruker" },
             new() { Name = "ansattVed", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetQueryBuilder) },
-            new() { Name = "aktiv" },
-            new() { Name = "permisjon" },
+            new() { Name = "campus", IsComplex = true, QueryBuilderType = typeof(CampusQueryBuilder) },
+            new() { Name = "stillingstittelAlleSprak", IsComplex = true, QueryBuilderType = typeof(FagpersonVedLarestedStillingstittelAlleSprakQueryBuilder) },
             new() { Name = "romPlassering", IsComplex = true, QueryBuilderType = typeof(RomQueryBuilder) },
+            new() { Name = "permisjon" },
             new() { Name = "arbeidsadresse", IsComplex = true, QueryBuilderType = typeof(ArbeidsadresseForFagpersonQueryBuilder) },
             new() { Name = "bilde", IsComplex = true, QueryBuilderType = typeof(PersonbildeQueryBuilder) },
             new() { Name = "navn", IsComplex = true, QueryBuilderType = typeof(PersonnavnQueryBuilder) },
@@ -35,9 +37,6 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "undervisningsaktivitetsroller", IsComplex = true, QueryBuilderType = typeof(UndervisningsaktivitetsrolleQueryBuilder) },
             new() { Name = "kanOverforesTilLms" },
             new() { Name = "evuKursroller", IsComplex = true, QueryBuilderType = typeof(EvuKursrolleQueryBuilder) },
-            new() { Name = "campus", IsComplex = true, QueryBuilderType = typeof(CampusQueryBuilder) },
-            new() { Name = "erEkstern" },
-            new() { Name = "stillingstittel", IsComplex = true, QueryBuilderType = typeof(FagpersonVedlarestedStillingstittelNorskEngelskQueryBuilder) },
             new() { Name = "fagpersonKategori", IsComplex = true, QueryBuilderType = typeof(FagpersonkategoriQueryBuilder) },
             new() { Name = "fag", IsComplex = true, QueryBuilderType = typeof(FagQueryBuilder) },
             new() { Name = "instrumenter", IsComplex = true, QueryBuilderType = typeof(InstrumentQueryBuilder) }
@@ -51,29 +50,37 @@ namespace FS.SDK.GraphQL.Model
 
         public FagpersonVedLarestedQueryBuilder ExceptId() => ExceptField("id");
 
+        public FagpersonVedLarestedQueryBuilder WithErAktiv(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("erAktiv", alias, [include, skip]);
+
+        public FagpersonVedLarestedQueryBuilder ExceptErAktiv() => ExceptField("erAktiv");
+
+        public FagpersonVedLarestedQueryBuilder WithErEkstern(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("erEkstern", alias, [include, skip]);
+
+        public FagpersonVedLarestedQueryBuilder ExceptErEkstern() => ExceptField("erEkstern");
+
         public FagpersonVedLarestedQueryBuilder WithPersonProfil(PersonProfilQueryBuilder personProfilQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("personProfil", alias, personProfilQueryBuilder, [include, skip]);
 
         public FagpersonVedLarestedQueryBuilder ExceptPersonProfil() => ExceptField("personProfil");
-
-        public FagpersonVedLarestedQueryBuilder WithFeideBruker(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("feideBruker", alias, [include, skip]);
-
-        public FagpersonVedLarestedQueryBuilder ExceptFeideBruker() => ExceptField("feideBruker");
 
         public FagpersonVedLarestedQueryBuilder WithAnsattVed(OrganisasjonsenhetQueryBuilder organisasjonsenhetQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("ansattVed", alias, organisasjonsenhetQueryBuilder, [include, skip]);
 
         public FagpersonVedLarestedQueryBuilder ExceptAnsattVed() => ExceptField("ansattVed");
 
-        public FagpersonVedLarestedQueryBuilder WithAktiv(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("aktiv", alias, [include, skip]);
+        public FagpersonVedLarestedQueryBuilder WithCampus(CampusQueryBuilder campusQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("campus", alias, campusQueryBuilder, [include, skip]);
 
-        public FagpersonVedLarestedQueryBuilder ExceptAktiv() => ExceptField("aktiv");
+        public FagpersonVedLarestedQueryBuilder ExceptCampus() => ExceptField("campus");
 
-        public FagpersonVedLarestedQueryBuilder WithPermisjon(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("permisjon", alias, [include, skip]);
+        public FagpersonVedLarestedQueryBuilder WithStillingstittelAlleSprak(FagpersonVedLarestedStillingstittelAlleSprakQueryBuilder fagpersonVedLarestedStillingstittelAlleSprakQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("stillingstittelAlleSprak", alias, fagpersonVedLarestedStillingstittelAlleSprakQueryBuilder, [include, skip]);
 
-        public FagpersonVedLarestedQueryBuilder ExceptPermisjon() => ExceptField("permisjon");
+        public FagpersonVedLarestedQueryBuilder ExceptStillingstittelAlleSprak() => ExceptField("stillingstittelAlleSprak");
 
         public FagpersonVedLarestedQueryBuilder WithRomPlassering(RomQueryBuilder romQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("romPlassering", alias, romQueryBuilder, [include, skip]);
 
         public FagpersonVedLarestedQueryBuilder ExceptRomPlassering() => ExceptField("romPlassering");
+
+        public FagpersonVedLarestedQueryBuilder WithPermisjon(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("permisjon", alias, [include, skip]);
+
+        public FagpersonVedLarestedQueryBuilder ExceptPermisjon() => ExceptField("permisjon");
 
         public FagpersonVedLarestedQueryBuilder WithArbeidsadresse(ArbeidsadresseForFagpersonQueryBuilder arbeidsadresseForFagpersonQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("arbeidsadresse", alias, arbeidsadresseForFagpersonQueryBuilder, [include, skip]);
 
@@ -195,18 +202,6 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public FagpersonVedLarestedQueryBuilder ExceptEvuKursroller() => ExceptField("evuKursroller");
-
-        public FagpersonVedLarestedQueryBuilder WithCampus(CampusQueryBuilder campusQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("campus", alias, campusQueryBuilder, [include, skip]);
-
-        public FagpersonVedLarestedQueryBuilder ExceptCampus() => ExceptField("campus");
-
-        public FagpersonVedLarestedQueryBuilder WithErEkstern(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("erEkstern", alias, [include, skip]);
-
-        public FagpersonVedLarestedQueryBuilder ExceptErEkstern() => ExceptField("erEkstern");
-
-        public FagpersonVedLarestedQueryBuilder WithStillingstittel(FagpersonVedlarestedStillingstittelNorskEngelskQueryBuilder fagpersonVedlarestedStillingstittelNorskEngelskQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("stillingstittel", alias, fagpersonVedlarestedStillingstittelNorskEngelskQueryBuilder, [include, skip]);
-
-        public FagpersonVedLarestedQueryBuilder ExceptStillingstittel() => ExceptField("stillingstittel");
 
         public FagpersonVedLarestedQueryBuilder WithFagpersonKategori(FagpersonkategoriQueryBuilder fagpersonkategoriQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("fagpersonKategori", alias, fagpersonkategoriQueryBuilder, [include, skip]);
 

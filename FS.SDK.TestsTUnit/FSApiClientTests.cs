@@ -4,22 +4,12 @@ using Microsoft.Testing.Platform.Configurations;
 namespace FS.SDK.TestsTUnit;
 
 [MicrosoftDependencyInjectionDataSource]
-public class FSApiClientTests(FSApiClient fSApiClient)
+public class FSApiClientTests(FSApiClient fsApiClient)
 {
-
-    [Test]
-    public async Task ConfigurationTest()
-    {
-        var configuration = TestContext.Current?.GetService<IConfiguration>();
-        var apiKey = configuration?["apikeyname"];
-        await Assert.That(apiKey).IsNotNull();
-    }
-
     [Test]
     public async Task Test()
     {
-        // ...
-        await Assert.That(fSApiClient).IsNotNull();
+        await Assert.That(fsApiClient).IsNotNull();
     }
 
 

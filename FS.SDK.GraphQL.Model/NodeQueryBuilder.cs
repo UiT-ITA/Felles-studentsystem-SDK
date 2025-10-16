@@ -268,6 +268,8 @@ namespace FS.SDK.GraphQL.Model
 
         public NodeQueryBuilder WithRomutstyrtypeFragment(RomutstyrtypeQueryBuilder romutstyrtypeQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(romutstyrtypeQueryBuilder, [include, skip]);
 
+        public NodeQueryBuilder WithSamarbeidstypeFragment(SamarbeidstypeQueryBuilder samarbeidstypeQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(samarbeidstypeQueryBuilder, [include, skip]);
+
         public NodeQueryBuilder WithSamtykkeFragment(SamtykkeQueryBuilder samtykkeQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(samtykkeQueryBuilder, [include, skip]);
 
         public NodeQueryBuilder WithSamtykkekravFragment(SamtykkekravQueryBuilder samtykkekravQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(samtykkekravQueryBuilder, [include, skip]);
@@ -307,6 +309,8 @@ namespace FS.SDK.GraphQL.Model
         public NodeQueryBuilder WithStudieprogramCampusFragment(StudieprogramCampusQueryBuilder studieprogramCampusQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(studieprogramCampusQueryBuilder, [include, skip]);
 
         public NodeQueryBuilder WithStudieprogramNavnehistorikkFragment(StudieprogramNavnehistorikkQueryBuilder studieprogramNavnehistorikkQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(studieprogramNavnehistorikkQueryBuilder, [include, skip]);
+
+        public NodeQueryBuilder WithStudieprogramSamarbeidFragment(StudieprogramSamarbeidQueryBuilder studieprogramSamarbeidQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(studieprogramSamarbeidQueryBuilder, [include, skip]);
 
         public NodeQueryBuilder WithStudieprogramSprakFragment(StudieprogramSprakQueryBuilder studieprogramSprakQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(studieprogramSprakQueryBuilder, [include, skip]);
 
