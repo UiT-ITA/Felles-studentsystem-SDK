@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /FS.SDK.GraphQL/appsettings.json
 /FS.SDK.TestsTUnit/appsettings.json
+/FS.SDK.GraphQL.Generator/appsettings.json
