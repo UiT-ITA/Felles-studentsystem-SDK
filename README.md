@@ -8,27 +8,29 @@ Klassebibliotek som har som mål å løfte seg opp fra komplisert GraphQl, til m
 - 
 
 ## Innhold
-[Kjøre graphQL Class Generator](FS.SDK.GraphQL.Generator/Readme.md)
-[TUnit Tests](FS.SDK.TestsTUnit/Readme.md)
+- [Kjøre graphQL Class Generator](FS.SDK.GraphQL.Generator/Readme.md)
+- [TUnit Tests](FS.SDK.TestsTUnit/Readme.md)
 
 
 ## Resurrs linker
-[FS GraphQL api](https://fs.sikt.no/apier/graphql/)
-[Endringer i FS GraphQL api](https://www.fellesstudentsystem.no/FS-produkt/integrasjonstjenester/endringer/endringer-i-fs-graphql-api.html)
-
-
-
+- [FS GraphQL api](https://fs.sikt.no/apier/graphql/)
+- [Endringer i FS GraphQL api](https://www.fellesstudentsystem.no/FS-produkt/integrasjonstjenester/endringer/endringer-i-fs-graphql-api.html)
 
 ## Test coverage 
 (beskriv VELDIG kort hvor mye kode er dekket av tester)
 
 ## Kjøre plattform 
-(navn, konto brukt. Hva enn som man ser relevant. 
+(navn, konto brukt. Hva enn som man ser relevant.) 
 - Hvis det er en Console app, hvordan kjøres den?
 - Hvis den kjører i Azure: Subscription, Resource group, kontoer, etc.
 - etc.
 
 ## Secrets
+- 1Password vault navn: "FS.SDK.NET"
+- Hvem har tilgang: Raymond Andreassen, Anders Kjølberg,
+- FS.SDK.GraphQL.Generator, appsettings.json (gitignore)
+- FS.SDK.TestsTUnit, appsettings.json (gitignore)
+
 (hvor oppbevares de i koden, evt. hvem, hvor arkiveres de (1Password)?) 
 
 ## Hva annet fant jeg i Anders sitt word dokument.... 

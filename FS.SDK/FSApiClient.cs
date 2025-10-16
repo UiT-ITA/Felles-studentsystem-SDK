@@ -31,7 +31,7 @@ public class FSApiClient : IDisposable
         DateParseHandling = DateParseHandling.DateTimeOffset
     };
 
-    // Constructor
+    // Constructors
     public FSApiClient(string apikeyName, string apikey, ProductInfoHeaderValue? myUserAgent = null, HttpMessageHandler? messageHandler = null, TimeSpan? timeout = null, string? baseUrl = null)
     {
         _baseUrl = baseUrl ?? _defaultBaseUrl;
