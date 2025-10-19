@@ -515,7 +515,12 @@ namespace FS.SDK.GraphQL.Model
         public static implicit operator QueryBuilderParameter<T>(T value) => new QueryBuilderParameter<T>(value);
     
         public static implicit operator T(QueryBuilderParameter<T> parameter) => parameter.Value;
-    
+
+        public static implicit operator QueryBuilderParameter<T>(bool v)
+        {
+            throw new NotImplementedException();
+        }
+
         private static void EnsureGraphQlTypeName(string graphQlTypeName)
         {
             if (String.IsNullOrWhiteSpace(graphQlTypeName))

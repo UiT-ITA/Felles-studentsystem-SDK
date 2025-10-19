@@ -113,9 +113,30 @@ public class FSApiClient : IDisposable
     /// <returns></returns>
     public async Task<FsSdkApiQueryResponse?> GetAllStudieprogrammer(CancellationToken cancellationToken = default)
     {
-        var result = await Query(new StudieprogramQueryBuilder()
-            .WithAllScalarFields()
-            .Build(), cancellationToken);
+
+        var filter = new StudieprogramV2FilterInput();
+        filter.EierOrganisasjonskode = "186";
+
+        var qBuilder = new QueryQueryBuilder()
+            .WithStudieprogramV2(
+                new QueryStudieprogramV2ConnectionQueryBuilder()
+                    .WithAllScalarFields()
+                    .WithNodes(new StudieprogramQueryBuilder()
+                        .WithAllScalarFields()
+                    ),
+                filter: filter, 
+                first: 50, 
+                after: null)                
+            .Build(formatting: FS.SDK.GraphQL.Model.Formatting.Indented);
+
+
+
+
+        //var query = new StudieprogramQueryBuilder()
+        //    .WithAllScalarFields()
+        //    .Build();
+
+        var result = await Query(qBuilder, cancellationToken);
 
         if (result is null) return null;
         ValidateResult(result);
