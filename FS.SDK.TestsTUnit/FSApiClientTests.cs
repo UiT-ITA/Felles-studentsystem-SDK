@@ -7,12 +7,10 @@ namespace FS.SDK.TestsTUnit;
 public class FSApiClientTests(FSApiClient fsApiClient)
 {
     [Test]
-    public async Task Test()
+    public async Task FsClientNotNull()
     {
         await Assert.That(fsApiClient).IsNotNull();
     }
-
-
 
 
 

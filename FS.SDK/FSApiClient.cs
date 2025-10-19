@@ -34,7 +34,6 @@ public class FSApiClient : IDisposable
     {
         //config.MessageHandler ??= new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
         _config = config;
-
         _httpClient = new HttpClient(config.MessageHandler)
         {
             BaseAddress = new Uri(config.BaseUrl),
@@ -83,9 +82,7 @@ public class FSApiClient : IDisposable
     private async Task<TResult?> Request<TResult>(string query, CancellationToken cancellationToken)
     {
         var requestStart = DateTimeOffset.UtcNow;
-
         HttpResponseMessage response;
-
         try
         {
             response = await _httpClient.PostAsync(String.Empty, JsonContent(new { query }), cancellationToken);
@@ -103,7 +100,6 @@ public class FSApiClient : IDisposable
         using var jsonReader = new JsonTextReader(streamReader);
         return Serializer.Deserialize<TResult>(jsonReader);
     }
-
 
     private static HttpContent JsonContent(object data) => new StringContent(JsonConvert.SerializeObject(data, settings: JsonSerializerSettings), Encoding.UTF8, "application/json");
 
