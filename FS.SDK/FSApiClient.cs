@@ -51,7 +51,7 @@ public class FSApiClient : IDisposable
         _httpClient.Dispose();
     }
 
-    private static void ValidateResult(FsSdkApiQueryResponse response)
+    internal static void ValidateResult(FsSdkApiQueryResponse response)
     {
         if (response.Errors is not null && response.Errors.Any())
             throw new FsSdkApiException(
@@ -103,45 +103,6 @@ public class FSApiClient : IDisposable
 
     private static HttpContent JsonContent(object data) => new StringContent(JsonConvert.SerializeObject(data, settings: JsonSerializerSettings), Encoding.UTF8, "application/json");
 
-
-
-    /// <summary>
-    /// Gets all studieprogrammer.
-    /// </summary>
-    /// <param name="cancellationToken"></param>
-    /// <exception cref="FsSdkApiHttpException"></exception>
-    /// <returns></returns>
-    public async Task<FsSdkApiQueryResponse?> GetAllStudieprogrammer(CancellationToken cancellationToken = default)
-    {
-
-        var filter = new StudieprogramV2FilterInput();
-        filter.EierOrganisasjonskode = "186";
-
-        var qBuilder = new QueryQueryBuilder()
-            .WithStudieprogramV2(
-                new QueryStudieprogramV2ConnectionQueryBuilder()
-                    .WithAllScalarFields()
-                    .WithNodes(new StudieprogramQueryBuilder()
-                        .WithAllScalarFields()
-                    ),
-                filter: filter, 
-                first: 50, 
-                after: null)                
-            .Build(formatting: FS.SDK.GraphQL.Model.Formatting.Indented);
-
-
-
-
-        //var query = new StudieprogramQueryBuilder()
-        //    .WithAllScalarFields()
-        //    .Build();
-
-        var result = await Query(qBuilder, cancellationToken);
-
-        if (result is null) return null;
-        ValidateResult(result);
-        return result;
-    }
 }
 
 

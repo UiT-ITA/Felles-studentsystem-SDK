@@ -18,7 +18,7 @@ public class StudentprogrammerTests(FSApiClient fsApiClient)
     {
         Console.WriteLine("This one can accept arguments from an attribute");
 
-        var result2 = await fsApiClient.GetAllStudieprogrammer();
+        var result2 = await FS.SDK.StudieprogramInformasjon.GetAllStudieprogrammer(fsApiClient);
         var result = a + b;
 
         await Assert.That(result).IsEqualTo(c);
