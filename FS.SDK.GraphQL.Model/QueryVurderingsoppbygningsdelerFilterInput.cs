@@ -32,12 +32,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("vurderingsordninger")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("vurderingsordninger")]
-        public QueryBuilderParameter<ICollection<Guid>> Vurderingsordninger
+        public QueryBuilderParameter<ICollection<string>> Vurderingsordninger
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_vurderingsordninger.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_vurderingsordninger.Value;
             set => _vurderingsordninger = new() { Name = "vurderingsordninger", Value = value };
         }
 
@@ -54,12 +54,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("emner")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("emner")]
-        public QueryBuilderParameter<ICollection<Guid>> Emner
+        public QueryBuilderParameter<ICollection<string>> Emner
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_emner.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_emner.Value;
             set => _emner = new() { Name = "emner", Value = value };
         }
 

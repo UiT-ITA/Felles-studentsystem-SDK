@@ -31,34 +31,34 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("undervisningsEnheter")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("undervisningsEnheter")]
-        public QueryBuilderParameter<ICollection<Guid>> UndervisningsEnheter
+        public QueryBuilderParameter<ICollection<string>> UndervisningsEnheter
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_undervisningsEnheter.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_undervisningsEnheter.Value;
             set => _undervisningsEnheter = new() { Name = "undervisningsEnheter", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("undervisningsaktiviteter")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("undervisningsaktiviteter")]
-        public QueryBuilderParameter<ICollection<Guid>> Undervisningsaktiviteter
+        public QueryBuilderParameter<ICollection<string>> Undervisningsaktiviteter
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_undervisningsaktiviteter.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_undervisningsaktiviteter.Value;
             set => _undervisningsaktiviteter = new() { Name = "undervisningsaktiviteter", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("timeplaner")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("timeplaner")]
-        public QueryBuilderParameter<ICollection<Guid>> Timeplaner
+        public QueryBuilderParameter<ICollection<string>> Timeplaner
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_timeplaner.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_timeplaner.Value;
             set => _timeplaner = new() { Name = "timeplaner", Value = value };
         }
 

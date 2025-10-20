@@ -72,6 +72,8 @@ namespace FS.SDK.GraphQL.Model
 
         public NodeQueryBuilder WithEmneStudierettFragment(EmneStudierettQueryBuilder emneStudierettQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(emneStudierettQueryBuilder, [include, skip]);
 
+        public NodeQueryBuilder WithEmneUndervisningStartterminIPeriodeFragment(EmneUndervisningStartterminIPeriodeQueryBuilder emneUndervisningStartterminIPeriodeQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(emneUndervisningStartterminIPeriodeQueryBuilder, [include, skip]);
+
         public NodeQueryBuilder WithEmneUndervisningsterminFragment(EmneUndervisningsterminQueryBuilder emneUndervisningsterminQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(emneUndervisningsterminQueryBuilder, [include, skip]);
 
         public NodeQueryBuilder WithEmneUndervisningsterminBeskrivelseFragment(EmneUndervisningsterminBeskrivelseQueryBuilder emneUndervisningsterminBeskrivelseQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(emneUndervisningsterminBeskrivelseQueryBuilder, [include, skip]);

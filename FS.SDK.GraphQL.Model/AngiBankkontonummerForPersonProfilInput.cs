@@ -18,12 +18,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("id")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("id")]
-        public QueryBuilderParameter<Guid?> Id
+        public QueryBuilderParameter<string> Id
         {
-            get => (QueryBuilderParameter<Guid?>)_id.Value;
+            get => (QueryBuilderParameter<string>)_id.Value;
             set => _id = new() { Name = "id", Value = value };
         }
 

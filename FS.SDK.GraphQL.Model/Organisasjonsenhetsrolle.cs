@@ -18,7 +18,7 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("id")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("id")]
-        public Guid? Id { get; set; }
+        public string Id { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("fsRolle")]
         #endif
@@ -59,6 +59,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personProfil")]
         public PersonProfil PersonProfil { get; set; }
-        //IDatoperiode IPersonrolle.Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Organisasjonsenhetsrolle.Gyldighetsperiode\" property setter"); }
+        IDatoperiode IPersonrolle.Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Organisasjonsenhetsrolle.Gyldighetsperiode\" property setter"); }
     }
 }

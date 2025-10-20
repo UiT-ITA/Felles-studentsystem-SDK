@@ -13,7 +13,7 @@ namespace FS.SDK.GraphQL.Model
 {
     public partial interface IEvukurshendelse
     {
-        Guid? Id { get; set; }
+        string Id { get; set; }
         string Hendelsestype { get; set; }
         object Tidspunkt { get; set; }
         EvuKurs Evukurs { get; set; }

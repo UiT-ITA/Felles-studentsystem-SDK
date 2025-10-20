@@ -22,12 +22,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("kullId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("kullId")]
-        public QueryBuilderParameter<Guid?> KullId
+        public QueryBuilderParameter<string> KullId
         {
-            get => (QueryBuilderParameter<Guid?>)_kullId.Value;
+            get => (QueryBuilderParameter<string>)_kullId.Value;
             set => _kullId = new() { Name = "kullId", Value = value };
         }
 
@@ -66,23 +66,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studierettstatusId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studierettstatusId")]
-        public QueryBuilderParameter<Guid?> StudierettstatusId
+        public QueryBuilderParameter<string> StudierettstatusId
         {
-            get => (QueryBuilderParameter<Guid?>)_studierettstatusId.Value;
+            get => (QueryBuilderParameter<string>)_studierettstatusId.Value;
             set => _studierettstatusId = new() { Name = "studierettstatusId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studieretningId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studieretningId")]
-        public QueryBuilderParameter<Guid?> StudieretningId
+        public QueryBuilderParameter<string> StudieretningId
         {
-            get => (QueryBuilderParameter<Guid?>)_studieretningId.Value;
+            get => (QueryBuilderParameter<string>)_studieretningId.Value;
             set => _studieretningId = new() { Name = "studieretningId", Value = value };
         }
 

@@ -41,12 +41,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("terminbetegnelser")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("terminbetegnelser")]
-        public QueryBuilderParameter<ICollection<Guid>> Terminbetegnelser
+        public QueryBuilderParameter<ICollection<string>> Terminbetegnelser
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_terminbetegnelser.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_terminbetegnelser.Value;
             set => _terminbetegnelser = new() { Name = "terminbetegnelser", Value = value };
         }
 

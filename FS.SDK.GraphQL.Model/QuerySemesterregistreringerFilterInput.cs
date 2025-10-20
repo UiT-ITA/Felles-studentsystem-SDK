@@ -38,12 +38,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studenterVedLarested")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studenterVedLarested")]
-        public QueryBuilderParameter<ICollection<Guid>> StudenterVedLarested
+        public QueryBuilderParameter<ICollection<string>> StudenterVedLarested
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_studenterVedLarested.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_studenterVedLarested.Value;
             set => _studenterVedLarested = new() { Name = "studenterVedLarested", Value = value };
         }
 
@@ -60,23 +60,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("terminer")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("terminer")]
-        public QueryBuilderParameter<ICollection<Guid>> Terminer
+        public QueryBuilderParameter<ICollection<string>> Terminer
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_terminer.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_terminer.Value;
             set => _terminer = new() { Name = "terminer", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("beregnetStudieprogramForStudent")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("beregnetStudieprogramForStudent")]
-        public QueryBuilderParameter<ICollection<Guid>> BeregnetStudieprogramForStudent
+        public QueryBuilderParameter<ICollection<string>> BeregnetStudieprogramForStudent
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_beregnetStudieprogramForStudent.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_beregnetStudieprogramForStudent.Value;
             set => _beregnetStudieprogramForStudent = new() { Name = "beregnetStudieprogramForStudent", Value = value };
         }
 

@@ -20,45 +20,45 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personId")]
-        public QueryBuilderParameter<Guid?> PersonId
+        public QueryBuilderParameter<string> PersonId
         {
-            get => (QueryBuilderParameter<Guid?>)_personId.Value;
+            get => (QueryBuilderParameter<string>)_personId.Value;
             set => _personId = new() { Name = "personId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("gskGrunnlagId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("gskGrunnlagId")]
-        public QueryBuilderParameter<Guid?> GskGrunnlagId
+        public QueryBuilderParameter<string> GskGrunnlagId
         {
-            get => (QueryBuilderParameter<Guid?>)_gskGrunnlagId.Value;
+            get => (QueryBuilderParameter<string>)_gskGrunnlagId.Value;
             set => _gskGrunnlagId = new() { Name = "gskGrunnlagId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("organisasjonId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("organisasjonId")]
-        public QueryBuilderParameter<Guid?> OrganisasjonId
+        public QueryBuilderParameter<string> OrganisasjonId
         {
-            get => (QueryBuilderParameter<Guid?>)_organisasjonId.Value;
+            get => (QueryBuilderParameter<string>)_organisasjonId.Value;
             set => _organisasjonId = new() { Name = "organisasjonId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("terminId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("terminId")]
-        public QueryBuilderParameter<Guid?> TerminId
+        public QueryBuilderParameter<string> TerminId
         {
-            get => (QueryBuilderParameter<Guid?>)_terminId.Value;
+            get => (QueryBuilderParameter<string>)_terminId.Value;
             set => _terminId = new() { Name = "terminId", Value = value };
         }
 

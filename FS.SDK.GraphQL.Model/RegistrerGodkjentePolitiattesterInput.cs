@@ -21,34 +21,34 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studentVedLarestedId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studentVedLarestedId")]
-        public QueryBuilderParameter<Guid?> StudentVedLarestedId
+        public QueryBuilderParameter<string> StudentVedLarestedId
         {
-            get => (QueryBuilderParameter<Guid?>)_studentVedLarestedId.Value;
+            get => (QueryBuilderParameter<string>)_studentVedLarestedId.Value;
             set => _studentVedLarestedId = new() { Name = "studentVedLarestedId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studieprogramId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studieprogramId")]
-        public QueryBuilderParameter<Guid?> StudieprogramId
+        public QueryBuilderParameter<string> StudieprogramId
         {
-            get => (QueryBuilderParameter<Guid?>)_studieprogramId.Value;
+            get => (QueryBuilderParameter<string>)_studieprogramId.Value;
             set => _studieprogramId = new() { Name = "studieprogramId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("politiattesttypeId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("politiattesttypeId")]
-        public QueryBuilderParameter<Guid?> PolitiattesttypeId
+        public QueryBuilderParameter<string> PolitiattesttypeId
         {
-            get => (QueryBuilderParameter<Guid?>)_politiattesttypeId.Value;
+            get => (QueryBuilderParameter<string>)_politiattesttypeId.Value;
             set => _politiattesttypeId = new() { Name = "politiattesttypeId", Value = value };
         }
 

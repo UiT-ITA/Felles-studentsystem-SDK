@@ -7,7 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Reflection.PortableExecutable;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Windows.Markup;
 
 namespace FS.SDK;
@@ -46,18 +48,6 @@ public class FSApiClient : IDisposable
         _httpClient.DefaultRequestHeaders.UserAgent.Add(config.UserAgent);
     }
 
-    public void Dispose()
-    {
-        _httpClient.Dispose();
-    }
-
-    internal static void ValidateResult(FsSdkApiQueryResponse response)
-    {
-        if (response.Errors is not null && response.Errors.Any())
-            throw new FsSdkApiException(
-                $"Query execution failed:{Environment.NewLine}{String.Join(Environment.NewLine, response.Errors.Select(e => $"{e.Message} (locations: {String.Join(";", e.Locations.Select(l => $"line: {l.Line}, column: {l.Column}"))})"))}"
-            );
-    }
 
 
     /// <summary>
@@ -67,20 +57,14 @@ public class FSApiClient : IDisposable
     /// <param name="cancellationToken"></param>
     /// <exception cref="FsSdkApiHttpException"></exception>
     /// <returns></returns>
-    public Task<FsSdkApiQueryResponse?> Query(string query, CancellationToken cancellationToken = default) => Request<FsSdkApiQueryResponse>(query, cancellationToken);
+    //public Task<FsSdkApiQueryResponse?> Query(string query, CancellationToken cancellationToken = default) => Request<FsSdkApiQueryResponse>(query, cancellationToken);
 
-    /// <summary>
-    /// Executes raw GraphQL mutation.
-    /// </summary>
-    /// <param name="mutation">query text</param>
-    /// <param name="cancellationToken"></param>
-    /// <exception cref="FsSdkApiHttpException"></exception>
-    /// <returns></returns>
-    //public Task<FsSdkApiMutationResponse> Mutation(string mutation, CancellationToken cancellationToken = default) => Request<FsSdkApiMutationResponse>(mutation, cancellationToken);
-
-
-    private async Task<TResult?> Request<TResult>(string query, CancellationToken cancellationToken)
+    public async Task<TResult?> Request<TResult>(string query, CancellationToken cancellationToken)
     {
+#if DEBUG
+        Console.WriteLine(query);
+#endif
+
         var requestStart = DateTimeOffset.UtcNow;
         HttpResponseMessage response;
         try
@@ -96,10 +80,46 @@ public class FSApiClient : IDisposable
             throw await FsSdkApiHttpException.Create(new Uri(_config.BaseUrl), HttpMethod.Post, response, DateTimeOffset.Now - requestStart).ConfigureAwait(false);
 
         using var stream = await response.Content.ReadAsStreamAsync();
+
+#if DEBUG
+        using var streamReaderDebug = new StreamReader(stream);        
+        string text = streamReaderDebug.ReadToEnd();
+        Console.WriteLine(text);
+        stream.Position = 0;
+#endif
+
         using var streamReader = new StreamReader(stream);
         using var jsonReader = new JsonTextReader(streamReader);
         return Serializer.Deserialize<TResult>(jsonReader);
     }
+
+
+
+
+
+    public void Dispose()
+    {
+        _httpClient.Dispose();
+    }
+
+    internal static void ValidateResult(FsSdkApiQueryResponse response)
+    {
+        if (response.Errors is not null && response.Errors.Any())
+            throw new FsSdkApiException(
+                $"Query execution failed:{Environment.NewLine}{String.Join(Environment.NewLine, response.Errors.Select(e => $"{e.Message} (locations: {String.Join(";", e.Locations.Select(l => $"line: {l.Line}, column: {l.Column}"))})"))}"
+            );
+    }
+
+
+    /// <summary>
+    /// Executes raw GraphQL mutation.
+    /// </summary>
+    /// <param name="mutation">query text</param>
+    /// <param name="cancellationToken"></param>
+    /// <exception cref="FsSdkApiHttpException"></exception>
+    /// <returns></returns>
+    //public Task<FsSdkApiMutationResponse> Mutation(string mutation, CancellationToken cancellationToken = default) => Request<FsSdkApiMutationResponse>(mutation, cancellationToken);
+
 
     private static HttpContent JsonContent(object data) => new StringContent(JsonConvert.SerializeObject(data, settings: JsonSerializerSettings), Encoding.UTF8, "application/json");
 
@@ -107,13 +127,38 @@ public class FSApiClient : IDisposable
 
 
 
-
 public class FsSdkApiQueryResponse : GraphQlResponse<QueryData> { }
 
 public class QueryData
 {
-    //public Viewer Viewer { get; set; }
+    [JsonPropertyName("studieprogramV2")]
+    public StudieprogramV2 studieprogramV2 { get; set; } = null!;
 }
+
+public class StudieprogramV2
+{
+    [JsonPropertyName("totalCount")]
+    public int totalCount { get; set; } = 0;
+    [JsonPropertyName("pageInfo")]
+    public PageInfo pageInfo { get; set; } = null!;
+
+
+    [JsonPropertyName("nodes")]
+    public IEnumerable<Studieprogram> nodes { get; set; } = null!;
+}
+
+public class PageInfo
+{
+    [JsonPropertyName("hasPreviousPage")]
+    public bool HasPreviousPage { get; set; } = false;
+    [JsonPropertyName("hasNextPage")]
+    public bool HasNextPage { get; set; } = false;
+    [JsonPropertyName("startCursor")]
+    public string StartCursor { get; set; } = string.Empty;
+    [JsonPropertyName("endCursor")]
+    public string EndCursor { get; set; } = string.Empty;
+}
+
 
 // TODO: Let's wait with mutations until we actually need them
 // public class FsSdkApiMutationResponse : GraphQlResponse<FsSdkMutation> { }

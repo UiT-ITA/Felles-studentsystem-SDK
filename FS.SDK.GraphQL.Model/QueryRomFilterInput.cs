@@ -33,23 +33,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("bygninger")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("bygninger")]
-        public QueryBuilderParameter<ICollection<Guid>> Bygninger
+        public QueryBuilderParameter<ICollection<string>> Bygninger
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_bygninger.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_bygninger.Value;
             set => _bygninger = new() { Name = "bygninger", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("romtyper")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("romtyper")]
-        public QueryBuilderParameter<ICollection<Guid>> Romtyper
+        public QueryBuilderParameter<ICollection<string>> Romtyper
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_romtyper.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_romtyper.Value;
             set => _romtyper = new() { Name = "romtyper", Value = value };
         }
 

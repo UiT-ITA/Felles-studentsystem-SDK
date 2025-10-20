@@ -25,23 +25,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studentVedLarestedId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studentVedLarestedId")]
-        public QueryBuilderParameter<Guid?> StudentVedLarestedId
+        public QueryBuilderParameter<string> StudentVedLarestedId
         {
-            get => (QueryBuilderParameter<Guid?>)_studentVedLarestedId.Value;
+            get => (QueryBuilderParameter<string>)_studentVedLarestedId.Value;
             set => _studentVedLarestedId = new() { Name = "studentVedLarestedId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studietilpasningstypeId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studietilpasningstypeId")]
-        public QueryBuilderParameter<Guid?> StudietilpasningstypeId
+        public QueryBuilderParameter<string> StudietilpasningstypeId
         {
-            get => (QueryBuilderParameter<Guid?>)_studietilpasningstypeId.Value;
+            get => (QueryBuilderParameter<string>)_studietilpasningstypeId.Value;
             set => _studietilpasningstypeId = new() { Name = "studietilpasningstypeId", Value = value };
         }
 
@@ -113,12 +113,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("eksamensromId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("eksamensromId")]
-        public QueryBuilderParameter<Guid?> EksamensromId
+        public QueryBuilderParameter<string> EksamensromId
         {
-            get => (QueryBuilderParameter<Guid?>)_eksamensromId.Value;
+            get => (QueryBuilderParameter<string>)_eksamensromId.Value;
             set => _eksamensromId = new() { Name = "eksamensromId", Value = value };
         }
 

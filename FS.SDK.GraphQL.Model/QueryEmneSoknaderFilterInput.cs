@@ -41,12 +41,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("emner")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("emner")]
-        public QueryBuilderParameter<ICollection<Guid>> Emner
+        public QueryBuilderParameter<ICollection<string>> Emner
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_emner.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_emner.Value;
             set => _emner = new() { Name = "emner", Value = value };
         }
 
@@ -85,45 +85,45 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("undervisningsenheter")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("undervisningsenheter")]
-        public QueryBuilderParameter<ICollection<Guid>> Undervisningsenheter
+        public QueryBuilderParameter<ICollection<string>> Undervisningsenheter
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_undervisningsenheter.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_undervisningsenheter.Value;
             set => _undervisningsenheter = new() { Name = "undervisningsenheter", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studenterVedLarested")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studenterVedLarested")]
-        public QueryBuilderParameter<ICollection<Guid>> StudenterVedLarested
+        public QueryBuilderParameter<ICollection<string>> StudenterVedLarested
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_studenterVedLarested.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_studenterVedLarested.Value;
             set => _studenterVedLarested = new() { Name = "studenterVedLarested", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personprofiler")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personprofiler")]
-        public QueryBuilderParameter<ICollection<Guid>> Personprofiler
+        public QueryBuilderParameter<ICollection<string>> Personprofiler
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_personprofiler.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_personprofiler.Value;
             set => _personprofiler = new() { Name = "personprofiler", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("terminer")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("terminer")]
-        public QueryBuilderParameter<ICollection<Guid>> Terminer
+        public QueryBuilderParameter<ICollection<string>> Terminer
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_terminer.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_terminer.Value;
             set => _terminer = new() { Name = "terminer", Value = value };
         }
 

@@ -18,7 +18,7 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("id")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("id")]
-        public Guid? Id { get; set; }
+        public string Id { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("utveksletTil")]
         #endif

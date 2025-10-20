@@ -33,56 +33,56 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("terminer")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("terminer")]
-        public QueryBuilderParameter<ICollection<Guid>> Terminer
+        public QueryBuilderParameter<ICollection<string>> Terminer
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_terminer.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_terminer.Value;
             set => _terminer = new() { Name = "terminer", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("emner")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("emner")]
-        public QueryBuilderParameter<ICollection<Guid>> Emner
+        public QueryBuilderParameter<ICollection<string>> Emner
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_emner.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_emner.Value;
             set => _emner = new() { Name = "emner", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("vurderingsoppbygningsdeler")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("vurderingsoppbygningsdeler")]
-        public QueryBuilderParameter<ICollection<Guid>> Vurderingsoppbygningsdeler
+        public QueryBuilderParameter<ICollection<string>> Vurderingsoppbygningsdeler
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_vurderingsoppbygningsdeler.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_vurderingsoppbygningsdeler.Value;
             set => _vurderingsoppbygningsdeler = new() { Name = "vurderingsoppbygningsdeler", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("vurderingsperioder")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("vurderingsperioder")]
-        public QueryBuilderParameter<ICollection<Guid>> Vurderingsperioder
+        public QueryBuilderParameter<ICollection<string>> Vurderingsperioder
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_vurderingsperioder.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_vurderingsperioder.Value;
             set => _vurderingsperioder = new() { Name = "vurderingsperioder", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("reelleVurderingsperioder")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("reelleVurderingsperioder")]
-        public QueryBuilderParameter<ICollection<Guid>> ReelleVurderingsperioder
+        public QueryBuilderParameter<ICollection<string>> ReelleVurderingsperioder
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_reelleVurderingsperioder.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_reelleVurderingsperioder.Value;
             set => _reelleVurderingsperioder = new() { Name = "reelleVurderingsperioder", Value = value };
         }
 

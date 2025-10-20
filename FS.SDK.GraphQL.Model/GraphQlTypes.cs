@@ -245,6 +245,8 @@ namespace FS.SDK.GraphQL.Model
         public const string EmneUndervisningsoversikt = "EmneUndervisningsoversikt";
         public const string EmneUndervisningsperiode = "EmneUndervisningsperiode";
         public const string EmneUndervisningsperiodeEndret = "EmneUndervisningsperiodeEndret";
+        public const string EmneUndervisningStartterminGyldighetsperiode = "EmneUndervisningStartterminGyldighetsperiode";
+        public const string EmneUndervisningStartterminIPeriode = "EmneUndervisningStartterminIPeriode";
         public const string EmneUndervisningstermin = "EmneUndervisningstermin";
         public const string EmneUndervisningsterminBeskrivelse = "EmneUndervisningsterminBeskrivelse";
         public const string Emneundervisningsvarighet = "Emneundervisningsvarighet";
@@ -1780,9 +1782,8 @@ namespace FS.SDK.GraphQL.Model
         public static readonly IReadOnlyDictionary<global::System.Type, string> ReverseMapping =
             new Dictionary<global::System.Type, string>
             {
-                { typeof(Guid), "ID" },
+                { typeof(string), "ID" },
                 { typeof(int), "Int" },
-                { typeof(string), "String" },
                 { typeof(bool), "Boolean" },
                 { typeof(AktiverFagpersonerInput), "AktiverFagpersonerInput" },
                 { typeof(AktiverFagpersonerPersonNavnInput), "AktiverFagpersonerPersonNavnInput" },

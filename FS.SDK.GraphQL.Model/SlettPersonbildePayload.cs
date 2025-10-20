@@ -17,6 +17,6 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("ids")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("ids")]
-        public ICollection<Guid> Ids { get; set; }
+        public ICollection<string> Ids { get; set; }
     }
 }

@@ -21,34 +21,34 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfilId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personProfilId")]
-        public QueryBuilderParameter<Guid?> PersonProfilId
+        public QueryBuilderParameter<string> PersonProfilId
         {
-            get => (QueryBuilderParameter<Guid?>)_personProfilId.Value;
+            get => (QueryBuilderParameter<string>)_personProfilId.Value;
             set => _personProfilId = new() { Name = "personProfilId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("rolleId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("rolleId")]
-        public QueryBuilderParameter<Guid?> RolleId
+        public QueryBuilderParameter<string> RolleId
         {
-            get => (QueryBuilderParameter<Guid?>)_rolleId.Value;
+            get => (QueryBuilderParameter<string>)_rolleId.Value;
             set => _rolleId = new() { Name = "rolleId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("undervisningsenhetId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("undervisningsenhetId")]
-        public QueryBuilderParameter<Guid?> UndervisningsenhetId
+        public QueryBuilderParameter<string> UndervisningsenhetId
         {
-            get => (QueryBuilderParameter<Guid?>)_undervisningsenhetId.Value;
+            get => (QueryBuilderParameter<string>)_undervisningsenhetId.Value;
             set => _undervisningsenhetId = new() { Name = "undervisningsenhetId", Value = value };
         }
 

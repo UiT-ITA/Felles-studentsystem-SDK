@@ -157,23 +157,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("campusId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("campusId")]
-        public QueryBuilderParameter<Guid?> CampusId
+        public QueryBuilderParameter<string> CampusId
         {
-            get => (QueryBuilderParameter<Guid?>)_campusId.Value;
+            get => (QueryBuilderParameter<string>)_campusId.Value;
             set => _campusId = new() { Name = "campusId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("ansattVedOrganisasjonsenhetId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("ansattVedOrganisasjonsenhetId")]
-        public QueryBuilderParameter<Guid?> AnsattVedOrganisasjonsenhetId
+        public QueryBuilderParameter<string> AnsattVedOrganisasjonsenhetId
         {
-            get => (QueryBuilderParameter<Guid?>)_ansattVedOrganisasjonsenhetId.Value;
+            get => (QueryBuilderParameter<string>)_ansattVedOrganisasjonsenhetId.Value;
             set => _ansattVedOrganisasjonsenhetId = new() { Name = "ansattVedOrganisasjonsenhetId", Value = value };
         }
 
@@ -212,12 +212,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("romId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("romId")]
-        public QueryBuilderParameter<Guid?> RomId
+        public QueryBuilderParameter<string> RomId
         {
-            get => (QueryBuilderParameter<Guid?>)_romId.Value;
+            get => (QueryBuilderParameter<string>)_romId.Value;
             set => _romId = new() { Name = "romId", Value = value };
         }
 
@@ -234,12 +234,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("fagpersonkategori")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("fagpersonkategori")]
-        public QueryBuilderParameter<Guid?> Fagpersonkategori
+        public QueryBuilderParameter<string> Fagpersonkategori
         {
-            get => (QueryBuilderParameter<Guid?>)_fagpersonkategori.Value;
+            get => (QueryBuilderParameter<string>)_fagpersonkategori.Value;
             set => _fagpersonkategori = new() { Name = "fagpersonkategori", Value = value };
         }
 

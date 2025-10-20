@@ -23,23 +23,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studentVedLarestedId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studentVedLarestedId")]
-        public QueryBuilderParameter<Guid?> StudentVedLarestedId
+        public QueryBuilderParameter<string> StudentVedLarestedId
         {
-            get => (QueryBuilderParameter<Guid?>)_studentVedLarestedId.Value;
+            get => (QueryBuilderParameter<string>)_studentVedLarestedId.Value;
             set => _studentVedLarestedId = new() { Name = "studentVedLarestedId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("utvekslingsavtaleId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("utvekslingsavtaleId")]
-        public QueryBuilderParameter<Guid?> UtvekslingsavtaleId
+        public QueryBuilderParameter<string> UtvekslingsavtaleId
         {
-            get => (QueryBuilderParameter<Guid?>)_utvekslingsavtaleId.Value;
+            get => (QueryBuilderParameter<string>)_utvekslingsavtaleId.Value;
             set => _utvekslingsavtaleId = new() { Name = "utvekslingsavtaleId", Value = value };
         }
 
@@ -67,23 +67,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("utveksletFraOrganisasjonsenhetId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("utveksletFraOrganisasjonsenhetId")]
-        public QueryBuilderParameter<Guid?> UtveksletFraOrganisasjonsenhetId
+        public QueryBuilderParameter<string> UtveksletFraOrganisasjonsenhetId
         {
-            get => (QueryBuilderParameter<Guid?>)_utveksletFraOrganisasjonsenhetId.Value;
+            get => (QueryBuilderParameter<string>)_utveksletFraOrganisasjonsenhetId.Value;
             set => _utveksletFraOrganisasjonsenhetId = new() { Name = "utveksletFraOrganisasjonsenhetId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("utveksletTilOrganisasjonsenhetId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("utveksletTilOrganisasjonsenhetId")]
-        public QueryBuilderParameter<Guid?> UtveksletTilOrganisasjonsenhetId
+        public QueryBuilderParameter<string> UtveksletTilOrganisasjonsenhetId
         {
-            get => (QueryBuilderParameter<Guid?>)_utveksletTilOrganisasjonsenhetId.Value;
+            get => (QueryBuilderParameter<string>)_utveksletTilOrganisasjonsenhetId.Value;
             set => _utveksletTilOrganisasjonsenhetId = new() { Name = "utveksletTilOrganisasjonsenhetId", Value = value };
         }
 

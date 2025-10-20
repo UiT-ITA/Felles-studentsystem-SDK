@@ -37,7 +37,7 @@ namespace FS.SDK.GraphQL.Model
 
         public StudieprogramCampusQueryBuilder ExceptGyldighetsperiode() => ExceptField("gyldighetsperiode");
 
-        public StudieprogramCampusQueryBuilder WithFsOpptaksterminer(FsOpptaksterminQueryBuilder fsOpptaksterminQueryBuilder, QueryBuilderParameter<IEnumerable<Guid>> terminer = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        public StudieprogramCampusQueryBuilder WithFsOpptaksterminer(FsOpptaksterminQueryBuilder fsOpptaksterminQueryBuilder, QueryBuilderParameter<IEnumerable<string>> terminer = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
             if (terminer != null)

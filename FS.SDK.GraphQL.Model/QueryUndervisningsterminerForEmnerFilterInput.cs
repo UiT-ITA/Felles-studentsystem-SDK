@@ -30,23 +30,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("emner")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("emner")]
-        public QueryBuilderParameter<ICollection<Guid>> Emner
+        public QueryBuilderParameter<ICollection<string>> Emner
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_emner.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_emner.Value;
             set => _emner = new() { Name = "emner", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("gjelderForTerminer")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("gjelderForTerminer")]
-        public QueryBuilderParameter<ICollection<Guid>> GjelderForTerminer
+        public QueryBuilderParameter<ICollection<string>> GjelderForTerminer
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_gjelderForTerminer.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_gjelderForTerminer.Value;
             set => _gjelderForTerminer = new() { Name = "gjelderForTerminer", Value = value };
         }
 

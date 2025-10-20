@@ -33,7 +33,7 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("undervisningspartiplasseringId")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("undervisningspartiplasseringId")]
-        public Guid? UndervisningspartiplasseringId { get; set; }
+        public string UndervisningspartiplasseringId { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfil")]
         #endif

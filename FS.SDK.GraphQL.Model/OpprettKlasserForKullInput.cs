@@ -19,34 +19,34 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("kullId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("kullId")]
-        public QueryBuilderParameter<Guid?> KullId
+        public QueryBuilderParameter<string> KullId
         {
-            get => (QueryBuilderParameter<Guid?>)_kullId.Value;
+            get => (QueryBuilderParameter<string>)_kullId.Value;
             set => _kullId = new() { Name = "kullId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("klasseBetegnelseId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("klasseBetegnelseId")]
-        public QueryBuilderParameter<Guid?> KlasseBetegnelseId
+        public QueryBuilderParameter<string> KlasseBetegnelseId
         {
-            get => (QueryBuilderParameter<Guid?>)_klasseBetegnelseId.Value;
+            get => (QueryBuilderParameter<string>)_klasseBetegnelseId.Value;
             set => _klasseBetegnelseId = new() { Name = "klasseBetegnelseId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studieretningId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studieretningId")]
-        public QueryBuilderParameter<Guid?> StudieretningId
+        public QueryBuilderParameter<string> StudieretningId
         {
-            get => (QueryBuilderParameter<Guid?>)_studieretningId.Value;
+            get => (QueryBuilderParameter<string>)_studieretningId.Value;
             set => _studieretningId = new() { Name = "studieretningId", Value = value };
         }
 

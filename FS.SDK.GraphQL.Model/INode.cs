@@ -13,6 +13,6 @@ namespace FS.SDK.GraphQL.Model
 {
     public partial interface INode
     {
-        Guid? Id { get; set; }
+        string Id { get; set; }
     }
 }

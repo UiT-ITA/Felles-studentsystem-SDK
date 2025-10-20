@@ -232,7 +232,7 @@ namespace FS.SDK.GraphQL.Model
 
         public StudieprogramQueryBuilder ExceptForerTilKvalifikasjon() => ExceptField("forerTilKvalifikasjon");
 
-        public StudieprogramQueryBuilder WithFsOpptaksterminer(StudieprogramFsOpptaksterminerConnectionQueryBuilder studieprogramFsOpptaksterminerConnectionQueryBuilder, QueryBuilderParameter<IEnumerable<Guid>> terminer = null, QueryBuilderParameter<IEnumerable<Guid>> campuser = null, QueryBuilderParameter<bool?> gjelderUhgOpptak = null, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        public StudieprogramQueryBuilder WithFsOpptaksterminer(StudieprogramFsOpptaksterminerConnectionQueryBuilder studieprogramFsOpptaksterminerConnectionQueryBuilder, QueryBuilderParameter<IEnumerable<string>> terminer = null, QueryBuilderParameter<IEnumerable<string>> campuser = null, QueryBuilderParameter<bool?> gjelderUhgOpptak = null, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
             if (terminer != null)

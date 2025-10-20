@@ -17,7 +17,7 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("undervisningsaktiviteter")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("undervisningsaktiviteter")]
-        public ICollection<Guid?> Undervisningsaktiviteter { get; set; }
+        public ICollection<string> Undervisningsaktiviteter { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("errors")]
         [JsonConverter(typeof(GraphQlInterfaceJsonConverter))]

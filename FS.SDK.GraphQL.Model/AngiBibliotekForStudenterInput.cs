@@ -18,23 +18,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("id")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("id")]
-        public QueryBuilderParameter<Guid?> Id
+        public QueryBuilderParameter<string> Id
         {
-            get => (QueryBuilderParameter<Guid?>)_id.Value;
+            get => (QueryBuilderParameter<string>)_id.Value;
             set => _id = new() { Name = "id", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("bibliotekId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("bibliotekId")]
-        public QueryBuilderParameter<Guid?> BibliotekId
+        public QueryBuilderParameter<string> BibliotekId
         {
-            get => (QueryBuilderParameter<Guid?>)_bibliotekId.Value;
+            get => (QueryBuilderParameter<string>)_bibliotekId.Value;
             set => _bibliotekId = new() { Name = "bibliotekId", Value = value };
         }
 

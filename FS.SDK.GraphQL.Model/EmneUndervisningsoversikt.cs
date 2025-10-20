@@ -28,5 +28,10 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("beskrivelseAvUndervisningsterminer")]
         public EmneUndervisningsterminBeskrivelse BeskrivelseAvUndervisningsterminer { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("undervisningStartterminIperiode")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("undervisningStartterminIperiode")]
+        public ICollection<EmneUndervisningStartterminIPeriode> UndervisningStartterminIperiode { get; set; }
     }
 }

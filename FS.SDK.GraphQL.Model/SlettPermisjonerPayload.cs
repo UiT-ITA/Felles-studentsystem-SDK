@@ -17,7 +17,7 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("ider")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("ider")]
-        public ICollection<Guid> Ider { get; set; }
+        public ICollection<string> Ider { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("errors")]
         [JsonConverter(typeof(GraphQlInterfaceJsonConverter))]

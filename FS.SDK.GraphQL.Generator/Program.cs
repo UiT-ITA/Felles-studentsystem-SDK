@@ -68,11 +68,11 @@ var gqlconfig = new GraphQlGeneratorConfiguration
     IncludeDeprecatedFields = false,
     PropertyGeneration = PropertyGenerationOption.AutoProperty,
     // EnumValueNaming = EnumValueNamingOption.Original
-    EnumValueNaming = EnumValueNamingOption.CSharp
+    EnumValueNaming = EnumValueNamingOption.CSharp,
 
     // BooleanTypeMapping
     // FloatTypeMapping
-    // IdTypeMapping
+    IdTypeMapping = IdTypeMapping.String
     // IntegerTypeMapping
     // ScalarFieldTypeMappingProvider
 

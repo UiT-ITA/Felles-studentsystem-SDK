@@ -23,13 +23,13 @@ public static class StudieprogramInformasjon
     //    var result = await client.Query(query);
     //}
 
-     ///<summary>
-     ///Gets all studieprogrammer.
-     ///</summary>
-     ///<param name = "cancellationToken" ></ param >
-     ///< exception cref="FsSdkApiHttpException"></exception>
-     ///<returns></returns>
-    public static async Task<FsSdkApiQueryResponse?> GetAllStudieprogrammer(FSApiClient client, CancellationToken cancellationToken = default)
+    ///<summary>
+    ///Gets all studieprogrammer.
+    ///</summary>
+    ///<param name = "cancellationToken" ></ param >
+    ///< exception cref="FsSdkApiHttpException"></exception>
+    ///<returns></returns>
+    public static async Task GetAllStudieprogrammer<T>(FSApiClient client, CancellationToken cancellationToken = default)
     {
 
         var filter = new StudieprogramV2FilterInput();
@@ -39,11 +39,17 @@ public static class StudieprogramInformasjon
             .WithStudieprogramV2(
                 new QueryStudieprogramV2ConnectionQueryBuilder()
                     .WithAllScalarFields()
+                    .WithPageInfo(new PageInfoQueryBuilder()
+                        .WithAllScalarFields()
+                    )
                     .WithNodes(new StudieprogramQueryBuilder()
                         .WithAllScalarFields()
+                        .WithCampuser(new StudieprogramCampuserConnectionQueryBuilder()
+                            .WithAllScalarFields()
+                            )
                     ),
                 filter: filter,
-                first: 50,
+                first: 10,
                 after: null)
             .Build(formatting: FS.SDK.GraphQL.Model.Formatting.Indented);
 
@@ -51,12 +57,13 @@ public static class StudieprogramInformasjon
         //    .WithAllScalarFields()
         //    .Build();
 
-        var result = await client.Query(qBuilder, cancellationToken);
-        
+        var result = await client.Request<FsSdkApiQueryResponse>(qBuilder, cancellationToken);
+
         // TODO: Vurder å flytte dette til en samlende funksjon
-        if (result is null) return null;
+        //if (result is null) return null;
         FSApiClient.ValidateResult(result);
-        return result;
+        //return result;
+
     }
 
 }

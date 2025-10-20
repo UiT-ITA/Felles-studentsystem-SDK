@@ -32,34 +32,34 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("evuKurs")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("evuKurs")]
-        public QueryBuilderParameter<ICollection<Guid>> EvuKurs
+        public QueryBuilderParameter<ICollection<string>> EvuKurs
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_evuKurs.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_evuKurs.Value;
             set => _evuKurs = new() { Name = "evuKurs", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfiler")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personProfiler")]
-        public QueryBuilderParameter<ICollection<Guid>> PersonProfiler
+        public QueryBuilderParameter<ICollection<string>> PersonProfiler
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_personProfiler.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_personProfiler.Value;
             set => _personProfiler = new() { Name = "personProfiler", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("deltakere")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("deltakere")]
-        public QueryBuilderParameter<ICollection<Guid>> Deltakere
+        public QueryBuilderParameter<ICollection<string>> Deltakere
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_deltakere.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_deltakere.Value;
             set => _deltakere = new() { Name = "deltakere", Value = value };
         }
 

@@ -37,12 +37,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studieprogrammer")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studieprogrammer")]
-        public QueryBuilderParameter<ICollection<Guid>> Studieprogrammer
+        public QueryBuilderParameter<ICollection<string>> Studieprogrammer
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_studieprogrammer.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_studieprogrammer.Value;
             set => _studieprogrammer = new() { Name = "studieprogrammer", Value = value };
         }
 
@@ -70,23 +70,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfiler")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personProfiler")]
-        public QueryBuilderParameter<ICollection<Guid>> PersonProfiler
+        public QueryBuilderParameter<ICollection<string>> PersonProfiler
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_personProfiler.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_personProfiler.Value;
             set => _personProfiler = new() { Name = "personProfiler", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("kull")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("kull")]
-        public QueryBuilderParameter<ICollection<Guid>> Kull
+        public QueryBuilderParameter<ICollection<string>> Kull
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_kull.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_kull.Value;
             set => _kull = new() { Name = "kull", Value = value };
         }
 

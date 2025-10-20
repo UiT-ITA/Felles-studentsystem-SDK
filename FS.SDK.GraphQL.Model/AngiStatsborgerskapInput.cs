@@ -18,23 +18,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfilId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personProfilId")]
-        public QueryBuilderParameter<Guid?> PersonProfilId
+        public QueryBuilderParameter<string> PersonProfilId
         {
-            get => (QueryBuilderParameter<Guid?>)_personProfilId.Value;
+            get => (QueryBuilderParameter<string>)_personProfilId.Value;
             set => _personProfilId = new() { Name = "personProfilId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("landId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("landId")]
-        public QueryBuilderParameter<Guid?> LandId
+        public QueryBuilderParameter<string> LandId
         {
-            get => (QueryBuilderParameter<Guid?>)_landId.Value;
+            get => (QueryBuilderParameter<string>)_landId.Value;
             set => _landId = new() { Name = "landId", Value = value };
         }
 

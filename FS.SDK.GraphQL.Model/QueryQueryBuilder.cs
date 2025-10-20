@@ -212,7 +212,7 @@ namespace FS.SDK.GraphQL.Model
 
         public QueryQueryBuilder WithParameter<T>(GraphQlQueryParameter<T> parameter) => WithParameterInternal(parameter);
 
-        public QueryQueryBuilder WithNode(NodeQueryBuilder nodeQueryBuilder, QueryBuilderParameter<Guid> id, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        public QueryQueryBuilder WithNode(NodeQueryBuilder nodeQueryBuilder, QueryBuilderParameter<string> id, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
             args.Add(new() { ArgumentName = "id", ArgumentValue = id} );
@@ -889,7 +889,7 @@ namespace FS.SDK.GraphQL.Model
 
         public QueryQueryBuilder ExceptOrganisasjoner() => ExceptField("organisasjoner");
 
-        public QueryQueryBuilder WithNodes(NodeQueryBuilder nodeQueryBuilder, QueryBuilderParameter<IEnumerable<Guid>> ids = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        public QueryQueryBuilder WithNodes(NodeQueryBuilder nodeQueryBuilder, QueryBuilderParameter<IEnumerable<string>> ids = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
             if (ids != null)
@@ -1125,25 +1125,21 @@ namespace FS.SDK.GraphQL.Model
 
         public QueryQueryBuilder ExceptFagpersoner() => ExceptField("fagpersoner");
 
-        public QueryQueryBuilder WithFagpersonerGittFodselsnumre(FagpersonVedLarestedQueryBuilder fagpersonVedLarestedQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> fodselsnumre = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        public QueryQueryBuilder WithFagpersonerGittFodselsnumre(FagpersonVedLarestedQueryBuilder fagpersonVedLarestedQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> fodselsnumre, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
             args.Add(new() { ArgumentName = "eierOrganisasjonskode", ArgumentValue = eierOrganisasjonskode} );
-            if (fodselsnumre != null)
-                args.Add(new() { ArgumentName = "fodselsnumre", ArgumentValue = fodselsnumre} );
-
+            args.Add(new() { ArgumentName = "fodselsnumre", ArgumentValue = fodselsnumre} );
             return WithObjectField("fagpersonerGittFodselsnumre", alias, fagpersonVedLarestedQueryBuilder, [include, skip], args);
         }
 
         public QueryQueryBuilder ExceptFagpersonerGittFodselsnumre() => ExceptField("fagpersonerGittFodselsnumre");
 
-        public QueryQueryBuilder WithFagpersonerGittPersonlopenumre(FagpersonVedLarestedQueryBuilder fagpersonVedLarestedQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> personlopenumre = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        public QueryQueryBuilder WithFagpersonerGittPersonlopenumre(FagpersonVedLarestedQueryBuilder fagpersonVedLarestedQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> personlopenumre, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
             args.Add(new() { ArgumentName = "eierOrganisasjonskode", ArgumentValue = eierOrganisasjonskode} );
-            if (personlopenumre != null)
-                args.Add(new() { ArgumentName = "personlopenumre", ArgumentValue = personlopenumre} );
-
+            args.Add(new() { ArgumentName = "personlopenumre", ArgumentValue = personlopenumre} );
             return WithObjectField("fagpersonerGittPersonlopenumre", alias, fagpersonVedLarestedQueryBuilder, [include, skip], args);
         }
 

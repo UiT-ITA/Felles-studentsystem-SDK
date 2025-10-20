@@ -17,7 +17,8 @@ namespace FS.SDK.GraphQL.Model
         {
             new() { Name = "varighet", IsComplex = true, QueryBuilderType = typeof(EmneundervisningsvarighetQueryBuilder) },
             new() { Name = "undervisningsterminer", IsComplex = true, QueryBuilderType = typeof(EmneUndervisningsterminQueryBuilder) },
-            new() { Name = "beskrivelseAvUndervisningsterminer", IsComplex = true, QueryBuilderType = typeof(EmneUndervisningsterminBeskrivelseQueryBuilder) }
+            new() { Name = "beskrivelseAvUndervisningsterminer", IsComplex = true, QueryBuilderType = typeof(EmneUndervisningsterminBeskrivelseQueryBuilder) },
+            new() { Name = "undervisningStartterminIperiode", IsComplex = true, QueryBuilderType = typeof(EmneUndervisningStartterminIPeriodeQueryBuilder) }
         };
 
         protected override string TypeName => "EmneUndervisningsoversikt";
@@ -35,5 +36,9 @@ namespace FS.SDK.GraphQL.Model
         public EmneUndervisningsoversiktQueryBuilder WithBeskrivelseAvUndervisningsterminer(EmneUndervisningsterminBeskrivelseQueryBuilder emneUndervisningsterminBeskrivelseQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("beskrivelseAvUndervisningsterminer", alias, emneUndervisningsterminBeskrivelseQueryBuilder, [include, skip]);
 
         public EmneUndervisningsoversiktQueryBuilder ExceptBeskrivelseAvUndervisningsterminer() => ExceptField("beskrivelseAvUndervisningsterminer");
+
+        public EmneUndervisningsoversiktQueryBuilder WithUndervisningStartterminIperiode(EmneUndervisningStartterminIPeriodeQueryBuilder emneUndervisningStartterminIPeriodeQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("undervisningStartterminIperiode", alias, emneUndervisningStartterminIPeriodeQueryBuilder, [include, skip]);
+
+        public EmneUndervisningsoversiktQueryBuilder ExceptUndervisningStartterminIperiode() => ExceptField("undervisningStartterminIperiode");
     }
 }

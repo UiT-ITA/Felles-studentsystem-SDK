@@ -21,12 +21,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studieprogramId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studieprogramId")]
-        public QueryBuilderParameter<Guid?> StudieprogramId
+        public QueryBuilderParameter<string> StudieprogramId
         {
-            get => (QueryBuilderParameter<Guid?>)_studieprogramId.Value;
+            get => (QueryBuilderParameter<string>)_studieprogramId.Value;
             set => _studieprogramId = new() { Name = "studieprogramId", Value = value };
         }
 

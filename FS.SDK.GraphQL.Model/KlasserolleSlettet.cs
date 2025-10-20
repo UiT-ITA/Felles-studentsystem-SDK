@@ -28,7 +28,7 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("klasserolleId")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("klasserolleId")]
-        public Guid? KlasserolleId { get; set; }
+        public string KlasserolleId { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfil")]
         #endif

@@ -69,23 +69,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("organisasjoner")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("organisasjoner")]
-        public QueryBuilderParameter<ICollection<Guid>> Organisasjoner
+        public QueryBuilderParameter<ICollection<string>> Organisasjoner
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_organisasjoner.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_organisasjoner.Value;
             set => _organisasjoner = new() { Name = "organisasjoner", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("fakulteter")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("fakulteter")]
-        public QueryBuilderParameter<ICollection<Guid>> Fakulteter
+        public QueryBuilderParameter<ICollection<string>> Fakulteter
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_fakulteter.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_fakulteter.Value;
             set => _fakulteter = new() { Name = "fakulteter", Value = value };
         }
 

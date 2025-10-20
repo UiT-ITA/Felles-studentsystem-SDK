@@ -23,12 +23,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("id")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("id")]
-        public QueryBuilderParameter<Guid?> Id
+        public QueryBuilderParameter<string> Id
         {
-            get => (QueryBuilderParameter<Guid?>)_id.Value;
+            get => (QueryBuilderParameter<string>)_id.Value;
             set => _id = new() { Name = "id", Value = value };
         }
 
@@ -56,23 +56,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("forventetNyttKullId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("forventetNyttKullId")]
-        public QueryBuilderParameter<Guid?> ForventetNyttKullId
+        public QueryBuilderParameter<string> ForventetNyttKullId
         {
-            get => (QueryBuilderParameter<Guid?>)_forventetNyttKullId.Value;
+            get => (QueryBuilderParameter<string>)_forventetNyttKullId.Value;
             set => _forventetNyttKullId = new() { Name = "forventetNyttKullId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("forventetNyKlasseId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("forventetNyKlasseId")]
-        public QueryBuilderParameter<Guid?> ForventetNyKlasseId
+        public QueryBuilderParameter<string> ForventetNyKlasseId
         {
-            get => (QueryBuilderParameter<Guid?>)_forventetNyKlasseId.Value;
+            get => (QueryBuilderParameter<string>)_forventetNyKlasseId.Value;
             set => _forventetNyKlasseId = new() { Name = "forventetNyKlasseId", Value = value };
         }
 

@@ -21,23 +21,23 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("emneId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("emneId")]
-        public QueryBuilderParameter<Guid?> EmneId
+        public QueryBuilderParameter<string> EmneId
         {
-            get => (QueryBuilderParameter<Guid?>)_emneId.Value;
+            get => (QueryBuilderParameter<string>)_emneId.Value;
             set => _emneId = new() { Name = "emneId", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("tekstkategoriId")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<Guid?>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("tekstkategoriId")]
-        public QueryBuilderParameter<Guid?> TekstkategoriId
+        public QueryBuilderParameter<string> TekstkategoriId
         {
-            get => (QueryBuilderParameter<Guid?>)_tekstkategoriId.Value;
+            get => (QueryBuilderParameter<string>)_tekstkategoriId.Value;
             set => _tekstkategoriId = new() { Name = "tekstkategoriId", Value = value };
         }
 

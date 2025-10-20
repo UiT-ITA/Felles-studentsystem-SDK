@@ -40,12 +40,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studieprogrammer")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("studieprogrammer")]
-        public QueryBuilderParameter<ICollection<Guid>> Studieprogrammer
+        public QueryBuilderParameter<ICollection<string>> Studieprogrammer
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_studieprogrammer.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_studieprogrammer.Value;
             set => _studieprogrammer = new() { Name = "studieprogrammer", Value = value };
         }
 
@@ -84,34 +84,34 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfiler")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personProfiler")]
-        public QueryBuilderParameter<ICollection<Guid>> PersonProfiler
+        public QueryBuilderParameter<ICollection<string>> PersonProfiler
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_personProfiler.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_personProfiler.Value;
             set => _personProfiler = new() { Name = "personProfiler", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("kull")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("kull")]
-        public QueryBuilderParameter<ICollection<Guid>> Kull
+        public QueryBuilderParameter<ICollection<string>> Kull
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_kull.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_kull.Value;
             set => _kull = new() { Name = "kull", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("klasser")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("klasser")]
-        public QueryBuilderParameter<ICollection<Guid>> Klasser
+        public QueryBuilderParameter<ICollection<string>> Klasser
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_klasser.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_klasser.Value;
             set => _klasser = new() { Name = "klasser", Value = value };
         }
 
@@ -128,12 +128,12 @@ namespace FS.SDK.GraphQL.Model
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("fsRoller")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<Guid>>))]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<string>>))]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("fsRoller")]
-        public QueryBuilderParameter<ICollection<Guid>> FsRoller
+        public QueryBuilderParameter<ICollection<string>> FsRoller
         {
-            get => (QueryBuilderParameter<ICollection<Guid>>)_fsRoller.Value;
+            get => (QueryBuilderParameter<ICollection<string>>)_fsRoller.Value;
             set => _fsRoller = new() { Name = "fsRoller", Value = value };
         }
 
