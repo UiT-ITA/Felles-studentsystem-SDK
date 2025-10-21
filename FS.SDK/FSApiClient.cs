@@ -102,12 +102,13 @@ public class FSApiClient : IDisposable
         _httpClient.Dispose();
     }
 
-    internal static void ValidateResult(QryResultStudieprogramHead response)
+    internal static FsSdkApiException? ValidateResult(QryResultStudieprogramHead response)
     {
         if (response.Errors is not null && response.Errors.Any())
-            throw new FsSdkApiException(
+            return new FsSdkApiException(
                 $"Query execution failed:{Environment.NewLine}{String.Join(Environment.NewLine, response.Errors.Select(e => $"{e.Message} (locations: {String.Join(";", e.Locations.Select(l => $"line: {l.Line}, column: {l.Column}"))})"))}"
             );
+        return null;
     }
 
 

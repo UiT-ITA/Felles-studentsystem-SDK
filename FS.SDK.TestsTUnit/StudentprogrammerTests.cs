@@ -10,20 +10,24 @@ public class StudentprogrammerTests(FSApiClient fsApiClient)
     public async Task Basic()
     {
         Console.WriteLine("This is a basic test");
-        await FS.SDK.StudieprogramInformasjon.GetAllStudieprogrammer<Studieprogram>(fsApiClient);
     }
 
-    //[Test]
-    //[Arguments(1, 2, 3)]
+    [Test]
+    [Arguments(1, 2, 3)]
     //[Arguments(2, 3, 5)]
-    //public async Task DataDrivenArguments(int a, int b, int c)
-    //{
-    //    Console.WriteLine("This one can accept arguments from an attribute");
+    public async Task DataDrivenArguments(int a, int b, int c)
+    {
 
-    //    var result = a + b;
 
-    //    await Assert.That(result).IsEqualTo(c);
-    //}
+        await FS.SDK.StudieprogramInformasjon.GetAllStudieprogrammer(fsApiClient);
+
+
+        //    Console.WriteLine("This one can accept arguments from an attribute");
+
+        var result = a + b;
+
+        await Assert.That(result).IsEqualTo(c);
+    }
 
     //[Test]
     //[MethodDataSource(nameof(DataSource))]
