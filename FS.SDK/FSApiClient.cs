@@ -57,9 +57,9 @@ public class FSApiClient : IDisposable
     /// <param name="cancellationToken"></param>
     /// <exception cref="FsSdkApiHttpException"></exception>
     /// <returns></returns>
-    //public Task<FsSdkApiQueryResponse?> Query(string query, CancellationToken cancellationToken = default) => Request<FsSdkApiQueryResponse>(query, cancellationToken);
+    public async Task<QryResultStudieprogramHead?> QueryStudieprogram(string query, CancellationToken cancellationToken = default) => await Request<QryResultStudieprogramHead?>(query, cancellationToken);
 
-    public async Task<TResult?> Request<TResult>(string query, CancellationToken cancellationToken)
+    private async Task<TResult?> Request<TResult>(string query, CancellationToken cancellationToken)
     {
 #if DEBUG
         Console.WriteLine(query);
@@ -102,7 +102,7 @@ public class FSApiClient : IDisposable
         _httpClient.Dispose();
     }
 
-    internal static void ValidateResult(FsSdkApiQueryResponse response)
+    internal static void ValidateResult(QryResultStudieprogramHead response)
     {
         if (response.Errors is not null && response.Errors.Any())
             throw new FsSdkApiException(
@@ -123,40 +123,6 @@ public class FSApiClient : IDisposable
 
     private static HttpContent JsonContent(object data) => new StringContent(JsonConvert.SerializeObject(data, settings: JsonSerializerSettings), Encoding.UTF8, "application/json");
 
-}
-
-
-
-public class FsSdkApiQueryResponse : GraphQlResponse<QueryData> { }
-
-public class QueryData
-{
-    [JsonPropertyName("studieprogramV2")]
-    public StudieprogramV2 studieprogramV2 { get; set; } = null!;
-}
-
-public class StudieprogramV2
-{
-    [JsonPropertyName("totalCount")]
-    public int totalCount { get; set; } = 0;
-    [JsonPropertyName("pageInfo")]
-    public PageInfo pageInfo { get; set; } = null!;
-
-
-    [JsonPropertyName("nodes")]
-    public IEnumerable<Studieprogram> nodes { get; set; } = null!;
-}
-
-public class PageInfo
-{
-    [JsonPropertyName("hasPreviousPage")]
-    public bool HasPreviousPage { get; set; } = false;
-    [JsonPropertyName("hasNextPage")]
-    public bool HasNextPage { get; set; } = false;
-    [JsonPropertyName("startCursor")]
-    public string StartCursor { get; set; } = string.Empty;
-    [JsonPropertyName("endCursor")]
-    public string EndCursor { get; set; } = string.Empty;
 }
 
 

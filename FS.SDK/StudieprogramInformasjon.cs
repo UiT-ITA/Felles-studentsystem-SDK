@@ -1,5 +1,6 @@
-﻿using GraphQlClientGenerator;
-using FS.SDK.GraphQL.Model;
+﻿using FS.SDK.GraphQL.Model;
+using GraphQlClientGenerator;
+using System.Text.Json.Serialization;
 
 namespace FS.SDK;
 
@@ -31,39 +32,72 @@ public static class StudieprogramInformasjon
     ///<returns></returns>
     public static async Task GetAllStudieprogrammer<T>(FSApiClient client, CancellationToken cancellationToken = default)
     {
-
         var filter = new StudieprogramV2FilterInput();
         filter.EierOrganisasjonskode = "186";
 
-        var qBuilder = new QueryQueryBuilder()
-            .WithStudieprogramV2(
-                new QueryStudieprogramV2ConnectionQueryBuilder()
-                    .WithAllScalarFields()
-                    .WithPageInfo(new PageInfoQueryBuilder()
+        int pageSize = 10;
+        string? after = null;
+        bool hasMore = true;
+
+        int pageCount = 0;
+
+        while (hasMore)
+        {
+
+            var qBuilder = new QueryQueryBuilder()
+                .WithStudieprogramV2(
+                    new QueryStudieprogramV2ConnectionQueryBuilder()
                         .WithAllScalarFields()
-                    )
-                    .WithNodes(new StudieprogramQueryBuilder()
-                        .WithAllScalarFields()
-                        .WithCampuser(new StudieprogramCampuserConnectionQueryBuilder()
+                        .WithPageInfo(new PageInfoQueryBuilder()
                             .WithAllScalarFields()
-                            )
-                    ),
-                filter: filter,
-                first: 10,
-                after: null)
-            .Build(formatting: FS.SDK.GraphQL.Model.Formatting.Indented);
+                        )
+                        .WithNodes(new StudieprogramQueryBuilder()
+                            .WithAllScalarFields()
+                            .WithCampuser(new StudieprogramCampuserConnectionQueryBuilder()
+                                .WithAllScalarFields()
+                                )
+                        ),
+                    filter: filter,
+                    first: pageSize,
+                    after: after)
+                .Build(formatting: FS.SDK.GraphQL.Model.Formatting.Indented);
 
-        //var query = new StudieprogramQueryBuilder()
-        //    .WithAllScalarFields()
-        //    .Build();
+            var result = await client.QueryStudieprogram(qBuilder, cancellationToken);
 
-        var result = await client.Request<FsSdkApiQueryResponse>(qBuilder, cancellationToken);
+            // TODO: Vurder å flytte dette til en samlende funksjon
+            if (result is null) throw new Exception("Result from QueryStudieprogram is null");
+            FSApiClient.ValidateResult(result);
 
-        // TODO: Vurder å flytte dette til en samlende funksjon
-        //if (result is null) return null;
-        FSApiClient.ValidateResult(result);
+            Console.WriteLine($"Page {pageCount + 1}: Retrieved {result.Data.studieprogramV2.nodes.Count()} studieprogrammer.");
+            hasMore = result.Data.studieprogramV2.pageInfo.HasNextPage ?? false;
+
+        }
+
+
         //return result;
 
     }
 
+
+
+}
+
+
+public class QryResultStudieprogramHead : GraphQlResponse<QueryDataStudieprogramV2> { }
+
+public class QueryDataStudieprogramV2
+{
+    [JsonPropertyName("studieprogramV2")]
+    public QryResultStudieprogramV2 studieprogramV2 { get; set; } = null!;
+}
+
+public class QryResultStudieprogramV2
+{
+    [JsonPropertyName("totalCount")]
+    public int totalCount { get; set; } = 0;
+    [JsonPropertyName("pageInfo")]
+    public PageInfo pageInfo { get; set; } = null!;
+
+    [JsonPropertyName("nodes")]
+    public IEnumerable<Studieprogram> nodes { get; set; } = null!;
 }
