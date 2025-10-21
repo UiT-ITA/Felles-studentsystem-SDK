@@ -34,10 +34,6 @@ public static class StudieprogramInformasjon
     public static async Task<(List<Studieprogram>, Exception?)> GetAllStudieprogrammer(FSApiClient client, CancellationToken cancellationToken = default)
     {
         // Prepare
-        //var filter = new StudieprogramV2FilterInput() 
-        //{ 
-        //    EierOrganisasjonskode = "186"
-        //};
         var filter = new PubliseringsklareStudieprogramFilter
         {
             EierInstitusjonsnummer = "186",
@@ -78,6 +74,8 @@ public static class StudieprogramInformasjon
                     )
                 .Build(formatting: FS.SDK.GraphQL.Model.Formatting.Indented);
 
+
+
             // Run it
             var result = await client.QueryStudieprogram(qBuilder, cancellationToken);
 
@@ -86,27 +84,139 @@ public static class StudieprogramInformasjon
             if (FSApiClient.ValidateResult(result) != null) return (allStudieprogrammer, FSApiClient.ValidateResult(result));
 
             // Next page
-            hasMore = result.Data.studieprogramV2.pageInfo.HasNextPage ?? false;
-            after = result.Data.studieprogramV2.pageInfo.EndCursor;
+            hasMore = result.Data.publiseringsklareStudieprogram.pageInfo.HasNextPage ?? false;
+            after = result.Data.publiseringsklareStudieprogram.pageInfo.EndCursor;
 
             // Extract data
-            result.Data.studieprogramV2.nodes.ToList().ForEach(sp => { allStudieprogrammer.Add(sp); });
+            result.Data.publiseringsklareStudieprogram.nodes.ToList().ForEach(sp => { allStudieprogrammer.Add(sp); });
         }
 
         return (allStudieprogrammer, null);
     }
+    public static async Task<(List<Studieprogram>, Exception?)> GetAllStudieprogrammerRaw(FSApiClient client, CancellationToken cancellationToken = default)
+    {
+
+        List<Studieprogram> allStudieprogrammer = new List<Studieprogram>();
+
+        // Iterate pages
+        string? after = null;
+        bool hasMore = true;
+
+        while (hasMore)
+        {
+            var qBuilder = RawQueryBuilder.Build(
+                QueryPubliseringsklareStudieprogram,
+                eierInstitusjonsnummer: "186",
+                terminBetegnelse: "HØST",
+                aarstall: 2024,
+                first: 10,
+                after: after
+                );
+
+            // Run it
+            var result = await client.QueryStudieprogram(qBuilder, cancellationToken);
+
+            // Evaluate
+            if (result is null) return (allStudieprogrammer, new Exception("Result from QueryStudieprogram is null"));
+            if (FSApiClient.ValidateResult(result) != null) return (allStudieprogrammer, FSApiClient.ValidateResult(result));
+
+            // Next page
+            hasMore = result.Data.publiseringsklareStudieprogram.pageInfo.HasNextPage ?? false;
+            after = result.Data.publiseringsklareStudieprogram.pageInfo.EndCursor;
+
+            // Extract data
+            result.Data.publiseringsklareStudieprogram.nodes.ToList().ForEach(sp => { allStudieprogrammer.Add(sp); });
+
+        }
+
+        return (allStudieprogrammer, null);
+    }
+
+
+    private static string QueryPubliseringsklareStudieprogram = """
+        query publiseringAvStudieprograminformasjon {
+        publiseringsklareStudieprogram(
+            parameter_filtersection
+                ) {
+            pageInfo {
+              endCursor
+              hasNextPage
+            }
+            nodes {
+              studieprogram {
+                id
+                kode
+                navnAlleSprak {nb}
+                vekting {
+                  verdi
+                  vektingstype {
+                    navnAlleSprak {nb}
+                  }
+                }
+                organisasjonsenhet {
+                  studieansvarlig {
+                    fakultet {
+                      fakultetsnummer
+                      navn { nb }
+                    }
+                  }
+                }
+                campuser {
+                  nodes
+                  {
+                    campus {
+                      kode
+                      navnAlleSprak {nb}
+                    }
+                  }
+                }
+                sprak {
+                  sprak {
+                    navn {no}
+                    iso6392Kode
+                  }
+                }
+                studieniva {
+                  kode
+                  navnAlleSprak {nb}
+                }
+                prosentHeltid
+              }
+              beskrivelsesavsnitt {
+                tekstkategori {
+                  kode
+                  navnAlleSprak {nb}
+                }
+                periode {
+                  fraTermin {
+                    arstall
+                    betegnelse { kode }
+                  }
+                }
+
+                sprak {
+                  iso6391Kode
+                }
+                innhold
+              }
+            }
+          }
+        }
+        """;
+
 }
+
 
 
 public class QryResultStudieprogramHead : GraphQlResponse<QueryData_publiseringsklareStudieprogram> { }
 
 public class QueryData_publiseringsklareStudieprogram
 {
-    [JsonPropertyName("studieprogramV2")]
-    public QryResultStudieprogramV2 studieprogramV2 { get; set; } = null!;
+    [JsonPropertyName("publiseringsklareStudieprogram")]
+    public QryResultpubliseringsklareStudieprogram publiseringsklareStudieprogram { get; set; } = null!;
 }
 
-public class QryResultStudieprogramV2
+public class QryResultpubliseringsklareStudieprogram
 {
     [JsonPropertyName("totalCount")]
     public int totalCount { get; set; } = 0;

@@ -19,8 +19,9 @@ public class StudentprogrammerTests(FSApiClient fsApiClient)
     {
 
 
-        await FS.SDK.StudieprogramInformasjon.GetAllStudieprogrammer(fsApiClient);
-
+        //await FS.SDK.StudieprogramInformasjon.GetAllStudieprogrammer(fsApiClient);
+        await FS.SDK.StudieprogramInformasjon.GetAllStudieprogrammerRaw(fsApiClient);
+        
 
         //    Console.WriteLine("This one can accept arguments from an attribute");
 
