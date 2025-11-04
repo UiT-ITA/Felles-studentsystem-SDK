@@ -36,7 +36,8 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "antallPlasser" },
             new() { Name = "erFellesaktivitet" },
             new() { Name = "campus", IsComplex = true, QueryBuilderType = typeof(CampusQueryBuilder) },
-            new() { Name = "skalEksporteresTilTimeplansystem" }
+            new() { Name = "skalEksporteresTilTimeplansystem" },
+            new() { Name = "timeplaner", IsComplex = true, QueryBuilderType = typeof(UndervisningsaktivitetTimeplanerConnectionQueryBuilder) }
         };
 
         protected override string TypeName => "Undervisningsaktivitet";
@@ -137,5 +138,19 @@ namespace FS.SDK.GraphQL.Model
         public UndervisningsaktivitetQueryBuilder WithSkalEksporteresTilTimeplansystem(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("skalEksporteresTilTimeplansystem", alias, [include, skip]);
 
         public UndervisningsaktivitetQueryBuilder ExceptSkalEksporteresTilTimeplansystem() => ExceptField("skalEksporteresTilTimeplansystem");
+
+        public UndervisningsaktivitetQueryBuilder WithTimeplaner(UndervisningsaktivitetTimeplanerConnectionQueryBuilder undervisningsaktivitetTimeplanerConnectionQueryBuilder, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            if (first != null)
+                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
+
+            if (after != null)
+                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
+
+            return WithObjectField("timeplaner", alias, undervisningsaktivitetTimeplanerConnectionQueryBuilder, [include, skip], args);
+        }
+
+        public UndervisningsaktivitetQueryBuilder ExceptTimeplaner() => ExceptField("timeplaner");
     }
 }

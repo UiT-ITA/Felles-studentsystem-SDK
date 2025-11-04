@@ -30,7 +30,8 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "varighet", IsComplex = true, QueryBuilderType = typeof(StudieoppbygningsdelVarighetQueryBuilder) },
             new() { Name = "studieretning", IsComplex = true, QueryBuilderType = typeof(StudieretningQueryBuilder) },
             new() { Name = "standardEmnekategori", IsComplex = true, QueryBuilderType = typeof(EmnekategoriQueryBuilder) },
-            new() { Name = "ansvarligOrganisasjonsenhet", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetQueryBuilder) }
+            new() { Name = "ansvarligOrganisasjonsenhet", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetQueryBuilder) },
+            new() { Name = "children", IsComplex = true, QueryBuilderType = typeof(StudieoppbygningsdelChildrenConnectionQueryBuilder) }
         };
 
         protected override string TypeName => "Studieoppbygningsdel";
@@ -100,5 +101,19 @@ namespace FS.SDK.GraphQL.Model
         public StudieoppbygningsdelQueryBuilder WithAnsvarligOrganisasjonsenhet(OrganisasjonsenhetQueryBuilder organisasjonsenhetQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("ansvarligOrganisasjonsenhet", alias, organisasjonsenhetQueryBuilder, [include, skip]);
 
         public StudieoppbygningsdelQueryBuilder ExceptAnsvarligOrganisasjonsenhet() => ExceptField("ansvarligOrganisasjonsenhet");
+
+        public StudieoppbygningsdelQueryBuilder WithChildren(StudieoppbygningsdelChildrenConnectionQueryBuilder studieoppbygningsdelChildrenConnectionQueryBuilder, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            if (first != null)
+                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
+
+            if (after != null)
+                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
+
+            return WithObjectField("children", alias, studieoppbygningsdelChildrenConnectionQueryBuilder, [include, skip], args);
+        }
+
+        public StudieoppbygningsdelQueryBuilder ExceptChildren() => ExceptField("children");
     }
 }

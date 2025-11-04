@@ -100,10 +100,10 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("studieansvarligOrganisasjonsenhet")]
         public Organisasjonsenhet StudieansvarligOrganisasjonsenhet { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("kull")]
+        [JsonProperty("kullV2")]
         #endif
-        [System.Text.Json.Serialization.JsonPropertyName("kull")]
-        public StudieprogramKullConnection Kull { get; set; }
+        [System.Text.Json.Serialization.JsonPropertyName("kullV2")]
+        public StudieprogramKullV2Connection KullV2 { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("skalEksporteresTilLms")]
         #endif

@@ -11,19 +11,19 @@ using Newtonsoft.Json;
 
 namespace FS.SDK.GraphQL.Model
 {
-    public partial class DbhNivanavnAlleSprakQueryBuilder : GraphQlQueryBuilder<DbhNivanavnAlleSprakQueryBuilder>
+    public partial class DbhNivaNavnAlleSprakQueryBuilder : GraphQlQueryBuilder<DbhNivaNavnAlleSprakQueryBuilder>
     {
         private static readonly GraphQlFieldMetadata[] AllFieldMetadata =
         {
             new() { Name = "und" }
         };
 
-        protected override string TypeName => "DbhNivanavnAlleSprak";
+        protected override string TypeName => "DbhNivaNavnAlleSprak";
 
         public override IReadOnlyList<GraphQlFieldMetadata> AllFields => AllFieldMetadata;
 
-        public DbhNivanavnAlleSprakQueryBuilder WithUnd(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("und", alias, [include, skip]);
+        public DbhNivaNavnAlleSprakQueryBuilder WithUnd(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("und", alias, [include, skip]);
 
-        public DbhNivanavnAlleSprakQueryBuilder ExceptUnd() => ExceptField("und");
+        public DbhNivaNavnAlleSprakQueryBuilder ExceptUnd() => ExceptField("und");
     }
 }

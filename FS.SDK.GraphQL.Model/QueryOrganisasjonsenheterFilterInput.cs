@@ -15,8 +15,8 @@ namespace FS.SDK.GraphQL.Model
     {
         private InputPropertyInfo _eierOrganisasjonskode;
         private InputPropertyInfo _organisasjonskode;
-        private InputPropertyInfo _skalEksporteresTilLms;
         private InputPropertyInfo _erAktiv;
+        private InputPropertyInfo _skalEksporteresTilLms;
         private InputPropertyInfo _organisasjoner;
         private InputPropertyInfo _fakulteter;
         private InputPropertyInfo _instituttkode;
@@ -46,17 +46,6 @@ namespace FS.SDK.GraphQL.Model
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("skalEksporteresTilLms")]
-        [JsonConverter(typeof(QueryBuilderParameterConverter<bool?>))]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("skalEksporteresTilLms")]
-        public QueryBuilderParameter<bool?> SkalEksporteresTilLms
-        {
-            get => (QueryBuilderParameter<bool?>)_skalEksporteresTilLms.Value;
-            set => _skalEksporteresTilLms = new() { Name = "skalEksporteresTilLms", Value = value };
-        }
-
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("erAktiv")]
         [JsonConverter(typeof(QueryBuilderParameterConverter<ICollection<bool>>))]
         #endif
@@ -65,6 +54,17 @@ namespace FS.SDK.GraphQL.Model
         {
             get => (QueryBuilderParameter<ICollection<bool>>)_erAktiv.Value;
             set => _erAktiv = new() { Name = "erAktiv", Value = value };
+        }
+
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("skalEksporteresTilLms")]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<bool?>))]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("skalEksporteresTilLms")]
+        public QueryBuilderParameter<bool?> SkalEksporteresTilLms
+        {
+            get => (QueryBuilderParameter<bool?>)_skalEksporteresTilLms.Value;
+            set => _skalEksporteresTilLms = new() { Name = "skalEksporteresTilLms", Value = value };
         }
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
@@ -126,8 +126,8 @@ namespace FS.SDK.GraphQL.Model
         {
             if (_eierOrganisasjonskode.Name != null) yield return _eierOrganisasjonskode;
             if (_organisasjonskode.Name != null) yield return _organisasjonskode;
-            if (_skalEksporteresTilLms.Name != null) yield return _skalEksporteresTilLms;
             if (_erAktiv.Name != null) yield return _erAktiv;
+            if (_skalEksporteresTilLms.Name != null) yield return _skalEksporteresTilLms;
             if (_organisasjoner.Name != null) yield return _organisasjoner;
             if (_fakulteter.Name != null) yield return _fakulteter;
             if (_instituttkode.Name != null) yield return _instituttkode;

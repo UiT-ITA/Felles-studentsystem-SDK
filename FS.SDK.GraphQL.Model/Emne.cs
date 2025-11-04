@@ -105,6 +105,11 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("beskrivelsesavsnitt")]
         public EmneBeskrivelsesavsnittConnection Beskrivelsesavsnitt { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("sprakvalg")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("sprakvalg")]
+        public ICollection<EmneSprakvalg> Sprakvalg { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("undervisningsenheter")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("undervisningsenheter")]
@@ -114,11 +119,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("tjenestenummerForLms")]
         public string TjenestenummerForLms { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("sprakvalg")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("sprakvalg")]
-        public ICollection<EmneSprakvalg> Sprakvalg { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("administrativtAnsvarligOrganisasjonsenhet")]
         #endif

@@ -25,10 +25,10 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("dbhNivakode")]
         public string DbhNivakode { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("dbhNivanavn")]
+        [JsonProperty("dbhNivaNavnAlleSprak")]
         #endif
-        [System.Text.Json.Serialization.JsonPropertyName("dbhNivanavn")]
-        public DbhNivanavnAlleSprak DbhNivanavn { get; set; }
+        [System.Text.Json.Serialization.JsonPropertyName("dbhNivaNavnAlleSprak")]
+        public DbhNivaNavnAlleSprak DbhNivaNavnAlleSprak { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("dbhNivaBeskrivelse")]
         #endif

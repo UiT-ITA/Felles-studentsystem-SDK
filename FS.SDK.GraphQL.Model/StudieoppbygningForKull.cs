@@ -39,5 +39,15 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("kanPubliseres")]
         public bool? KanPubliseres { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("alleOppbygningsdelerV2")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("alleOppbygningsdelerV2")]
+        public StudieoppbygningForKullAlleOppbygningsdelerV2Connection AlleOppbygningsdelerV2 { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("toppStudieoppbygningsdel")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("toppStudieoppbygningsdel")]
+        public Studieoppbygningsdel ToppStudieoppbygningsdel { get; set; }
     }
 }

@@ -94,5 +94,10 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("ansvarligOrganisasjonsenhet")]
         public Organisasjonsenhet AnsvarligOrganisasjonsenhet { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("children")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("children")]
+        public StudieoppbygningsdelChildrenConnection Children { get; set; }
     }
 }

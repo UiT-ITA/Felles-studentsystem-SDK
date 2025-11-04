@@ -28,7 +28,7 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("kommisjon")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("kommisjon")]
-        public ICollection<Kommisjon> Kommisjon { get; set; }
+        public ICollection<Sensurkommisjon> Kommisjon { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("sensorrolle")]
         #endif

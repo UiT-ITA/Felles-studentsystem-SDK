@@ -13,16 +13,16 @@ namespace FS.SDK.GraphQL.Model
 {
     public enum PersonProfilhendelsestype
     {
+        [EnumMember(Value = "PERSONPROFIL_ENDRET_PRIVAT_EPOST")] PersonprofilEndretPrivatEpost,
+        [EnumMember(Value = "PERSONPROFIL_ENDRET_INSTITUSJONSEPOST")] PersonprofilEndretInstitusjonsepost,
+        [EnumMember(Value = "PERSONPROFIL_ENDRET_ARBEIDSEPOST")] PersonprofilEndretArbeidsepost,
+        [EnumMember(Value = "PERSONPROFIL_ENDRET_NAVN")] PersonprofilEndretNavn,
+        [EnumMember(Value = "PERSONPROFIL_ENDRET_FODSELSNUMMER")] PersonprofilEndretFodselsnummer,
         [EnumMember(Value = "PERSONPROFIL_DODSFALL")] PersonprofilDodsfall,
         [EnumMember(Value = "PERSONPROFIL_DODSFALL_ANNULLERT")] PersonprofilDodsfallAnnullert,
         [EnumMember(Value = "PERSONPROFIL_KAN_EKSPORTERES_LMS")] PersonprofilKanEksporteresLms,
         [EnumMember(Value = "PERSONPROFIL_KAN_IKKE_LENGER_EKSPORTERES_LMS")] PersonprofilKanIkkeLengerEksporteresLms,
-        [EnumMember(Value = "PERSONPROFIL_ENDRET_PRIVAT_EPOST")] PersonprofilEndretPrivatEpost,
-        [EnumMember(Value = "PERSONPROFIL_ENDRET_INSTITUSJONSEPOST")] PersonprofilEndretInstitusjonsepost,
-        [EnumMember(Value = "PERSONPROFIL_ENDRET_ARBEIDSEPOST")] PersonprofilEndretArbeidsepost,
         [EnumMember(Value = "PERSONPROFIL_ENDRET_FEIDE_BRUKER")] PersonprofilEndretFeideBruker,
-        [EnumMember(Value = "PERSONPROFIL_ENDRET_NAVN")] PersonprofilEndretNavn,
-        [EnumMember(Value = "PERSONPROFIL_ENDRET_FODSELSNUMMER")] PersonprofilEndretFodselsnummer,
         [EnumMember(Value = "PERSONPROFIL_OPPRETTET")] PersonprofilOpprettet
     }
 }

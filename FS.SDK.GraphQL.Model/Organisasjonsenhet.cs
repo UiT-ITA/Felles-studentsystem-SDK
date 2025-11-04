@@ -20,6 +20,11 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("id")]
         public string Id { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("parent")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("parent")]
+        public Organisasjonsenhet Parent { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("navnAlleSprak")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("navnAlleSprak")]
@@ -45,6 +50,11 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("instituttnummer")]
         public string Instituttnummer { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("gruppenummer")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("gruppenummer")]
+        public string Gruppenummer { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("erAktiv")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("erAktiv")]
@@ -60,11 +70,6 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("lmsRomkode")]
         public string LmsRomkode { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("gruppenummer")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("gruppenummer")]
-        public string Gruppenummer { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personroller")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personroller")]
@@ -79,11 +84,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("institutt")]
         public Organisasjonsenhet Institutt { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("parent")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("parent")]
-        public Organisasjonsenhet Parent { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("postadresse")]
         #endif

@@ -29,7 +29,7 @@ Klassebibliotek som har som mål å løfte seg opp fra komplisert GraphQl, til m
 
 ## Secrets
 - 1Password vault navn: "FS.SDK.NET"
-- Hvem har tilgang: Raymond Andreassen, Anders Kjølberg,
+- Hvem har tilgang: Raymond Andreassen
 - FS.SDK.GraphQL.Generator, appsettings.json (gitignore)
 - FS.SDK.TestsTUnit, appsettings.json (gitignore)
 

@@ -124,5 +124,10 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("skalEksporteresTilTimeplansystem")]
         public bool? SkalEksporteresTilTimeplansystem { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("timeplaner")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("timeplaner")]
+        public UndervisningsaktivitetTimeplanerConnection Timeplaner { get; set; }
     }
 }

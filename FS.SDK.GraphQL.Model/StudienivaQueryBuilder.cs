@@ -18,9 +18,9 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "id" },
             new() { Name = "kode" },
             new() { Name = "navnAlleSprak", IsComplex = true, QueryBuilderType = typeof(StudienivanavnAlleSprakQueryBuilder) },
+            new() { Name = "dbhNiva", IsComplex = true, QueryBuilderType = typeof(DbhNivaQueryBuilder) },
             new() { Name = "eqfnivakode" },
-            new() { Name = "nkrsyklus", IsComplex = true, QueryBuilderType = typeof(NkrsyklusQueryBuilder) },
-            new() { Name = "dbhNiva", IsComplex = true, QueryBuilderType = typeof(DbhNivaQueryBuilder) }
+            new() { Name = "nkrsyklus", IsComplex = true, QueryBuilderType = typeof(NkrsyklusQueryBuilder) }
         };
 
         protected override string TypeName => "Studieniva";
@@ -39,6 +39,10 @@ namespace FS.SDK.GraphQL.Model
 
         public StudienivaQueryBuilder ExceptNavnAlleSprak() => ExceptField("navnAlleSprak");
 
+        public StudienivaQueryBuilder WithDbhNiva(DbhNivaQueryBuilder dbhNivaQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("dbhNiva", alias, dbhNivaQueryBuilder, [include, skip]);
+
+        public StudienivaQueryBuilder ExceptDbhNiva() => ExceptField("dbhNiva");
+
         public StudienivaQueryBuilder WithEqfnivakode(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("eqfnivakode", alias, [include, skip]);
 
         public StudienivaQueryBuilder ExceptEqfnivakode() => ExceptField("eqfnivakode");
@@ -46,9 +50,5 @@ namespace FS.SDK.GraphQL.Model
         public StudienivaQueryBuilder WithNkrsyklus(NkrsyklusQueryBuilder nkrsyklusQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("nkrsyklus", alias, nkrsyklusQueryBuilder, [include, skip]);
 
         public StudienivaQueryBuilder ExceptNkrsyklus() => ExceptField("nkrsyklus");
-
-        public StudienivaQueryBuilder WithDbhNiva(DbhNivaQueryBuilder dbhNivaQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("dbhNiva", alias, dbhNivaQueryBuilder, [include, skip]);
-
-        public StudienivaQueryBuilder ExceptDbhNiva() => ExceptField("dbhNiva");
     }
 }

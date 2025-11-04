@@ -40,15 +40,15 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("bibliotek")]
         public Bibliotek Bibliotek { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("erAktiv")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("erAktiv")]
-        public bool? ErAktiv { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("klasser")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("klasser")]
         public KullKlasserConnection Klasser { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("erAktiv")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("erAktiv")]
+        public bool? ErAktiv { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("skalEksporteresTilLms")]
         #endif

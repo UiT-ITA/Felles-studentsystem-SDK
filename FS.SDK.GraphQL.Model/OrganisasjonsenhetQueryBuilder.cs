@@ -16,19 +16,19 @@ namespace FS.SDK.GraphQL.Model
         private static readonly GraphQlFieldMetadata[] AllFieldMetadata =
         {
             new() { Name = "id" },
+            new() { Name = "parent", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetQueryBuilder) },
             new() { Name = "navnAlleSprak", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetnavnAlleSprakQueryBuilder) },
             new() { Name = "organisasjon", IsComplex = true, QueryBuilderType = typeof(OrganisasjonQueryBuilder) },
             new() { Name = "fakultet", IsComplex = true, QueryBuilderType = typeof(FakultetQueryBuilder) },
             new() { Name = "bibliotek", IsComplex = true, QueryBuilderType = typeof(BibliotekQueryBuilder) },
             new() { Name = "instituttnummer" },
+            new() { Name = "gruppenummer" },
             new() { Name = "erAktiv" },
             new() { Name = "skalEksporteresTilLms" },
             new() { Name = "lmsRomkode" },
-            new() { Name = "gruppenummer" },
             new() { Name = "personroller", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetPersonrollerConnectionQueryBuilder) },
             new() { Name = "utvekslingsavtaler", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetUtvekslingsavtalerConnectionQueryBuilder) },
             new() { Name = "institutt", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetQueryBuilder) },
-            new() { Name = "parent", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetQueryBuilder) },
             new() { Name = "postadresse", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetPostadresseQueryBuilder) },
             new() { Name = "besoksadresse", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetBesoksAdresseQueryBuilder) },
             new() { Name = "merknad", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetMerknadQueryBuilder) }
@@ -41,6 +41,10 @@ namespace FS.SDK.GraphQL.Model
         public OrganisasjonsenhetQueryBuilder WithId(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("id", alias, [include, skip]);
 
         public OrganisasjonsenhetQueryBuilder ExceptId() => ExceptField("id");
+
+        public OrganisasjonsenhetQueryBuilder WithParent(OrganisasjonsenhetQueryBuilder organisasjonsenhetQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("parent", alias, organisasjonsenhetQueryBuilder, [include, skip]);
+
+        public OrganisasjonsenhetQueryBuilder ExceptParent() => ExceptField("parent");
 
         public OrganisasjonsenhetQueryBuilder WithNavnAlleSprak(OrganisasjonsenhetnavnAlleSprakQueryBuilder organisasjonsenhetnavnAlleSprakQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("navnAlleSprak", alias, organisasjonsenhetnavnAlleSprakQueryBuilder, [include, skip]);
 
@@ -69,6 +73,10 @@ namespace FS.SDK.GraphQL.Model
 
         public OrganisasjonsenhetQueryBuilder ExceptInstituttnummer() => ExceptField("instituttnummer");
 
+        public OrganisasjonsenhetQueryBuilder WithGruppenummer(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("gruppenummer", alias, [include, skip]);
+
+        public OrganisasjonsenhetQueryBuilder ExceptGruppenummer() => ExceptField("gruppenummer");
+
         public OrganisasjonsenhetQueryBuilder WithErAktiv(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("erAktiv", alias, [include, skip]);
 
         public OrganisasjonsenhetQueryBuilder ExceptErAktiv() => ExceptField("erAktiv");
@@ -80,10 +88,6 @@ namespace FS.SDK.GraphQL.Model
         public OrganisasjonsenhetQueryBuilder WithLmsRomkode(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("lmsRomkode", alias, [include, skip]);
 
         public OrganisasjonsenhetQueryBuilder ExceptLmsRomkode() => ExceptField("lmsRomkode");
-
-        public OrganisasjonsenhetQueryBuilder WithGruppenummer(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("gruppenummer", alias, [include, skip]);
-
-        public OrganisasjonsenhetQueryBuilder ExceptGruppenummer() => ExceptField("gruppenummer");
 
         public OrganisasjonsenhetQueryBuilder WithPersonroller(OrganisasjonsenhetPersonrollerConnectionQueryBuilder organisasjonsenhetPersonrollerConnectionQueryBuilder, QueryBuilderParameter<OrganisasjonsenhetsrollepersonrollerFilter> filter = null, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
@@ -122,10 +126,6 @@ namespace FS.SDK.GraphQL.Model
         public OrganisasjonsenhetQueryBuilder WithInstitutt(OrganisasjonsenhetQueryBuilder organisasjonsenhetQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("institutt", alias, organisasjonsenhetQueryBuilder, [include, skip]);
 
         public OrganisasjonsenhetQueryBuilder ExceptInstitutt() => ExceptField("institutt");
-
-        public OrganisasjonsenhetQueryBuilder WithParent(OrganisasjonsenhetQueryBuilder organisasjonsenhetQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("parent", alias, organisasjonsenhetQueryBuilder, [include, skip]);
-
-        public OrganisasjonsenhetQueryBuilder ExceptParent() => ExceptField("parent");
 
         public OrganisasjonsenhetQueryBuilder WithPostadresse(OrganisasjonsenhetPostadresseQueryBuilder organisasjonsenhetPostadresseQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("postadresse", alias, organisasjonsenhetPostadresseQueryBuilder, [include, skip]);
 

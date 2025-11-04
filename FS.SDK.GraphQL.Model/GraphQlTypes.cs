@@ -138,7 +138,7 @@ namespace FS.SDK.GraphQL.Model
         public const string DatoBeregnetSluttManglerForPhd = "DatoBeregnetSluttManglerForPhd";
         public const string DbhNiva = "DbhNiva";
         public const string DbhNivabeskrivelseAlleSprak = "DbhNivabeskrivelseAlleSprak";
-        public const string DbhNivanavnAlleSprak = "DbhNivanavnAlleSprak";
+        public const string DbhNivaNavnAlleSprak = "DbhNivaNavnAlleSprak";
         public const string DeaktiverFagpersonerPayload = "DeaktiverFagpersonerPayload";
         public const string DeaktiverKullPayload = "DeaktiverKullPayload";
         public const string DeltakerVedLarested = "DeltakerVedLarested";
@@ -446,7 +446,6 @@ namespace FS.SDK.GraphQL.Model
         public const string KlasseSkalEksporteresTilLms = "KlasseSkalEksporteresTilLms";
         public const string KlasseStudenterIKlasseConnection = "KlasseStudenterIKlasseConnection";
         public const string KlasseStudenterIKlasseConnectionEdge = "KlasseStudenterIKlasseConnectionEdge";
-        public const string Kommisjon = "Kommisjon";
         public const string Kravelement = "Kravelement";
         public const string KravelementnavnAlleSprak = "KravelementnavnAlleSprak";
         public const string KriseKontaktperson = "KriseKontaktperson";
@@ -619,6 +618,8 @@ namespace FS.SDK.GraphQL.Model
         public const string QueryBrukereConnectionEdge = "QueryBrukereConnectionEdge";
         public const string QueryBygningerConnection = "QueryBygningerConnection";
         public const string QueryBygningerConnectionEdge = "QueryBygningerConnectionEdge";
+        public const string QueryCampusEmnerConnection = "QueryCampusEmnerConnection";
+        public const string QueryCampusEmnerConnectionEdge = "QueryCampusEmnerConnectionEdge";
         public const string QueryCampuserConnection = "QueryCampuserConnection";
         public const string QueryCampuserConnectionEdge = "QueryCampuserConnectionEdge";
         public const string QueryCampusUndervisningsenheterConnection = "QueryCampusUndervisningsenheterConnection";
@@ -741,6 +742,8 @@ namespace FS.SDK.GraphQL.Model
         public const string QuerySemesterregistreringerConnectionEdge = "QuerySemesterregistreringerConnectionEdge";
         public const string QuerySemesterregistreringshendelserConnection = "QuerySemesterregistreringshendelserConnection";
         public const string QuerySemesterregistreringshendelserConnectionEdge = "QuerySemesterregistreringshendelserConnectionEdge";
+        public const string QuerySensurkommisjonerConnection = "QuerySensurkommisjonerConnection";
+        public const string QuerySensurkommisjonerConnectionEdge = "QuerySensurkommisjonerConnectionEdge";
         public const string QuerySisOpptakConnection = "QuerySisOpptakConnection";
         public const string QuerySisOpptakConnectionEdge = "QuerySisOpptakConnectionEdge";
         public const string QuerySisOpptaksterminerConnection = "QuerySisOpptaksterminerConnection";
@@ -877,6 +880,7 @@ namespace FS.SDK.GraphQL.Model
         public const string RegistrerUndervisningstilpasningerPayload = "RegistrerUndervisningstilpasningerPayload";
         public const string RegistrerUtdanningsregisterIderForEmnePayload = "RegistrerUtdanningsregisterIderForEmnePayload";
         public const string RegistrerUtdanningsregisterIderForStudieprogramPayload = "RegistrerUtdanningsregisterIderForStudieprogramPayload";
+        public const string RegistrerUtdanningsregisterIdForCampusUndervisningsenhetPayload = "RegistrerUtdanningsregisterIdForCampusUndervisningsenhetPayload";
         public const string RegistrerUtdanningsregisterIdForKullcampusPayload = "RegistrerUtdanningsregisterIdForKullcampusPayload";
         public const string RegistrerVedtakOmEkstraVurderingsforsokPayload = "RegistrerVedtakOmEkstraVurderingsforsokPayload";
         public const string RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerPayload = "RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerPayload";
@@ -912,6 +916,8 @@ namespace FS.SDK.GraphQL.Model
         public const string Sensoroppdrag = "Sensoroppdrag";
         public const string Sensorrolle = "Sensorrolle";
         public const string Sensurinformasjon = "Sensurinformasjon";
+        public const string Sensurkommisjon = "Sensurkommisjon";
+        public const string SensurkommisjonsnavnAlleSprak = "SensurkommisjonsnavnAlleSprak";
         public const string SettTilDatoForProgramStudieretterPayload = "SettTilDatoForProgramStudieretterPayload";
         public const string SisOpptaksgruppe = "SisOpptaksgruppe";
         public const string SlettGodkjentePolitiattesterPayload = "SlettGodkjentePolitiattesterPayload";
@@ -994,7 +1000,11 @@ namespace FS.SDK.GraphQL.Model
         public const string StudieoppbyggingIStudieoppbygningKullperiode = "StudieoppbyggingIStudieoppbygningKullperiode";
         public const string StudieoppbygningdelbeskrivelseAlleSprak = "StudieoppbygningdelbeskrivelseAlleSprak";
         public const string StudieoppbygningForKull = "StudieoppbygningForKull";
+        public const string StudieoppbygningForKullAlleOppbygningsdelerV2Connection = "StudieoppbygningForKullAlleOppbygningsdelerV2Connection";
+        public const string StudieoppbygningForKullAlleOppbygningsdelerV2ConnectionEdge = "StudieoppbygningForKullAlleOppbygningsdelerV2ConnectionEdge";
         public const string Studieoppbygningsdel = "Studieoppbygningsdel";
+        public const string StudieoppbygningsdelChildrenConnection = "StudieoppbygningsdelChildrenConnection";
+        public const string StudieoppbygningsdelChildrenConnectionEdge = "StudieoppbygningsdelChildrenConnectionEdge";
         public const string StudieoppbygningsdelEmneprioritering = "StudieoppbygningsdelEmneprioritering";
         public const string StudieoppbygningsdelFrieEmnevalg = "StudieoppbygningsdelFrieEmnevalg";
         public const string StudieoppbygningsdelIHierarki = "StudieoppbygningsdelIHierarki";
@@ -1003,6 +1013,8 @@ namespace FS.SDK.GraphQL.Model
         public const string StudieoppbygningsdelVarighet = "StudieoppbygningsdelVarighet";
         public const string StudieoppbygningsdelVeivalg = "StudieoppbygningsdelVeivalg";
         public const string StudieoppbygningsdelVektingskrav = "StudieoppbygningsdelVektingskrav";
+        public const string Studieoppbygningskobling = "Studieoppbygningskobling";
+        public const string StudieoppbygningskoblingKullperiode = "StudieoppbygningskoblingKullperiode";
         public const string StudiepoengIUtdanningsplan = "StudiepoengIUtdanningsplan";
         public const string Studieprogram = "Studieprogram";
         public const string StudieprogramAnsvarligeOrganisasjonsenheter = "StudieprogramAnsvarligeOrganisasjonsenheter";
@@ -1028,6 +1040,8 @@ namespace FS.SDK.GraphQL.Model
         public const string Studieprogramkategorinavn = "Studieprogramkategorinavn";
         public const string StudieprogramKullConnection = "StudieprogramKullConnection";
         public const string StudieprogramKullConnectionEdge = "StudieprogramKullConnectionEdge";
+        public const string StudieprogramKullV2Connection = "StudieprogramKullV2Connection";
+        public const string StudieprogramKullV2ConnectionEdge = "StudieprogramKullV2ConnectionEdge";
         public const string StudieprogramLmsRommalkodeEndret = "StudieprogramLmsRommalkodeEndret";
         public const string StudieprogramnavnAlleSprak = "StudieprogramnavnAlleSprak";
         public const string StudieprogramNavnehistorikk = "StudieprogramNavnehistorikk";
@@ -1140,6 +1154,8 @@ namespace FS.SDK.GraphQL.Model
         public const string UndervisningsaktivitetsrolleBleAktiv = "UndervisningsaktivitetsrolleBleAktiv";
         public const string UndervisningsaktivitetsrolleBleInaktiv = "UndervisningsaktivitetsrolleBleInaktiv";
         public const string UndervisningsaktivitetsrolleSlettet = "UndervisningsaktivitetsrolleSlettet";
+        public const string UndervisningsaktivitetTimeplanerConnection = "UndervisningsaktivitetTimeplanerConnection";
+        public const string UndervisningsaktivitetTimeplanerConnectionEdge = "UndervisningsaktivitetTimeplanerConnectionEdge";
         public const string UndervisningsaktivitetUndervisningskommentarAlleSprak = "UndervisningsaktivitetUndervisningskommentarAlleSprak";
         public const string Undervisningsdisiplin = "Undervisningsdisiplin";
         public const string Undervisningsenhet = "Undervisningsenhet";
@@ -1374,7 +1390,6 @@ namespace FS.SDK.GraphQL.Model
         public const string EvuKursrolleDatoperiodeInput = "EvuKursrolleDatoperiodeInput";
         public const string EvuKursSoknadLegacyIdInput = "EvuKursSoknadLegacyIdInput";
         public const string EvuKursTilbysInnenforPeriodeInput = "EvuKursTilbysInnenforPeriodeInput";
-        public const string ExternalCodeReference = "ExternalCodeReference";
         public const string FagpersonEmnerollerFilter = "FagpersonEmnerollerFilter";
         public const string FagpersonerFilterInput = "FagpersonerFilterInput";
         public const string FagpersonKlasserollerFilter = "FagpersonKlasserollerFilter";
@@ -1471,6 +1486,7 @@ namespace FS.SDK.GraphQL.Model
         public const string QueryBibliotekerFilterInput = "QueryBibliotekerFilterInput";
         public const string QueryBrukereFilterInput = "QueryBrukereFilterInput";
         public const string QueryBygningerFilterInput = "QueryBygningerFilterInput";
+        public const string QueryCampusEmnerFilterInput = "QueryCampusEmnerFilterInput";
         public const string QueryCampuserFilterInput = "QueryCampuserFilterInput";
         public const string QueryCampusUndervisningsenhetFilterInput = "QueryCampusUndervisningsenhetFilterInput";
         public const string QueryDeltakereFilterInput = "QueryDeltakereFilterInput";
@@ -1527,12 +1543,14 @@ namespace FS.SDK.GraphQL.Model
         public const string QueryRomtyperFilterInput = "QueryRomtyperFilterInput";
         public const string QuerySemesterregistreringerFilterInput = "QuerySemesterregistreringerFilterInput";
         public const string QuerySemesterregistreringshendelserFilterInput = "QuerySemesterregistreringshendelserFilterInput";
+        public const string QuerySensurkommisjonerFilterInput = "QuerySensurkommisjonerFilterInput";
         public const string QuerySisOpptakFilterInput = "QuerySisOpptakFilterInput";
         public const string QuerySisOpptaksterminerFilterInput = "QuerySisOpptaksterminerFilterInput";
         public const string QueryStudenterFilterInput = "QueryStudenterFilterInput";
         public const string QueryStudenthendelserFilterInput = "QueryStudenthendelserFilterInput";
         public const string QueryStudentvurderingerFilterInput = "QueryStudentvurderingerFilterInput";
         public const string QueryStudieoppbygningerFilterInput = "QueryStudieoppbygningerFilterInput";
+        public const string QueryStudieoppbygningerV2FilterInput = "QueryStudieoppbygningerV2FilterInput";
         public const string QueryStudieoppbygningsdelerFilterInput = "QueryStudieoppbygningsdelerFilterInput";
         public const string QueryStudieprogramrollehendelserDatoperiodeInput = "QueryStudieprogramrollehendelserDatoperiodeInput";
         public const string QueryStudieprogramrollehendelserFilterInput = "QueryStudieprogramrollehendelserFilterInput";
@@ -1571,8 +1589,6 @@ namespace FS.SDK.GraphQL.Model
         public const string QueryVurderingsperioderFilterInput = "QueryVurderingsperioderFilterInput";
         public const string QueryVurderingsresultatstatusFilterInput = "QueryVurderingsresultatstatusFilterInput";
         public const string RapporteringTilLanekassenTerminInput = "RapporteringTilLanekassenTerminInput";
-        public const string ReferenceElement = "ReferenceElement";
-        public const string ReferencesForType = "ReferencesForType";
         public const string RegistrerEmnesoknaderInput = "RegistrerEmnesoknaderInput";
         public const string RegistrerEsiForStudenterInput = "RegistrerEsiForStudenterInput";
         public const string RegistrerFellesUndervisningForUndervisningsaktivitetInput = "RegistrerFellesUndervisningForUndervisningsaktivitetInput";
@@ -1591,6 +1607,7 @@ namespace FS.SDK.GraphQL.Model
         public const string RegistrerUndervisningstilpasningerInput = "RegistrerUndervisningstilpasningerInput";
         public const string RegistrerUtdanningsregisterIderForEmneInput = "RegistrerUtdanningsregisterIderForEmneInput";
         public const string RegistrerUtdanningsregisterIderForStudieprogramInput = "RegistrerUtdanningsregisterIderForStudieprogramInput";
+        public const string RegistrerUtdanningsregisterIdForCampusUndervisningsenhetInput = "RegistrerUtdanningsregisterIdForCampusUndervisningsenhetInput";
         public const string RegistrerUtdanningsregisterIdForKullcampusInput = "RegistrerUtdanningsregisterIdForKullcampusInput";
         public const string RegistrerVedtakOmEkstraVurderingsforsokInput = "RegistrerVedtakOmEkstraVurderingsforsokInput";
         public const string RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerInput = "RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerInput";
@@ -1600,6 +1617,7 @@ namespace FS.SDK.GraphQL.Model
         public const string SemesterInformasjonFilterInput = "SemesterInformasjonFilterInput";
         public const string SemesterregistreringLegacyIdInput = "SemesterregistreringLegacyIdInput";
         public const string SemesterregistreringsterminkodeInput = "SemesterregistreringsterminkodeInput";
+        public const string SensurkommisjonLegacyIdInput = "SensurkommisjonLegacyIdInput";
         public const string SettTilDatoForProgramStudieretterInput = "SettTilDatoForProgramStudieretterInput";
         public const string SlettGodkjentePolitiattester = "SlettGodkjentePolitiattester";
         public const string SlettPermisjonerInput = "SlettPermisjonerInput";
@@ -1742,6 +1760,7 @@ namespace FS.SDK.GraphQL.Model
         public const string RegistrerUndervisningsenheterError = "RegistrerUndervisningsenheterError";
         public const string RegistrerUtdanningsregisterIderForEmneError = "RegistrerUtdanningsregisterIderForEmneError";
         public const string RegistrerUtdanningsregisterIderForStudieprogramError = "RegistrerUtdanningsregisterIderForStudieprogramError";
+        public const string RegistrerUtdanningsregisterIdForCampusUndervisningsenhetError = "RegistrerUtdanningsregisterIdForCampusUndervisningsenhetError";
         public const string RegistrerUtdanningsregisterIdForKullcampusError = "RegistrerUtdanningsregisterIdForKullcampusError";
         public const string RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerError = "RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerError";
         public const string SlettGodkjentePolitiattesterError = "SlettGodkjentePolitiattesterError";
@@ -1879,7 +1898,6 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(EvuKursrolleDatoperiodeInput), "EvuKursrolleDatoperiodeInput" },
                 { typeof(EvuKursSoknadLegacyIdInput), "EvuKursSoknadLegacyIdInput" },
                 { typeof(EvuKursTilbysInnenforPeriodeInput), "EvuKursTilbysInnenforPeriodeInput" },
-                { typeof(ExternalCodeReference), "ExternalCodeReference" },
                 { typeof(FagpersonEmnerollerFilter), "FagpersonEmnerollerFilter" },
                 { typeof(FagpersonerFilterInput), "FagpersonerFilterInput" },
                 { typeof(FagpersonKlasserollerFilter), "FagpersonKlasserollerFilter" },
@@ -1976,6 +1994,7 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(QueryBibliotekerFilterInput), "QueryBibliotekerFilterInput" },
                 { typeof(QueryBrukereFilterInput), "QueryBrukereFilterInput" },
                 { typeof(QueryBygningerFilterInput), "QueryBygningerFilterInput" },
+                { typeof(QueryCampusEmnerFilterInput), "QueryCampusEmnerFilterInput" },
                 { typeof(QueryCampuserFilterInput), "QueryCampuserFilterInput" },
                 { typeof(QueryCampusUndervisningsenhetFilterInput), "QueryCampusUndervisningsenhetFilterInput" },
                 { typeof(QueryDeltakereFilterInput), "QueryDeltakereFilterInput" },
@@ -2032,12 +2051,14 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(QueryRomtyperFilterInput), "QueryRomtyperFilterInput" },
                 { typeof(QuerySemesterregistreringerFilterInput), "QuerySemesterregistreringerFilterInput" },
                 { typeof(QuerySemesterregistreringshendelserFilterInput), "QuerySemesterregistreringshendelserFilterInput" },
+                { typeof(QuerySensurkommisjonerFilterInput), "QuerySensurkommisjonerFilterInput" },
                 { typeof(QuerySisOpptakFilterInput), "QuerySisOpptakFilterInput" },
                 { typeof(QuerySisOpptaksterminerFilterInput), "QuerySisOpptaksterminerFilterInput" },
                 { typeof(QueryStudenterFilterInput), "QueryStudenterFilterInput" },
                 { typeof(QueryStudenthendelserFilterInput), "QueryStudenthendelserFilterInput" },
                 { typeof(QueryStudentvurderingerFilterInput), "QueryStudentvurderingerFilterInput" },
                 { typeof(QueryStudieoppbygningerFilterInput), "QueryStudieoppbygningerFilterInput" },
+                { typeof(QueryStudieoppbygningerV2FilterInput), "QueryStudieoppbygningerV2FilterInput" },
                 { typeof(QueryStudieoppbygningsdelerFilterInput), "QueryStudieoppbygningsdelerFilterInput" },
                 { typeof(QueryStudieprogramrollehendelserDatoperiodeInput), "QueryStudieprogramrollehendelserDatoperiodeInput" },
                 { typeof(QueryStudieprogramrollehendelserFilterInput), "QueryStudieprogramrollehendelserFilterInput" },
@@ -2076,8 +2097,6 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(QueryVurderingsperioderFilterInput), "QueryVurderingsperioderFilterInput" },
                 { typeof(QueryVurderingsresultatstatusFilterInput), "QueryVurderingsresultatstatusFilterInput" },
                 { typeof(RapporteringTilLanekassenTerminInput), "RapporteringTilLanekassenTerminInput" },
-                { typeof(ReferenceElement), "ReferenceElement" },
-                { typeof(ReferencesForType), "ReferencesForType" },
                 { typeof(RegistrerEmnesoknaderInput), "RegistrerEmnesoknaderInput" },
                 { typeof(RegistrerEsiForStudenterInput), "RegistrerEsiForStudenterInput" },
                 { typeof(RegistrerFellesUndervisningForUndervisningsaktivitetInput), "RegistrerFellesUndervisningForUndervisningsaktivitetInput" },
@@ -2096,6 +2115,7 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(RegistrerUndervisningstilpasningerInput), "RegistrerUndervisningstilpasningerInput" },
                 { typeof(RegistrerUtdanningsregisterIderForEmneInput), "RegistrerUtdanningsregisterIderForEmneInput" },
                 { typeof(RegistrerUtdanningsregisterIderForStudieprogramInput), "RegistrerUtdanningsregisterIderForStudieprogramInput" },
+                { typeof(RegistrerUtdanningsregisterIdForCampusUndervisningsenhetInput), "RegistrerUtdanningsregisterIdForCampusUndervisningsenhetInput" },
                 { typeof(RegistrerUtdanningsregisterIdForKullcampusInput), "RegistrerUtdanningsregisterIdForKullcampusInput" },
                 { typeof(RegistrerVedtakOmEkstraVurderingsforsokInput), "RegistrerVedtakOmEkstraVurderingsforsokInput" },
                 { typeof(RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerInput), "RegistrerVedtakOmGenerellStudiekompetanseForPersonProfilerInput" },
@@ -2105,6 +2125,7 @@ namespace FS.SDK.GraphQL.Model
                 { typeof(SemesterInformasjonFilterInput), "SemesterInformasjonFilterInput" },
                 { typeof(SemesterregistreringLegacyIdInput), "SemesterregistreringLegacyIdInput" },
                 { typeof(SemesterregistreringsterminkodeInput), "SemesterregistreringsterminkodeInput" },
+                { typeof(SensurkommisjonLegacyIdInput), "SensurkommisjonLegacyIdInput" },
                 { typeof(SettTilDatoForProgramStudieretterInput), "SettTilDatoForProgramStudieretterInput" },
                 { typeof(SlettGodkjentePolitiattester), "SlettGodkjentePolitiattester" },
                 { typeof(SlettPermisjonerInput), "SlettPermisjonerInput" },

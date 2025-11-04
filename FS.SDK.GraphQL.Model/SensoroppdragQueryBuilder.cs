@@ -17,7 +17,7 @@ namespace FS.SDK.GraphQL.Model
         {
             new() { Name = "id" },
             new() { Name = "fagperson", IsComplex = true, QueryBuilderType = typeof(FagpersonVedLarestedQueryBuilder) },
-            new() { Name = "kommisjon", IsComplex = true, QueryBuilderType = typeof(KommisjonQueryBuilder) },
+            new() { Name = "kommisjon", IsComplex = true, QueryBuilderType = typeof(SensurkommisjonQueryBuilder) },
             new() { Name = "sensorrolle", IsComplex = true, QueryBuilderType = typeof(SensorrolleQueryBuilder) }
         };
 
@@ -33,7 +33,7 @@ namespace FS.SDK.GraphQL.Model
 
         public SensoroppdragQueryBuilder ExceptFagperson() => ExceptField("fagperson");
 
-        public SensoroppdragQueryBuilder WithKommisjon(KommisjonQueryBuilder kommisjonQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("kommisjon", alias, kommisjonQueryBuilder, [include, skip]);
+        public SensoroppdragQueryBuilder WithKommisjon(SensurkommisjonQueryBuilder sensurkommisjonQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("kommisjon", alias, sensurkommisjonQueryBuilder, [include, skip]);
 
         public SensoroppdragQueryBuilder ExceptKommisjon() => ExceptField("kommisjon");
 

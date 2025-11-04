@@ -379,6 +379,11 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("registrerUtdanningsregisterIdForKullcampus")]
         public RegistrerUtdanningsregisterIdForKullcampusPayload RegistrerUtdanningsregisterIdForKullcampus { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("registrerUtdanningsregisterIdForCampusUndervisningsenhet")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("registrerUtdanningsregisterIdForCampusUndervisningsenhet")]
+        public RegistrerUtdanningsregisterIdForCampusUndervisningsenhetPayload RegistrerUtdanningsregisterIdForCampusUndervisningsenhet { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("registrerUtdanningsregisterIderForStudieprogram")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("registrerUtdanningsregisterIderForStudieprogram")]

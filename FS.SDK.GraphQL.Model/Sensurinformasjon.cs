@@ -42,6 +42,6 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("kommisjoner")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("kommisjoner")]
-        public ICollection<Kommisjon> Kommisjoner { get; set; }
+        public ICollection<Sensurkommisjon> Kommisjoner { get; set; }
     }
 }

@@ -29,5 +29,10 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("gyldighetsperiode")]
         public EmneCampusGyldighetsperiode Gyldighetsperiode { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("emne")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("emne")]
+        public Emne Emne { get; set; }
     }
 }

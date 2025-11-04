@@ -17,7 +17,7 @@ namespace FS.SDK.GraphQL.Model
         {
             new() { Name = "id" },
             new() { Name = "dbhNivakode" },
-            new() { Name = "dbhNivanavn", IsComplex = true, QueryBuilderType = typeof(DbhNivanavnAlleSprakQueryBuilder) },
+            new() { Name = "dbhNivaNavnAlleSprak", IsComplex = true, QueryBuilderType = typeof(DbhNivaNavnAlleSprakQueryBuilder) },
             new() { Name = "dbhNivaBeskrivelse", IsComplex = true, QueryBuilderType = typeof(DbhNivabeskrivelseAlleSprakQueryBuilder) }
         };
 
@@ -33,9 +33,9 @@ namespace FS.SDK.GraphQL.Model
 
         public DbhNivaQueryBuilder ExceptDbhNivakode() => ExceptField("dbhNivakode");
 
-        public DbhNivaQueryBuilder WithDbhNivanavn(DbhNivanavnAlleSprakQueryBuilder dbhNivanavnAlleSprakQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("dbhNivanavn", alias, dbhNivanavnAlleSprakQueryBuilder, [include, skip]);
+        public DbhNivaQueryBuilder WithDbhNivaNavnAlleSprak(DbhNivaNavnAlleSprakQueryBuilder dbhNivaNavnAlleSprakQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("dbhNivaNavnAlleSprak", alias, dbhNivaNavnAlleSprakQueryBuilder, [include, skip]);
 
-        public DbhNivaQueryBuilder ExceptDbhNivanavn() => ExceptField("dbhNivanavn");
+        public DbhNivaQueryBuilder ExceptDbhNivaNavnAlleSprak() => ExceptField("dbhNivaNavnAlleSprak");
 
         public DbhNivaQueryBuilder WithDbhNivaBeskrivelse(DbhNivabeskrivelseAlleSprakQueryBuilder dbhNivabeskrivelseAlleSprakQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("dbhNivaBeskrivelse", alias, dbhNivabeskrivelseAlleSprakQueryBuilder, [include, skip]);
 

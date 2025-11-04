@@ -15,6 +15,9 @@ namespace FS.SDK.GraphQL.Model
     {
         private InputPropertyInfo _organisasjonsenhetId;
         private InputPropertyInfo _beregnetSluttdato;
+        private InputPropertyInfo _kvalifikasjonMalId;
+        private InputPropertyInfo _reglementId;
+        private InputPropertyInfo _erStipendiatstilling;
 
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("organisasjonsenhetId")]
@@ -38,10 +41,46 @@ namespace FS.SDK.GraphQL.Model
             set => _beregnetSluttdato = new() { Name = "beregnetSluttdato", Value = value };
         }
 
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("kvalifikasjonMalId")]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("kvalifikasjonMalId")]
+        public QueryBuilderParameter<string> KvalifikasjonMalId
+        {
+            get => (QueryBuilderParameter<string>)_kvalifikasjonMalId.Value;
+            set => _kvalifikasjonMalId = new() { Name = "kvalifikasjonMalId", Value = value };
+        }
+
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("reglementId")]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<string>))]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("reglementId")]
+        public QueryBuilderParameter<string> ReglementId
+        {
+            get => (QueryBuilderParameter<string>)_reglementId.Value;
+            set => _reglementId = new() { Name = "reglementId", Value = value };
+        }
+
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("erStipendiatstilling")]
+        [JsonConverter(typeof(QueryBuilderParameterConverter<bool?>))]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("erStipendiatstilling")]
+        public QueryBuilderParameter<bool?> ErStipendiatstilling
+        {
+            get => (QueryBuilderParameter<bool?>)_erStipendiatstilling.Value;
+            set => _erStipendiatstilling = new() { Name = "erStipendiatstilling", Value = value };
+        }
+
         IEnumerable<InputPropertyInfo> IGraphQlInputObject.GetPropertyValues()
         {
             if (_organisasjonsenhetId.Name != null) yield return _organisasjonsenhetId;
             if (_beregnetSluttdato.Name != null) yield return _beregnetSluttdato;
+            if (_kvalifikasjonMalId.Name != null) yield return _kvalifikasjonMalId;
+            if (_reglementId.Name != null) yield return _reglementId;
+            if (_erStipendiatstilling.Name != null) yield return _erStipendiatstilling;
         }
     }
 }

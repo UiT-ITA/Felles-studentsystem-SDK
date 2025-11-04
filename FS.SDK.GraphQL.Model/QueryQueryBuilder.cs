@@ -32,11 +32,13 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "personProfilerGittPersonlopenumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
             new() { Name = "personProfilerGittFodselsnumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
             new() { Name = "personProfilerGittFeideBrukere", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
+            new() { Name = "organisasjonsenheter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryOrganisasjonsenheterConnectionQueryBuilder) },
+            new() { Name = "studienivaer", IsComplex = true, QueryBuilderType = typeof(QueryStudienivaerConnectionQueryBuilder) },
+            new() { Name = "terminer", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryTerminerConnectionQueryBuilder) },
+            new() { Name = "personProfilhendelser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryPersonProfilhendelserConnectionQueryBuilder) },
             new() { Name = "evuKurs", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryEvuKursConnectionQueryBuilder) },
             new() { Name = "campuser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryCampuserConnectionQueryBuilder) },
-            new() { Name = "terminer", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryTerminerConnectionQueryBuilder) },
             new() { Name = "terminbetegnelser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryTerminbetegnelserConnectionQueryBuilder) },
-            new() { Name = "organisasjonsenheter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryOrganisasjonsenheterConnectionQueryBuilder) },
             new() { Name = "studenter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryStudenterConnectionQueryBuilder) },
             new() { Name = "megVedLarested", IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
             new() { Name = "undervisningsenheter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryUndervisningsenheterConnectionQueryBuilder) },
@@ -131,7 +133,6 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "undervisningsaktivitetsrollehendelser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryUndervisningsaktivitetsrollehendelserConnectionQueryBuilder) },
             new() { Name = "studienivaintervaller", IsComplex = true, QueryBuilderType = typeof(QueryStudienivaintervallerConnectionQueryBuilder) },
             new() { Name = "fodselsnummerendringer", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryFodselsnummerendringerConnectionQueryBuilder) },
-            new() { Name = "studienivaer", IsComplex = true, QueryBuilderType = typeof(QueryStudienivaerConnectionQueryBuilder) },
             new() { Name = "evuKursGittEvuKurskoder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(EvuKursQueryBuilder) },
             new() { Name = "studienivaerGittStudienivakoder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(StudienivaQueryBuilder) },
             new() { Name = "klassemedlemskapGittLegacyIder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(KlassemedlemskapQueryBuilder) },
@@ -160,7 +161,6 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "evuKursdeltakelserGittLegacyIder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(EvuKursdeltakelseQueryBuilder) },
             new() { Name = "semesterregistreringshendelser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QuerySemesterregistreringshendelserConnectionQueryBuilder) },
             new() { Name = "evuKursSoknaderGittLegacyIder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(EvuKursSoknadQueryBuilder) },
-            new() { Name = "personProfilhendelser", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryPersonProfilhendelserConnectionQueryBuilder) },
             new() { Name = "personProfilerGittAnsattnumre", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(PersonProfilQueryBuilder) },
             new() { Name = "vurderingsperioder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryVurderingsperioderConnectionQueryBuilder) },
             new() { Name = "vurderingsavviklingstyper", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryVurderingsavviklingstyperConnectionQueryBuilder) },
@@ -199,7 +199,10 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "sisOpptaksterminer", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QuerySisOpptaksterminerConnectionQueryBuilder) },
             new() { Name = "oppmoterTilUndervisning", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryOppmoterTilUndervisningConnectionQueryBuilder) },
             new() { Name = "fag", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryFagConnectionQueryBuilder) },
-            new() { Name = "campusUndervisningsenheter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryCampusUndervisningsenheterConnectionQueryBuilder) }
+            new() { Name = "campusUndervisningsenheter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryCampusUndervisningsenheterConnectionQueryBuilder) },
+            new() { Name = "sensurkommisjoner", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QuerySensurkommisjonerConnectionQueryBuilder) },
+            new() { Name = "sensurkommisjonerGittLegacyIder", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(SensurkommisjonQueryBuilder) },
+            new() { Name = "campusEmner", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(QueryCampusEmnerConnectionQueryBuilder) }
         };
 
         protected override string TypeName => "Query";
@@ -426,6 +429,65 @@ namespace FS.SDK.GraphQL.Model
 
         public QueryQueryBuilder ExceptPersonProfilerGittFeideBrukere() => ExceptField("personProfilerGittFeideBrukere");
 
+        public QueryQueryBuilder WithOrganisasjonsenheter(QueryOrganisasjonsenheterConnectionQueryBuilder queryOrganisasjonsenheterConnectionQueryBuilder, QueryBuilderParameter<QueryOrganisasjonsenheterFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "filter", ArgumentValue = filter} );
+            if (first != null)
+                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
+
+            if (after != null)
+                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
+
+            return WithObjectField("organisasjonsenheter", alias, queryOrganisasjonsenheterConnectionQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptOrganisasjonsenheter() => ExceptField("organisasjonsenheter");
+
+        public QueryQueryBuilder WithStudienivaer(QueryStudienivaerConnectionQueryBuilder queryStudienivaerConnectionQueryBuilder, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            if (first != null)
+                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
+
+            if (after != null)
+                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
+
+            return WithObjectField("studienivaer", alias, queryStudienivaerConnectionQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptStudienivaer() => ExceptField("studienivaer");
+
+        public QueryQueryBuilder WithTerminer(QueryTerminerConnectionQueryBuilder queryTerminerConnectionQueryBuilder, QueryBuilderParameter<QueryTerminerFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "filter", ArgumentValue = filter} );
+            if (first != null)
+                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
+
+            if (after != null)
+                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
+
+            return WithObjectField("terminer", alias, queryTerminerConnectionQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptTerminer() => ExceptField("terminer");
+
+        public QueryQueryBuilder WithPersonProfilhendelser(QueryPersonProfilhendelserConnectionQueryBuilder queryPersonProfilhendelserConnectionQueryBuilder, QueryBuilderParameter<QueryPersonProfilhendelserFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "filter", ArgumentValue = filter} );
+            if (first != null)
+                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
+
+            if (after != null)
+                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
+
+            return WithObjectField("personProfilhendelser", alias, queryPersonProfilhendelserConnectionQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptPersonProfilhendelser() => ExceptField("personProfilhendelser");
+
         public QueryQueryBuilder WithEvuKurs(QueryEvuKursConnectionQueryBuilder queryEvuKursConnectionQueryBuilder, QueryBuilderParameter<EvuKursFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
@@ -456,21 +518,6 @@ namespace FS.SDK.GraphQL.Model
 
         public QueryQueryBuilder ExceptCampuser() => ExceptField("campuser");
 
-        public QueryQueryBuilder WithTerminer(QueryTerminerConnectionQueryBuilder queryTerminerConnectionQueryBuilder, QueryBuilderParameter<QueryTerminerFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "filter", ArgumentValue = filter} );
-            if (first != null)
-                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
-
-            if (after != null)
-                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
-
-            return WithObjectField("terminer", alias, queryTerminerConnectionQueryBuilder, [include, skip], args);
-        }
-
-        public QueryQueryBuilder ExceptTerminer() => ExceptField("terminer");
-
         public QueryQueryBuilder WithTerminbetegnelser(QueryTerminbetegnelserConnectionQueryBuilder queryTerminbetegnelserConnectionQueryBuilder, QueryBuilderParameter<QueryTerminbetegnelserFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
@@ -485,21 +532,6 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public QueryQueryBuilder ExceptTerminbetegnelser() => ExceptField("terminbetegnelser");
-
-        public QueryQueryBuilder WithOrganisasjonsenheter(QueryOrganisasjonsenheterConnectionQueryBuilder queryOrganisasjonsenheterConnectionQueryBuilder, QueryBuilderParameter<QueryOrganisasjonsenheterFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "filter", ArgumentValue = filter} );
-            if (first != null)
-                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
-
-            if (after != null)
-                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
-
-            return WithObjectField("organisasjonsenheter", alias, queryOrganisasjonsenheterConnectionQueryBuilder, [include, skip], args);
-        }
-
-        public QueryQueryBuilder ExceptOrganisasjonsenheter() => ExceptField("organisasjonsenheter");
 
         public QueryQueryBuilder WithStudenter(QueryStudenterConnectionQueryBuilder queryStudenterConnectionQueryBuilder, QueryBuilderParameter<QueryStudenterFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
@@ -1851,20 +1883,6 @@ namespace FS.SDK.GraphQL.Model
 
         public QueryQueryBuilder ExceptFodselsnummerendringer() => ExceptField("fodselsnummerendringer");
 
-        public QueryQueryBuilder WithStudienivaer(QueryStudienivaerConnectionQueryBuilder queryStudienivaerConnectionQueryBuilder, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            if (first != null)
-                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
-
-            if (after != null)
-                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
-
-            return WithObjectField("studienivaer", alias, queryStudienivaerConnectionQueryBuilder, [include, skip], args);
-        }
-
-        public QueryQueryBuilder ExceptStudienivaer() => ExceptField("studienivaer");
-
         public QueryQueryBuilder WithEvuKursGittEvuKurskoder(EvuKursQueryBuilder evuKursQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<EvuKurskodeInput>> evuKurskoder, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
@@ -2219,21 +2237,6 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public QueryQueryBuilder ExceptEvuKursSoknaderGittLegacyIder() => ExceptField("evuKursSoknaderGittLegacyIder");
-
-        public QueryQueryBuilder WithPersonProfilhendelser(QueryPersonProfilhendelserConnectionQueryBuilder queryPersonProfilhendelserConnectionQueryBuilder, QueryBuilderParameter<QueryPersonProfilhendelserFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
-        {
-            var args = new List<QueryBuilderArgumentInfo>();
-            args.Add(new() { ArgumentName = "filter", ArgumentValue = filter} );
-            if (first != null)
-                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
-
-            if (after != null)
-                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
-
-            return WithObjectField("personProfilhendelser", alias, queryPersonProfilhendelserConnectionQueryBuilder, [include, skip], args);
-        }
-
-        public QueryQueryBuilder ExceptPersonProfilhendelser() => ExceptField("personProfilhendelser");
 
         public QueryQueryBuilder WithPersonProfilerGittAnsattnumre(PersonProfilQueryBuilder personProfilQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<string>> ansattnumre = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
@@ -2721,5 +2724,47 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public QueryQueryBuilder ExceptCampusUndervisningsenheter() => ExceptField("campusUndervisningsenheter");
+
+        public QueryQueryBuilder WithSensurkommisjoner(QuerySensurkommisjonerConnectionQueryBuilder querySensurkommisjonerConnectionQueryBuilder, QueryBuilderParameter<QuerySensurkommisjonerFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "filter", ArgumentValue = filter} );
+            if (first != null)
+                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
+
+            if (after != null)
+                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
+
+            return WithObjectField("sensurkommisjoner", alias, querySensurkommisjonerConnectionQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptSensurkommisjoner() => ExceptField("sensurkommisjoner");
+
+        public QueryQueryBuilder WithSensurkommisjonerGittLegacyIder(SensurkommisjonQueryBuilder sensurkommisjonQueryBuilder, QueryBuilderParameter<string> eierOrganisasjonskode, QueryBuilderParameter<IEnumerable<SensurkommisjonLegacyIdInput>> legacyIder = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "eierOrganisasjonskode", ArgumentValue = eierOrganisasjonskode} );
+            if (legacyIder != null)
+                args.Add(new() { ArgumentName = "legacyIder", ArgumentValue = legacyIder} );
+
+            return WithObjectField("sensurkommisjonerGittLegacyIder", alias, sensurkommisjonQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptSensurkommisjonerGittLegacyIder() => ExceptField("sensurkommisjonerGittLegacyIder");
+
+        public QueryQueryBuilder WithCampusEmner(QueryCampusEmnerConnectionQueryBuilder queryCampusEmnerConnectionQueryBuilder, QueryBuilderParameter<QueryCampusEmnerFilterInput> filter, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            args.Add(new() { ArgumentName = "filter", ArgumentValue = filter} );
+            if (first != null)
+                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
+
+            if (after != null)
+                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
+
+            return WithObjectField("campusEmner", alias, queryCampusEmnerConnectionQueryBuilder, [include, skip], args);
+        }
+
+        public QueryQueryBuilder ExceptCampusEmner() => ExceptField("campusEmner");
     }
 }

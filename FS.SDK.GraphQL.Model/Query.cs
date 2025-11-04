@@ -100,6 +100,26 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("personProfilerGittFeideBrukere")]
         public ICollection<PersonProfil> PersonProfilerGittFeideBrukere { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("organisasjonsenheter")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("organisasjonsenheter")]
+        public QueryOrganisasjonsenheterConnection Organisasjonsenheter { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("studienivaer")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("studienivaer")]
+        public QueryStudienivaerConnection Studienivaer { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("terminer")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("terminer")]
+        public QueryTerminerConnection Terminer { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("personProfilhendelser")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("personProfilhendelser")]
+        public QueryPersonProfilhendelserConnection PersonProfilhendelser { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("evuKurs")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("evuKurs")]
@@ -110,20 +130,10 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("campuser")]
         public QueryCampuserConnection Campuser { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("terminer")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("terminer")]
-        public QueryTerminerConnection Terminer { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("terminbetegnelser")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("terminbetegnelser")]
         public QueryTerminbetegnelserConnection Terminbetegnelser { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("organisasjonsenheter")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("organisasjonsenheter")]
-        public QueryOrganisasjonsenheterConnection Organisasjonsenheter { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("studenter")]
         #endif
@@ -596,11 +606,6 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("fodselsnummerendringer")]
         public QueryFodselsnummerendringerConnection Fodselsnummerendringer { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("studienivaer")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("studienivaer")]
-        public QueryStudienivaerConnection Studienivaer { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("evuKursGittEvuKurskoder")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("evuKursGittEvuKurskoder")]
@@ -740,11 +745,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("evuKursSoknaderGittLegacyIder")]
         public ICollection<EvuKursSoknad> EvuKursSoknaderGittLegacyIder { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("personProfilhendelser")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("personProfilhendelser")]
-        public QueryPersonProfilhendelserConnection PersonProfilhendelser { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("personProfilerGittAnsattnumre")]
         #endif
@@ -941,5 +941,20 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("campusUndervisningsenheter")]
         public QueryCampusUndervisningsenheterConnection CampusUndervisningsenheter { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("sensurkommisjoner")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("sensurkommisjoner")]
+        public QuerySensurkommisjonerConnection Sensurkommisjoner { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("sensurkommisjonerGittLegacyIder")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("sensurkommisjonerGittLegacyIder")]
+        public ICollection<Sensurkommisjon> SensurkommisjonerGittLegacyIder { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("campusEmner")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("campusEmner")]
+        public QueryCampusEmnerConnection CampusEmner { get; set; }
     }
 }

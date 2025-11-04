@@ -16,11 +16,10 @@ namespace FS.SDK.GraphQL.Model
         private static readonly GraphQlFieldMetadata[] AllFieldMetadata =
         {
             new() { Name = "id" },
-            new() { Name = "emne", IsComplex = true, QueryBuilderType = typeof(EmneQueryBuilder) },
             new() { Name = "campus", IsComplex = true, QueryBuilderType = typeof(CampusQueryBuilder) },
-            new() { Name = "terminkode" },
-            new() { Name = "arstall" },
-            new() { Name = "utdanningsregisterInstansId" }
+            new() { Name = "undervisningsenhet", IsComplex = true, QueryBuilderType = typeof(UndervisningsenhetQueryBuilder) },
+            new() { Name = "utdanningsregisterInstansId" },
+            new() { Name = "skalEksporteresTilUtdanningsregisteret" }
         };
 
         protected override string TypeName => "CampusUndervisningsenhet";
@@ -31,24 +30,20 @@ namespace FS.SDK.GraphQL.Model
 
         public CampusUndervisningsenhetQueryBuilder ExceptId() => ExceptField("id");
 
-        public CampusUndervisningsenhetQueryBuilder WithEmne(EmneQueryBuilder emneQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("emne", alias, emneQueryBuilder, [include, skip]);
-
-        public CampusUndervisningsenhetQueryBuilder ExceptEmne() => ExceptField("emne");
-
         public CampusUndervisningsenhetQueryBuilder WithCampus(CampusQueryBuilder campusQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("campus", alias, campusQueryBuilder, [include, skip]);
 
         public CampusUndervisningsenhetQueryBuilder ExceptCampus() => ExceptField("campus");
 
-        public CampusUndervisningsenhetQueryBuilder WithTerminkode(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("terminkode", alias, [include, skip]);
+        public CampusUndervisningsenhetQueryBuilder WithUndervisningsenhet(UndervisningsenhetQueryBuilder undervisningsenhetQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("undervisningsenhet", alias, undervisningsenhetQueryBuilder, [include, skip]);
 
-        public CampusUndervisningsenhetQueryBuilder ExceptTerminkode() => ExceptField("terminkode");
-
-        public CampusUndervisningsenhetQueryBuilder WithArstall(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("arstall", alias, [include, skip]);
-
-        public CampusUndervisningsenhetQueryBuilder ExceptArstall() => ExceptField("arstall");
+        public CampusUndervisningsenhetQueryBuilder ExceptUndervisningsenhet() => ExceptField("undervisningsenhet");
 
         public CampusUndervisningsenhetQueryBuilder WithUtdanningsregisterInstansId(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("utdanningsregisterInstansId", alias, [include, skip]);
 
         public CampusUndervisningsenhetQueryBuilder ExceptUtdanningsregisterInstansId() => ExceptField("utdanningsregisterInstansId");
+
+        public CampusUndervisningsenhetQueryBuilder WithSkalEksporteresTilUtdanningsregisteret(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("skalEksporteresTilUtdanningsregisteret", alias, [include, skip]);
+
+        public CampusUndervisningsenhetQueryBuilder ExceptSkalEksporteresTilUtdanningsregisteret() => ExceptField("skalEksporteresTilUtdanningsregisteret");
     }
 }

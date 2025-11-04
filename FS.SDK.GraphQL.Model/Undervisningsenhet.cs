@@ -119,5 +119,10 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("oppmote")]
         public ICollection<OppmoteTilUndervisning> Oppmote { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("campusUndervisningsenheter")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("campusUndervisningsenheter")]
+        public ICollection<CampusUndervisningsenhet> CampusUndervisningsenheter { get; set; }
     }
 }

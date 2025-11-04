@@ -19,7 +19,9 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "gjelderKullFra", IsComplex = true, QueryBuilderType = typeof(TerminQueryBuilder) },
             new() { Name = "alleOppbygningsdeler", IsComplex = true, QueryBuilderType = typeof(StudieoppbygningsdelIHierarkiQueryBuilder) },
             new() { Name = "studieprogram", IsComplex = true, QueryBuilderType = typeof(StudieprogramQueryBuilder) },
-            new() { Name = "kanPubliseres" }
+            new() { Name = "kanPubliseres" },
+            new() { Name = "alleOppbygningsdelerV2", IsComplex = true, QueryBuilderType = typeof(StudieoppbygningForKullAlleOppbygningsdelerV2ConnectionQueryBuilder) },
+            new() { Name = "toppStudieoppbygningsdel", IsComplex = true, QueryBuilderType = typeof(StudieoppbygningsdelQueryBuilder) }
         };
 
         protected override string TypeName => "StudieoppbygningForKull";
@@ -45,5 +47,23 @@ namespace FS.SDK.GraphQL.Model
         public StudieoppbygningForKullQueryBuilder WithKanPubliseres(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("kanPubliseres", alias, [include, skip]);
 
         public StudieoppbygningForKullQueryBuilder ExceptKanPubliseres() => ExceptField("kanPubliseres");
+
+        public StudieoppbygningForKullQueryBuilder WithAlleOppbygningsdelerV2(StudieoppbygningForKullAlleOppbygningsdelerV2ConnectionQueryBuilder studieoppbygningForKullAlleOppbygningsdelerV2ConnectionQueryBuilder, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            if (first != null)
+                args.Add(new() { ArgumentName = "first", ArgumentValue = first} );
+
+            if (after != null)
+                args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
+
+            return WithObjectField("alleOppbygningsdelerV2", alias, studieoppbygningForKullAlleOppbygningsdelerV2ConnectionQueryBuilder, [include, skip], args);
+        }
+
+        public StudieoppbygningForKullQueryBuilder ExceptAlleOppbygningsdelerV2() => ExceptField("alleOppbygningsdelerV2");
+
+        public StudieoppbygningForKullQueryBuilder WithToppStudieoppbygningsdel(StudieoppbygningsdelQueryBuilder studieoppbygningsdelQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("toppStudieoppbygningsdel", alias, studieoppbygningsdelQueryBuilder, [include, skip]);
+
+        public StudieoppbygningForKullQueryBuilder ExceptToppStudieoppbygningsdel() => ExceptField("toppStudieoppbygningsdel");
     }
 }

@@ -17,7 +17,8 @@ namespace FS.SDK.GraphQL.Model
         {
             new() { Name = "id" },
             new() { Name = "campus", IsComplex = true, QueryBuilderType = typeof(CampusQueryBuilder) },
-            new() { Name = "gyldighetsperiode", IsComplex = true, QueryBuilderType = typeof(EmneCampusGyldighetsperiodeQueryBuilder) }
+            new() { Name = "gyldighetsperiode", IsComplex = true, QueryBuilderType = typeof(EmneCampusGyldighetsperiodeQueryBuilder) },
+            new() { Name = "emne", IsComplex = true, QueryBuilderType = typeof(EmneQueryBuilder) }
         };
 
         protected override string TypeName => "EmneCampus";
@@ -35,5 +36,9 @@ namespace FS.SDK.GraphQL.Model
         public EmneCampusQueryBuilder WithGyldighetsperiode(EmneCampusGyldighetsperiodeQueryBuilder emneCampusGyldighetsperiodeQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("gyldighetsperiode", alias, emneCampusGyldighetsperiodeQueryBuilder, [include, skip]);
 
         public EmneCampusQueryBuilder ExceptGyldighetsperiode() => ExceptField("gyldighetsperiode");
+
+        public EmneCampusQueryBuilder WithEmne(EmneQueryBuilder emneQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("emne", alias, emneQueryBuilder, [include, skip]);
+
+        public EmneCampusQueryBuilder ExceptEmne() => ExceptField("emne");
     }
 }

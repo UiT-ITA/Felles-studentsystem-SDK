@@ -178,8 +178,6 @@ namespace FS.SDK.GraphQL.Model
 
         public NodeQueryBuilder WithKlasserolleFragment(KlasserolleQueryBuilder klasserolleQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(klasserolleQueryBuilder, [include, skip]);
 
-        public NodeQueryBuilder WithKommisjonFragment(KommisjonQueryBuilder kommisjonQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(kommisjonQueryBuilder, [include, skip]);
-
         public NodeQueryBuilder WithKravelementFragment(KravelementQueryBuilder kravelementQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(kravelementQueryBuilder, [include, skip]);
 
         public NodeQueryBuilder WithKriseKontaktpersonFragment(KriseKontaktpersonQueryBuilder kriseKontaktpersonQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(kriseKontaktpersonQueryBuilder, [include, skip]);
@@ -282,6 +280,8 @@ namespace FS.SDK.GraphQL.Model
 
         public NodeQueryBuilder WithSensoroppdragFragment(SensoroppdragQueryBuilder sensoroppdragQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(sensoroppdragQueryBuilder, [include, skip]);
 
+        public NodeQueryBuilder WithSensurkommisjonFragment(SensurkommisjonQueryBuilder sensurkommisjonQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(sensurkommisjonQueryBuilder, [include, skip]);
+
         public NodeQueryBuilder WithSisOpptaksgruppeFragment(SisOpptaksgruppeQueryBuilder sisOpptaksgruppeQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(sisOpptaksgruppeQueryBuilder, [include, skip]);
 
         public NodeQueryBuilder WithSoknadOmEkstraVurderingsforsokFragment(SoknadOmEkstraVurderingsforsokQueryBuilder soknadOmEkstraVurderingsforsokQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(soknadOmEkstraVurderingsforsokQueryBuilder, [include, skip]);
@@ -305,6 +305,8 @@ namespace FS.SDK.GraphQL.Model
         public NodeQueryBuilder WithStudieoppbygningForKullFragment(StudieoppbygningForKullQueryBuilder studieoppbygningForKullQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(studieoppbygningForKullQueryBuilder, [include, skip]);
 
         public NodeQueryBuilder WithStudieoppbygningsdelFragment(StudieoppbygningsdelQueryBuilder studieoppbygningsdelQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(studieoppbygningsdelQueryBuilder, [include, skip]);
+
+        public NodeQueryBuilder WithStudieoppbygningskoblingFragment(StudieoppbygningskoblingQueryBuilder studieoppbygningskoblingQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(studieoppbygningskoblingQueryBuilder, [include, skip]);
 
         public NodeQueryBuilder WithStudieprogramFragment(StudieprogramQueryBuilder studieprogramQueryBuilder, IncludeDirective include = null, SkipDirective skip = null) => WithFragment(studieprogramQueryBuilder, [include, skip]);
 

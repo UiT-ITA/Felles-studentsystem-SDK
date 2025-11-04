@@ -20,7 +20,7 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "begrunnelsesystem", IsComplex = true, QueryBuilderType = typeof(VurderingssystemQueryBuilder) },
             new() { Name = "sensurfrist" },
             new() { Name = "kunngjoringsdato" },
-            new() { Name = "kommisjoner", IsComplex = true, QueryBuilderType = typeof(KommisjonQueryBuilder) }
+            new() { Name = "kommisjoner", IsComplex = true, QueryBuilderType = typeof(SensurkommisjonQueryBuilder) }
         };
 
         protected override string TypeName => "Sensurinformasjon";
@@ -47,7 +47,7 @@ namespace FS.SDK.GraphQL.Model
 
         public SensurinformasjonQueryBuilder ExceptKunngjoringsdato() => ExceptField("kunngjoringsdato");
 
-        public SensurinformasjonQueryBuilder WithKommisjoner(KommisjonQueryBuilder kommisjonQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("kommisjoner", alias, kommisjonQueryBuilder, [include, skip]);
+        public SensurinformasjonQueryBuilder WithKommisjoner(SensurkommisjonQueryBuilder sensurkommisjonQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("kommisjoner", alias, sensurkommisjonQueryBuilder, [include, skip]);
 
         public SensurinformasjonQueryBuilder ExceptKommisjoner() => ExceptField("kommisjoner");
     }

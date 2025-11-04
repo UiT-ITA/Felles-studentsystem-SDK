@@ -33,9 +33,9 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "nusKode" },
             new() { Name = "studieansvarligOrganisasjonsenhet", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetQueryBuilder) },
             new() { Name = "beskrivelsesavsnitt", IsComplex = true, QueryBuilderType = typeof(EmneBeskrivelsesavsnittConnectionQueryBuilder) },
+            new() { Name = "sprakvalg", IsComplex = true, QueryBuilderType = typeof(EmneSprakvalgQueryBuilder) },
             new() { Name = "undervisningsenheter", IsComplex = true, QueryBuilderType = typeof(EmneUndervisningsenheterConnectionQueryBuilder) },
             new() { Name = "tjenestenummerForLms" },
-            new() { Name = "sprakvalg", IsComplex = true, QueryBuilderType = typeof(EmneSprakvalgQueryBuilder) },
             new() { Name = "administrativtAnsvarligOrganisasjonsenhet", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetQueryBuilder) },
             new() { Name = "kanTilbysMedFleksibelFinansiering" },
             new() { Name = "tilgjengeligHosLanekassenPeriode", IsComplex = true, QueryBuilderType = typeof(LanekassenTilgjengelighetsperiodeQueryBuilder) },
@@ -156,6 +156,10 @@ namespace FS.SDK.GraphQL.Model
 
         public EmneQueryBuilder ExceptBeskrivelsesavsnitt() => ExceptField("beskrivelsesavsnitt");
 
+        public EmneQueryBuilder WithSprakvalg(EmneSprakvalgQueryBuilder emneSprakvalgQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("sprakvalg", alias, emneSprakvalgQueryBuilder, [include, skip]);
+
+        public EmneQueryBuilder ExceptSprakvalg() => ExceptField("sprakvalg");
+
         public EmneQueryBuilder WithUndervisningsenheter(EmneUndervisningsenheterConnectionQueryBuilder emneUndervisningsenheterConnectionQueryBuilder, QueryBuilderParameter<EmneUndervisningsenheterFilter> filter = null, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
@@ -176,10 +180,6 @@ namespace FS.SDK.GraphQL.Model
         public EmneQueryBuilder WithTjenestenummerForLms(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("tjenestenummerForLms", alias, [include, skip]);
 
         public EmneQueryBuilder ExceptTjenestenummerForLms() => ExceptField("tjenestenummerForLms");
-
-        public EmneQueryBuilder WithSprakvalg(EmneSprakvalgQueryBuilder emneSprakvalgQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("sprakvalg", alias, emneSprakvalgQueryBuilder, [include, skip]);
-
-        public EmneQueryBuilder ExceptSprakvalg() => ExceptField("sprakvalg");
 
         public EmneQueryBuilder WithAdministrativtAnsvarligOrganisasjonsenhet(OrganisasjonsenhetQueryBuilder organisasjonsenhetQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("administrativtAnsvarligOrganisasjonsenhet", alias, organisasjonsenhetQueryBuilder, [include, skip]);
 

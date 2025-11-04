@@ -35,7 +35,8 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "skalEksporteresTilTimeplansystem" },
             new() { Name = "studentKanVelgeCampus" },
             new() { Name = "opptaksgrupper", IsComplex = true, QueryBuilderType = typeof(OpptaksgruppeForUndervisningsenhetQueryBuilder) },
-            new() { Name = "oppmote", IsComplex = true, QueryBuilderType = typeof(OppmoteTilUndervisningQueryBuilder) }
+            new() { Name = "oppmote", IsComplex = true, QueryBuilderType = typeof(OppmoteTilUndervisningQueryBuilder) },
+            new() { Name = "campusUndervisningsenheter", IsComplex = true, QueryBuilderType = typeof(CampusUndervisningsenhetQueryBuilder) }
         };
 
         protected override string TypeName => "Undervisningsenhet";
@@ -187,5 +188,9 @@ namespace FS.SDK.GraphQL.Model
         public UndervisningsenhetQueryBuilder WithOppmote(OppmoteTilUndervisningQueryBuilder oppmoteTilUndervisningQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("oppmote", alias, oppmoteTilUndervisningQueryBuilder, [include, skip]);
 
         public UndervisningsenhetQueryBuilder ExceptOppmote() => ExceptField("oppmote");
+
+        public UndervisningsenhetQueryBuilder WithCampusUndervisningsenheter(CampusUndervisningsenhetQueryBuilder campusUndervisningsenhetQueryBuilder, string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithObjectField("campusUndervisningsenheter", alias, campusUndervisningsenhetQueryBuilder, [include, skip]);
+
+        public UndervisningsenhetQueryBuilder ExceptCampusUndervisningsenheter() => ExceptField("campusUndervisningsenheter");
     }
 }

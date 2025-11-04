@@ -49,6 +49,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("aktivStatus")]
         public PersonrolleAktivStatus? AktivStatus { get; set; }
-        //IDatoperiode IPersonrolle.Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Kullrolle.Gyldighetsperiode\" property setter"); }
+        IDatoperiode IPersonrolle.Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Kullrolle.Gyldighetsperiode\" property setter"); }
     }
 }

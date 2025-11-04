@@ -30,6 +30,11 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("navnAlleSprak")]
         public StudienivanavnAlleSprak NavnAlleSprak { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("dbhNiva")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("dbhNiva")]
+        public DbhNiva DbhNiva { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("eqfnivakode")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("eqfnivakode")]
@@ -39,10 +44,5 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("nkrsyklus")]
         public Nkrsyklus Nkrsyklus { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("dbhNiva")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("dbhNiva")]
-        public DbhNiva DbhNiva { get; set; }
     }
 }

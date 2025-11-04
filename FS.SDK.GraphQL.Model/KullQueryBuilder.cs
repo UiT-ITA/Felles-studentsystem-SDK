@@ -20,8 +20,8 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "terminV2", IsComplex = true, QueryBuilderType = typeof(TerminQueryBuilder) },
             new() { Name = "studieprogram", IsComplex = true, QueryBuilderType = typeof(StudieprogramQueryBuilder) },
             new() { Name = "bibliotek", IsComplex = true, QueryBuilderType = typeof(BibliotekQueryBuilder) },
-            new() { Name = "erAktiv" },
             new() { Name = "klasser", IsComplex = true, QueryBuilderType = typeof(KullKlasserConnectionQueryBuilder) },
+            new() { Name = "erAktiv" },
             new() { Name = "skalEksporteresTilLms" },
             new() { Name = "lmsRomkode" },
             new() { Name = "tjenestenummerForLms" },
@@ -56,10 +56,6 @@ namespace FS.SDK.GraphQL.Model
 
         public KullQueryBuilder ExceptBibliotek() => ExceptField("bibliotek");
 
-        public KullQueryBuilder WithErAktiv(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("erAktiv", alias, [include, skip]);
-
-        public KullQueryBuilder ExceptErAktiv() => ExceptField("erAktiv");
-
         public KullQueryBuilder WithKlasser(KullKlasserConnectionQueryBuilder kullKlasserConnectionQueryBuilder, QueryBuilderParameter<KullKlasserFilterInput> filter = null, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
@@ -76,6 +72,10 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public KullQueryBuilder ExceptKlasser() => ExceptField("klasser");
+
+        public KullQueryBuilder WithErAktiv(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("erAktiv", alias, [include, skip]);
+
+        public KullQueryBuilder ExceptErAktiv() => ExceptField("erAktiv");
 
         public KullQueryBuilder WithSkalEksporteresTilLms(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("skalEksporteresTilLms", alias, [include, skip]);
 

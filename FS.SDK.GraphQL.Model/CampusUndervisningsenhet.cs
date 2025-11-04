@@ -20,29 +20,24 @@ namespace FS.SDK.GraphQL.Model
         [System.Text.Json.Serialization.JsonPropertyName("id")]
         public string Id { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("emne")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("emne")]
-        public Emne Emne { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("campus")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("campus")]
         public Campus Campus { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("terminkode")]
+        [JsonProperty("undervisningsenhet")]
         #endif
-        [System.Text.Json.Serialization.JsonPropertyName("terminkode")]
-        public string Terminkode { get; set; }
-        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
-        [JsonProperty("arstall")]
-        #endif
-        [System.Text.Json.Serialization.JsonPropertyName("arstall")]
-        public int? Arstall { get; set; }
+        [System.Text.Json.Serialization.JsonPropertyName("undervisningsenhet")]
+        public Undervisningsenhet Undervisningsenhet { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("utdanningsregisterInstansId")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("utdanningsregisterInstansId")]
         public string UtdanningsregisterInstansId { get; set; }
+        #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
+        [JsonProperty("skalEksporteresTilUtdanningsregisteret")]
+        #endif
+        [System.Text.Json.Serialization.JsonPropertyName("skalEksporteresTilUtdanningsregisteret")]
+        public bool? SkalEksporteresTilUtdanningsregisteret { get; set; }
     }
 }

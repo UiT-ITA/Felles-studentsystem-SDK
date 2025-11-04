@@ -88,6 +88,7 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "registrerUndervisningsenheter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(RegistrerUndervisningsenheterPayloadQueryBuilder) },
             new() { Name = "opprettUndervisningsaktiviteter", RequiresParameters = true, IsComplex = true, QueryBuilderType = typeof(OpprettUndervisningsaktiviteterPayloadQueryBuilder) },
             new() { Name = "registrerUtdanningsregisterIdForKullcampus", IsComplex = true, QueryBuilderType = typeof(RegistrerUtdanningsregisterIdForKullcampusPayloadQueryBuilder) },
+            new() { Name = "registrerUtdanningsregisterIdForCampusUndervisningsenhet", IsComplex = true, QueryBuilderType = typeof(RegistrerUtdanningsregisterIdForCampusUndervisningsenhetPayloadQueryBuilder) },
             new() { Name = "registrerUtdanningsregisterIderForStudieprogram", IsComplex = true, QueryBuilderType = typeof(RegistrerUtdanningsregisterIderForStudieprogramPayloadQueryBuilder) },
             new() { Name = "registrerUtdanningsregisterIderForEmne", IsComplex = true, QueryBuilderType = typeof(RegistrerUtdanningsregisterIderForEmnePayloadQueryBuilder) },
             new() { Name = "endreStudieprogramSkalEksporteresTilUtdanningsregisteretStatus", IsComplex = true, QueryBuilderType = typeof(EndreStudieprogramSkalEksporteresTilUtdanningsregisteretStatusPayloadQueryBuilder) },
@@ -783,6 +784,17 @@ namespace FS.SDK.GraphQL.Model
         }
 
         public MutationQueryBuilder ExceptRegistrerUtdanningsregisterIdForKullcampus() => ExceptField("registrerUtdanningsregisterIdForKullcampus");
+
+        public MutationQueryBuilder WithRegistrerUtdanningsregisterIdForCampusUndervisningsenhet(RegistrerUtdanningsregisterIdForCampusUndervisningsenhetPayloadQueryBuilder registrerUtdanningsregisterIdForCampusUndervisningsenhetPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<RegistrerUtdanningsregisterIdForCampusUndervisningsenhetInput>> input = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        {
+            var args = new List<QueryBuilderArgumentInfo>();
+            if (input != null)
+                args.Add(new() { ArgumentName = "input", ArgumentValue = input} );
+
+            return WithObjectField("registrerUtdanningsregisterIdForCampusUndervisningsenhet", alias, registrerUtdanningsregisterIdForCampusUndervisningsenhetPayloadQueryBuilder, [include, skip], args);
+        }
+
+        public MutationQueryBuilder ExceptRegistrerUtdanningsregisterIdForCampusUndervisningsenhet() => ExceptField("registrerUtdanningsregisterIdForCampusUndervisningsenhet");
 
         public MutationQueryBuilder WithRegistrerUtdanningsregisterIderForStudieprogram(RegistrerUtdanningsregisterIderForStudieprogramPayloadQueryBuilder registrerUtdanningsregisterIderForStudieprogramPayloadQueryBuilder, QueryBuilderParameter<IEnumerable<RegistrerUtdanningsregisterIderForStudieprogramInput>> input = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {

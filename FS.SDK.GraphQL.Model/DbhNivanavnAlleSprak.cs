@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace FS.SDK.GraphQL.Model
 {
-    public partial class DbhNivanavnAlleSprak
+    public partial class DbhNivaNavnAlleSprak
     {
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("und")]

@@ -32,7 +32,7 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "studieretninger", IsComplex = true, QueryBuilderType = typeof(StudieprogramStudieretningerConnectionQueryBuilder) },
             new() { Name = "campuser", IsComplex = true, QueryBuilderType = typeof(StudieprogramCampuserConnectionQueryBuilder) },
             new() { Name = "studieansvarligOrganisasjonsenhet", IsComplex = true, QueryBuilderType = typeof(OrganisasjonsenhetQueryBuilder) },
-            new() { Name = "kull", IsComplex = true, QueryBuilderType = typeof(StudieprogramKullConnectionQueryBuilder) },
+            new() { Name = "kullV2", IsComplex = true, QueryBuilderType = typeof(StudieprogramKullV2ConnectionQueryBuilder) },
             new() { Name = "skalEksporteresTilLms" },
             new() { Name = "lmsRomkode" },
             new() { Name = "skalPubliseres" },
@@ -184,7 +184,7 @@ namespace FS.SDK.GraphQL.Model
 
         public StudieprogramQueryBuilder ExceptStudieansvarligOrganisasjonsenhet() => ExceptField("studieansvarligOrganisasjonsenhet");
 
-        public StudieprogramQueryBuilder WithKull(StudieprogramKullConnectionQueryBuilder studieprogramKullConnectionQueryBuilder, QueryBuilderParameter<StudieprogramKullFilterInput> filter = null, QueryBuilderParameter<StudieprogramKullOrderByInput> orderBy = null, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        public StudieprogramQueryBuilder WithKullV2(StudieprogramKullV2ConnectionQueryBuilder studieprogramKullV2ConnectionQueryBuilder, QueryBuilderParameter<StudieprogramKullFilterInput> filter = null, QueryBuilderParameter<StudieprogramKullOrderByInput> orderBy = null, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
             if (filter != null)
@@ -199,10 +199,10 @@ namespace FS.SDK.GraphQL.Model
             if (after != null)
                 args.Add(new() { ArgumentName = "after", ArgumentValue = after} );
 
-            return WithObjectField("kull", alias, studieprogramKullConnectionQueryBuilder, [include, skip], args);
+            return WithObjectField("kullV2", alias, studieprogramKullV2ConnectionQueryBuilder, [include, skip], args);
         }
 
-        public StudieprogramQueryBuilder ExceptKull() => ExceptField("kull");
+        public StudieprogramQueryBuilder ExceptKullV2() => ExceptField("kullV2");
 
         public StudieprogramQueryBuilder WithSkalEksporteresTilLms(string alias = null, IncludeDirective include = null, SkipDirective skip = null) => WithScalarField("skalEksporteresTilLms", alias, [include, skip]);
 

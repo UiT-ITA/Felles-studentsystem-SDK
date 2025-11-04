@@ -74,19 +74,14 @@ public static class StudieprogramInformasjon
                     )
                 .Build(formatting: FS.SDK.GraphQL.Model.Formatting.Indented);
 
-
-
             // Run it
             var result = await client.QueryStudieprogram(qBuilder, cancellationToken);
-
             // Evaluate
             if (result is null) return(allStudieprogrammer, new Exception("Result from QueryStudieprogram is null"));
             if (FSApiClient.ValidateResult(result) != null) return (allStudieprogrammer, FSApiClient.ValidateResult(result));
-
             // Next page
             hasMore = result.Data.publiseringsklareStudieprogram.pageInfo.HasNextPage ?? false;
             after = result.Data.publiseringsklareStudieprogram.pageInfo.EndCursor;
-
             // Extract data
             result.Data.publiseringsklareStudieprogram.nodes.ToList().ForEach(sp => { allStudieprogrammer.Add(sp); });
         }
@@ -95,7 +90,6 @@ public static class StudieprogramInformasjon
     }
     public static async Task<(List<Studieprogram>, Exception?)> GetAllStudieprogrammerRaw(FSApiClient client, CancellationToken cancellationToken = default)
     {
-
         List<Studieprogram> allStudieprogrammer = new List<Studieprogram>();
 
         // Iterate pages
