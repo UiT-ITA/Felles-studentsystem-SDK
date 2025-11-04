@@ -49,6 +49,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("erAktiv")]
         public bool? ErAktiv { get; set; }
-        IDatoperiode IPersonrolle.Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Studieprogramrolle.Gyldighetsperiode\" property setter"); }
+        //IDatoperiode IPersonrolle.Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Studieprogramrolle.Gyldighetsperiode\" property setter"); }
     }
 }

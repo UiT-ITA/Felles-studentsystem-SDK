@@ -10,6 +10,7 @@
 ## Generering av GraphQL-klasser skaper hvor mange feil: 
 - 15.10.2025: 6075 - System.Text.Json vs Newtonsoft
 - 15.10.2025: 9, men må legge til System.Text.Json manuelt. Løser compilatorfeil ved å kommentere ut.
+- 04.11.2025: System.Text.Json må legges til manuelt, Gyldighetsperiode kommenteres ut manuelt. 
 - Resultat: 0 error, 0 warnings, 0 messages (nice!)
 ```
 // IDatoperiode IPersonrolle.Gyldighetsperiode

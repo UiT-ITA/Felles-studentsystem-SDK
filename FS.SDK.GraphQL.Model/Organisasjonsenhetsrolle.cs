@@ -59,6 +59,6 @@ namespace FS.SDK.GraphQL.Model
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("personProfil")]
         public PersonProfil PersonProfil { get; set; }
-        IDatoperiode IPersonrolle.Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Organisasjonsenhetsrolle.Gyldighetsperiode\" property setter"); }
+        //IDatoperiode IPersonrolle.Gyldighetsperiode { get => Gyldighetsperiode; set => throw new NotSupportedException("Use \"Organisasjonsenhetsrolle.Gyldighetsperiode\" property setter"); }
     }
 }
