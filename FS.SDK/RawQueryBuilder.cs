@@ -6,7 +6,7 @@ namespace FS.SDK;
 
 internal static class RawQueryBuilder
 {
-    internal static string Build(string query, string eierInstitusjonsnummer, string terminBetegnelse, int aarstall, int first, string? after = null)
+    internal static string Build(string query, string eierOrganisasjonskode, string terminBetegnelse, int aarstall, int first, string? after = null)
     {
         string qryFilter = """
             filter: { 

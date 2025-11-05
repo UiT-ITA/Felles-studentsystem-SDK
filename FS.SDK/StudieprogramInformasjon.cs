@@ -100,9 +100,9 @@ public static class StudieprogramInformasjon
         {
             var qBuilder = RawQueryBuilder.Build(
                 QueryPubliseringsklareStudieprogram,
-                eierInstitusjonsnummer: "186",
+                eierOrganisasjonskode: "186",
+                aarstall: 2025,
                 terminBetegnelse: "HØST",
-                aarstall: 2024,
                 first: 10,
                 after: after
                 );
@@ -128,76 +128,264 @@ public static class StudieprogramInformasjon
 
 
     private static string QueryPubliseringsklareStudieprogram = """
-        query publiseringAvStudieprograminformasjon {
-        publiseringsklareStudieprogram(
-            parameter_filtersection
-                ) {
-            pageInfo {
-              endCursor
+          query QueryEmnerV2 
+          (
+            $eierOrganisasjonskode: String!
+            $aarstall: Int!
+            $terminbetegnelse: EmneIkkeUtloptITerminTerminbetegnelse!
+            $after: String!
+            $pagesize : Int!
+          )
+          {
+            emnerV2(
+              first: $pagesize
+              after : $after
+
+              filter: {
+                eierOrganisasjonskode:$eierOrganisasjonskode
+                ikkeUtloptITermin:
+                {
+                    arstall:$aarstall
+                    terminbetegnelse:$terminbetegnelse
+                }
+              }
+            ) 
+
+
+
+
+          {
+            pageInfo 
+            {
+              hasPreviousPage
               hasNextPage
+              startCursor
+              endCursor
             }
-            nodes {
-              studieprogram {
+            nodes
+            {
+              id
+              kode
+              versjonskode
+              navnAlleSprak {en,nb}
+              navnForkortetAlleSprak {und}
+              emnetype      
+              tilbysSomFjernundervisning { kode, navn}
+              studieniva 
+              { 
                 id
                 kode
-                navnAlleSprak {nb}
-                vekting {
-                  verdi
-                  vektingstype {
-                    navnAlleSprak {nb}
-                  }
-                }
-                organisasjonsenhet {
-                  studieansvarlig {
-                    fakultet {
-                      fakultetsnummer
-                      navn { nb }
-                    }
-                  }
-                }
-                campuser {
-                  nodes
-                  {
-                    campus {
-                      kode
-                      navnAlleSprak {nb}
-                    }
-                  }
-                }
-                sprak {
-                  sprak {
-                    navn {no}
-                    iso6392Kode
-                  }
-                }
-                studieniva {
-                  kode
-                  navnAlleSprak {nb}
-                }
-                prosentHeltid
+                navnAlleSprak {nb, en}
+                # eqfnivakode #denne feiler, den er ikke int32 hver gang
+                # nkrsyklus {kode, navnAlleSprak {nb, en}, vitnemalsnavnAlleSprak {nb}} # Gir alltid null
+                dbhNiva {dbhNivakode, dbhNivaBeskrivelse {und},  dbhNivaNavnAlleSprak {und}}
               }
-              beskrivelsesavsnitt {
-                tekstkategori {
-                  kode
-                  navnAlleSprak {nb}
-                }
-                periode {
-                  fraTermin {
-                    arstall
-                    betegnelse { kode }
+              # avgifter #Gir alltid null            
+              vekting 
+              {
+                emnevekting 
+                {
+                  verdi
+                  vektingstype 
+                  {
+                    kode
+                    navnAlleSprak {nb, en}
+                    erAktiv
+                    vektenheterPerSemester
                   }
                 }
-
-                sprak {
-                  iso6391Kode
+                vektingsreduksjonsregler
+                {          
+                  prioritetsnummer
+                  regel {
+                    kode
+                    reduksjon {verdi, vektingstype {kode, erAktiv, vektenheterPerSemester, navnAlleSprak {nb, en}}}
+                    periode {
+                      fraTermin{betegnelse{kode}, arstall, oppdateringssperrer {undervisningsaktiviteter}}
+                      tilTermin{betegnelse{kode}, arstall, oppdateringssperrer {undervisningsaktiviteter}}}}
+                   	emne {kode}
+                }        
+              }
+              vurderesIPeriode 
+              {
+                forsteTermin {betegnelse{kode}, arstall}
+                sisteTermin {betegnelse{kode}, arstall}
+              }
+              undervisesIPeriode
+              {
+                forsteTermin {betegnelse {kode}, arstall}
+                sisteTermin {betegnelse {kode}, arstall}
+              }   
+              undervisningsoversikt 
+              {
+                varighet {antall, tidsenhet {kode, navnAlleSprak {nb, en}}}
+                undervisningsterminer 
+                {
+                  id
+                  terminnummer 
+                  starttermin 
+                  gjelderForTermin 
+                  arEtterStart
+                  # fordypningstimer  # gir alltid null
                 }
-                innhold
+              }      
+              rapporteringsstudieprogram 
+              {
+                kode, navnAlleSprak {nb, en}, erAktiv
+              }
+              studieprogramkoblinger 
+              {
+                studieprogram {kode, navnAlleSprak {nb, en}, erAktiv}
+                periode {
+                  fraTermin {betegnelse{kode}, arstall}
+                  # tilTermin {betegnelse{kode}, arstall} # Gir alltid null
+                }
+              }
+              nusKode      
+              studieansvarligOrganisasjonsenhet
+              {
+                navnAlleSprak {nb, en}
+                organisasjon {navnAlleSprak {nb, en}}
+                fakultet {navnAlleSprak {nb, en}}
+                #institutt {navnAlleSprak {nb}} - Gir alltid null
+                bibliotek {navnAlleSprak {und}} 
+                erAktiv
+                skalEksporteresTilLms
+                # Mye mer,....
+              }
+
+              undervisningsenheter 
+              {
+                nodes 
+                {
+                  id
+                   	termin {betegnelse {kode, navnAlleSprak {nb, en}}, arstall}
+                  terminnummer
+                  emne {kode, versjonskode, navnAlleSprak {nb, en}}
+                  #undervisningsaktiviteter
+                  #{
+                  #  nodes
+                  #  {
+                  #    kode
+                  #    # undervisningsenhet 
+                  #    partinummer
+                  #    lmsRomkode
+                  #    skalEksporteresTilLms
+                  #    navnAlleSprak {nb}
+                  #  }
+                  #}
+                  #oppmote 
+                  #{
+                  #  tidspunkt
+                  #  undervisningsaktivitet {kode, partinummer, navnAlleSprak {nb, en}}
+                  #  #timeplan
+                  #  undervisningsuke {ukenummer, arstall}
+                  #  merknad
+                  #	harMott
+                  #}
+                }
+              }
+              tjenestenummerForLms 
+              sprakvalg 
+              {
+                sprak {id, iso6391Kode, iso6392Kode, navn {no, en}}
+              }      
+              administrativtAnsvarligOrganisasjonsenhet 
+              {
+                id, navnAlleSprak {nb, en}
+                # Mye mer.... 
+              }      
+              kanTilbysMedFleksibelFinansiering
+              # tilgjengeligHosLanekassenPeriode {datoFra, datoTil}     # Gir alltid null  
+              navnAlleSprakHistorikk 
+              {
+                id
+                fraTermin {betegnelse {kode, navnAlleSprak {nb, en}} , arstall}
+                tilTermin {betegnelse {kode, navnAlleSprak {nb, en}} , arstall}
+                navnAlleSprak {nb,en}
+                navnForkortetAlleSprak {und}
+              }           
+              fagkoblinger 
+              {
+                viktigsteFag {navnAlleSprak{nb, en}, kode, subjectArea {navn {und}, kode}}
+                fag {navnAlleSprak{nb, en}, kode, subjectArea {navn {und} , kode}}
+              }      
+              tilbysSomEnkeltemne 
+           			# samarbeidendeLarested      
+           			kreverStudierett       
+              # praksistype # Gir alltid null
+
+              url {und}
+              #campuser {}      
+              #publiseringsklartITerminer {}      
+           			antallLovligeVurderingsforsok 		{antallLovligeForsok, gjelderFraTermin {betegnelse {kode, navnAlleSprak {nb, en} }, arstall}}     
+              antallLovligeUndervisningsforsok 	{antallLovligeForsok } #gjelderFraTermin {betegnelse {kode, navnAlleSprak {nb} }, arstall}}   # Gir alltid null
+                	forkunnskapskrav 
+              {
+                emne {kode, versjonskode, navnAlleSprak {nb, en}, navnForkortetAlleSprak {und}, emnetype}
+                periode {fraTermin {betegnelse {kode, navnAlleSprak {nb, en}}, arstall}}
+                pakrevdeEmner {kode, versjonskode, navnAlleSprak {nb, en}, navnForkortetAlleSprak {und}, emnetype}
+                # Gir alltid null
+                #pakrevdeEmnesamlinger { kode, studieniva {kode, navnAlleSprak {nb}},  vekting {verdi, vektingstype{kode, navnAlleSprak {nb}}}}
+                #pakrevdeKravelementer {kode, navnAlleSprak {nb}}
+                #pakrevdeVurderingsoppbygningsdeler {kode, navnAlleSprak {nb}}
+              }      
+              iscedFKode       
+              vurderingsoppbygninger 
+              {
+                vurderingsordning {kode, navnAlleSprak {nb, en}, aktiv}
+                erAktiv
+                erForhandsvalgt
+                periode {fraTermin {betegnelse {kode, navnAlleSprak {nb, en} }, arstall}, tilTermin {betegnelse {kode, navnAlleSprak {nb, en} }, arstall}}
+              }      
+              studienivaIntervall {studienivaintervallkode }      
+              erOppgave 
+              # nusklassifikasjon        
+              # personroller      
+              # vurderingsenheter      
+              pameldingsform      
+              etteranmeldingsform      
+              # vurderingsperiodeinformasjon      
+              # anbefaltForkunnskap      
+              beskrivelsesavsnitt 
+              (
+                first:1000
+                #filter: {gjelderFraTerminer:{ arstall : 2020, terminbetegnelse:"HØST"}}
+              )
+              {
+                nodes  
+                {
+                  id
+                  tekstkategori {
+                    kode
+                    rekkefolgenummer
+                    navnAlleSprak {nb, en}
+                    erEnDefaultTekstkategori
+                    kanBrukesTilStudieprogrambeskrivelser
+                    kanBrukesTilEmnebeskrivelser
+                    kanBrukesTilKursbeskrivelser
+                    kanBrukesTilUtvekslingbeskrivelser
+                    kanBrukesTilStedbeskrivelser
+                    kanPubliseresTilWeb
+                    kanPubliseresTilWebapplikasjoner
+                  }
+                  periode 
+                  {
+                    fraTermin {betegnelse {kode}, arstall}
+                    tilTermin {betegnelse {kode}, arstall}
+                  }
+                  innhold
+                  originalinnhold
+                  cdmTag
+                  publiseringstag
+                  rekkefolgenummer
+                  sprak {iso6391Kode, iso6392Kode, navn {no, en}}          
+                }    
               }
             }
           }
         }
         """;
-
 }
 
 

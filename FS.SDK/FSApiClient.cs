@@ -1,16 +1,13 @@
 ﻿using FS.SDK.GraphQL.Model;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Headers;
-using System.Reflection.PortableExecutable;
 using System.Text;
-using System.Text.Json.Serialization;
-using System.Windows.Markup;
+using System.Text.Json;
+
 
 namespace FS.SDK;
 
@@ -23,13 +20,21 @@ public class FSApiClient : IDisposable
     internal static HttpHeaderValueCollection<ProductInfoHeaderValue>? UserAgent { get; private set; }
 
     // Serializer utility setup
-    private static readonly JsonSerializer Serializer = JsonSerializer.Create(JsonSerializerSettings);
-    internal static readonly JsonSerializerSettings JsonSerializerSettings = new()
+    private static JsonSerializerOptions jsonSerializerOptions => new JsonSerializerOptions
     {
-        ContractResolver = new CamelCasePropertyNamesContractResolver(),
-        Converters = { new StringEnumConverter() },
-        DateParseHandling = DateParseHandling.DateTimeOffset
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() },
+        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
     };
+
+    // Newtonsoft
+    //private static readonly JsonSerializer Serializer = JsonSerializer.Create(JsonSerializerSettings);
+    //internal static readonly JsonSerializerSettings JsonSerializerSettings = new()
+    //{
+    //    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+    //    Converters = { new StringEnumConverter() },
+    //    DateParseHandling = DateParseHandling.DateTimeOffset
+    //};
 
     // Constructor
     public FSApiClient(FSApiClientConfig config)
@@ -48,8 +53,6 @@ public class FSApiClient : IDisposable
         _httpClient.DefaultRequestHeaders.UserAgent.Add(config.UserAgent);
     }
 
-
-
     /// <summary>
     /// Executes raw GraphQL query.
     /// </summary>
@@ -58,7 +61,7 @@ public class FSApiClient : IDisposable
     /// <exception cref="FsSdkApiHttpException"></exception>
     /// <returns></returns>
     public async Task<QryResultStudieprogramHead?> QueryStudieprogram(string query, CancellationToken cancellationToken = default) => await Request<QryResultStudieprogramHead?>(query, cancellationToken);
-
+    
     private async Task<TResult?> Request<TResult>(string query, CancellationToken cancellationToken)
     {
 #if DEBUG
@@ -89,8 +92,11 @@ public class FSApiClient : IDisposable
 #endif
 
         using var streamReader = new StreamReader(stream);
-        using var jsonReader = new JsonTextReader(streamReader);
-        return Serializer.Deserialize<TResult>(jsonReader);
+        //using var jsonReader = new JsonTextReader(streamReader);
+        //return Serializer.Deserialize<TResult>(jsonReader);
+
+        TResult? res = await JsonSerializer.DeserializeAsync<TResult>(stream, jsonSerializerOptions, cancellationToken);
+        return res;
     }
 
 
@@ -120,9 +126,8 @@ public class FSApiClient : IDisposable
     /// <exception cref="FsSdkApiHttpException"></exception>
     /// <returns></returns>
     //public Task<FsSdkApiMutationResponse> Mutation(string mutation, CancellationToken cancellationToken = default) => Request<FsSdkApiMutationResponse>(mutation, cancellationToken);
-
-
-    private static HttpContent JsonContent(object data) => new StringContent(JsonConvert.SerializeObject(data, settings: JsonSerializerSettings), Encoding.UTF8, "application/json");
+    
+    private static HttpContent JsonContent(object data) => new StringContent(JsonSerializer.Serialize(data, jsonSerializerOptions), Encoding.UTF8, "application/json");
 
 }
 
