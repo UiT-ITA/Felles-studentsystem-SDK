@@ -38,7 +38,8 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("beskrivelsesavsnitt")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("beskrivelsesavsnitt")]
-        public StudieprogramBeskrivelsesavsnittConnection Beskrivelsesavsnitt { get; set; }
+        public List<Studieprogrambeskrivelsesavsnitt> Beskrivelsesavsnitt { get; set; }
+        //public StudieprogramBeskrivelsesavsnittConnection Beskrivelsesavsnitt { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("undervisningsorganisering")]
         #endif

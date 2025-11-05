@@ -59,7 +59,7 @@ public class FsSdkApiHttpException : FsSdkApiException
     }
 
     internal FsSdkApiHttpException(Uri uri, HttpMethod httpMethod, TimeSpan requestDuration, string? message = null, Exception? exception = null)
-        : base(message ?? $"HTTP '{httpMethod} {uri}' call failed{(exception == null ? null : $": {GetOriginalExceptionMessage(exception)}")}", exception)
+        : base(message ?? $"HTTP '{httpMethod} {uri}' call failed{(exception == null ? null : $": {GetOriginalExceptionMessage(exception)}")}", exception ?? new Exception("empty innerexception"))
     {
         Uri = uri;
         HttpMethod = httpMethod;
@@ -81,7 +81,7 @@ public class FsSdkApiHttpException : FsSdkApiException
 
         if ((response.RequestMessage?.Content ?? null) != null)
         {
-            exception.RequestContentHeaders = response.RequestMessage.Content.Headers;
+            exception.RequestContentHeaders = response.RequestMessage?.Content?.Headers;
 
             try
             {
@@ -139,7 +139,7 @@ public class FsSdkApiHttpException : FsSdkApiException
             builder.AppendLine("Request content:");
             if (RequestContent.Length > MaximumBodyLength)
             {
-                builder.Append(RequestContent.Substring(0, MaximumBodyLength));
+                builder.Append(RequestContent[..MaximumBodyLength]);
                 builder.AppendLine("\u2026");
             }
             else
@@ -167,7 +167,7 @@ public class FsSdkApiHttpException : FsSdkApiException
 
             if (ResponseContent.Length > MaximumBodyLength)
             {
-                builder.Append(ResponseContent.Substring(0, MaximumBodyLength));
+                builder.Append(ResponseContent[..MaximumBodyLength]);
                 builder.AppendLine("\u2026");
             }
             else

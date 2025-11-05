@@ -1,4 +1,5 @@
 ﻿using FS.SDK.GraphQL.Model;
+using FS.SDK.qryPubliseringAvStudieprograminformasjon;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json.Linq;
 using System;
@@ -20,26 +21,18 @@ public class FSApiClient : IDisposable
     internal static HttpHeaderValueCollection<ProductInfoHeaderValue>? UserAgent { get; private set; }
 
     // Serializer utility setup
-    private static JsonSerializerOptions jsonSerializerOptions => new JsonSerializerOptions
+    private static JsonSerializerOptions JsonSerializerOptions => new()
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() },
         DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
     };
 
-    // Newtonsoft
-    //private static readonly JsonSerializer Serializer = JsonSerializer.Create(JsonSerializerSettings);
-    //internal static readonly JsonSerializerSettings JsonSerializerSettings = new()
-    //{
-    //    ContractResolver = new CamelCasePropertyNamesContractResolver(),
-    //    Converters = { new StringEnumConverter() },
-    //    DateParseHandling = DateParseHandling.DateTimeOffset
-    //};
 
     // Constructor
     public FSApiClient(FSApiClientConfig config)
     {
-        //config.MessageHandler ??= new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
+        config.MessageHandler ??= new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
         _config = config;
         _httpClient = new HttpClient(config.MessageHandler)
         {
@@ -82,7 +75,7 @@ public class FSApiClient : IDisposable
         if (!response.IsSuccessStatusCode)
             throw await FsSdkApiHttpException.Create(new Uri(_config.BaseUrl), HttpMethod.Post, response, DateTimeOffset.Now - requestStart).ConfigureAwait(false);
 
-        using var stream = await response.Content.ReadAsStreamAsync();
+        using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
 
 #if DEBUG
         using var streamReaderDebug = new StreamReader(stream);        
@@ -95,7 +88,7 @@ public class FSApiClient : IDisposable
         //using var jsonReader = new JsonTextReader(streamReader);
         //return Serializer.Deserialize<TResult>(jsonReader);
 
-        TResult? res = await JsonSerializer.DeserializeAsync<TResult>(stream, jsonSerializerOptions, cancellationToken);
+        TResult? res = await JsonSerializer.DeserializeAsync<TResult>(stream, JsonSerializerOptions, cancellationToken);
         return res;
     }
 
@@ -110,7 +103,7 @@ public class FSApiClient : IDisposable
 
     internal static FsSdkApiException? ValidateResult(QryResultStudieprogramHead response)
     {
-        if (response.Errors is not null && response.Errors.Any())
+        if (response.Errors is not null && response.Errors.Count != 0)
             return new FsSdkApiException(
                 $"Query execution failed:{Environment.NewLine}{String.Join(Environment.NewLine, response.Errors.Select(e => $"{e.Message} (locations: {String.Join(";", e.Locations.Select(l => $"line: {l.Line}, column: {l.Column}"))})"))}"
             );
@@ -127,7 +120,7 @@ public class FSApiClient : IDisposable
     /// <returns></returns>
     //public Task<FsSdkApiMutationResponse> Mutation(string mutation, CancellationToken cancellationToken = default) => Request<FsSdkApiMutationResponse>(mutation, cancellationToken);
     
-    private static HttpContent JsonContent(object data) => new StringContent(JsonSerializer.Serialize(data, jsonSerializerOptions), Encoding.UTF8, "application/json");
+    private static HttpContent JsonContent(object data) => new StringContent(JsonSerializer.Serialize(data, JsonSerializerOptions), Encoding.UTF8, "application/json");
 
 }
 

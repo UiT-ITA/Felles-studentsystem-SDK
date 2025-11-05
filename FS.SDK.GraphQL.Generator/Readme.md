@@ -1,31 +1,38 @@
 ﻿# GraphQL Class Generator
  - Raymond Andreassen
 
-## TODO: 
-- Lag meny
-- Single file
-- Multiple files 
-- Delete all
+## Etter gen: 
+### 1. Project file 
+´´´
+<Project Sdk="Microsoft.NET.Sdk">
 
-## Generering av GraphQL-klasser skaper hvor mange feil: 
-- 15.10.2025: 6075 - System.Text.Json vs Newtonsoft
-- 15.10.2025: 9, men må legge til System.Text.Json manuelt. Løser compilatorfeil ved å kommentere ut.
-- 04.11.2025: System.Text.Json må legges til manuelt, Gyldighetsperiode kommenteres ut manuelt. 
-- Resultat: 0 error, 0 warnings, 0 messages (nice!)
-```
-// IDatoperiode IPersonrolle.Gyldighetsperiode
-```
-
-## Mangler 
-- IDatoPeriode må undersøkes. Den er kanskje ikke i bruk, eller den brukes feil. 
-
-## Viktig
-
-```
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
   <PropertyGroup>
     <DefineConstants>GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON</DefineConstants>
   </PropertyGroup>
+  <ItemGroup Condition="!$(DefineConstants.Contains(GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON))">
+    <PackageReference Include="Newtonsoft.Json" Version="13.*" />
+  </ItemGroup>
+
+</Project>
+´´´
+
+### 2. Studieprogram.cs
 ```
+    [System.Text.Json.Serialization.JsonPropertyName("beskrivelsesavsnitt")]
+    public List<Studieprogrambeskrivelsesavsnitt> Beskrivelsesavsnitt { get; set; }
+    //public StudieprogramBeskrivelsesavsnittConnection Beskrivelsesavsnitt { get; set; }
+```
+### 3. Gyldighetsperiode, circa 8 stk
+```
+    // IDatoperiode IPersonrolle.Gyldighetsperiode
+```
+
 
 ## Rutine for generering
 - appsettings.json må inneholde apikeyname og apikey

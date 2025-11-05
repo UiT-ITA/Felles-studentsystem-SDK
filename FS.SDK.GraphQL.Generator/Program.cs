@@ -28,12 +28,18 @@ string baseurl = config["baseurl"] ?? throw new Exception("baseurl not found in 
 string apikeyname = config["apikeyname"] ?? throw new Exception("apikeyname not found in appsettings.json");
 string apikey = config["apikey"] ?? throw new Exception("apikey not found in appsettings.json");
 
+// Headers
+var headers = new List<KeyValuePair<string, string>> {
+    new KeyValuePair<string, string>(apikeyname, apikey),
+    new KeyValuePair<string, string>("Feature-Flags", "beta,experimental")
+};
+
 // Pass an empty list instead of a single KeyValuePair
 var schema = await GraphQlGenerator.RetrieveSchema(
     HttpMethod.Post,
-    baseurl,
-    //"https://gw-uit.intark.uh-it.no/fs-graphql/",
-    new List<KeyValuePair<string, string>> { new KeyValuePair<string, string>(apikeyname, apikey) }
+    baseurl, //"https://gw-uit.intark.uh-it.no/fs-graphql/",   
+    headers
+    
 );
 
 
@@ -69,7 +75,7 @@ var gqlconfig = new GraphQlGeneratorConfiguration
     PropertyGeneration = PropertyGenerationOption.AutoProperty,
     // EnumValueNaming = EnumValueNamingOption.Original
     EnumValueNaming = EnumValueNamingOption.CSharp,
-
+    
     // BooleanTypeMapping
     // FloatTypeMapping
     IdTypeMapping = IdTypeMapping.String
@@ -101,7 +107,7 @@ GenerationContext context = new MultipleFileGenerationContext(
    schema: schema,
    codeFileEmitter: codeFileEmitter,
    projectFileName: "FS.SDK.GraphQL.Model.csproj", 
-   objectTypes: GeneratedObjectType.All
+   objectTypes: GeneratedObjectType.All 
    // GeneratedObjectType.DataClasses
    );
 

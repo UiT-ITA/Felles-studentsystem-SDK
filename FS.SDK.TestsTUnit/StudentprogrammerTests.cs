@@ -1,4 +1,5 @@
 ﻿using FS.SDK.GraphQL.Model;
+using FS.SDK.qryPubliseringAvStudieprograminformasjon;
 using FS.SDK.TestsTUnit.Data;
 
 namespace FS.SDK.TestsTUnit;
@@ -20,7 +21,7 @@ public class StudentprogrammerTests(FSApiClient fsApiClient)
 
 
         //await FS.SDK.StudieprogramInformasjon.GetAllStudieprogrammer(fsApiClient);
-        await FS.SDK.StudieprogramInformasjon.GetAllStudieprogrammerRaw(fsApiClient);
+        await StudieprogramInformasjon.GetAllStudieprogrammerRaw(fsApiClient);
         
 
         //    Console.WriteLine("This one can accept arguments from an attribute");

@@ -4,6 +4,7 @@
     <File Path=".gitignore" />
     <File Path="LICENSE.txt" />
     <File Path="README.md" />
+    <File Path="SbsModel/.graphqlrc.json" />
   </Folder>
   <Project Path="FS.SDK.GraphQL.Generator/FS.SDK.GraphQL.Generator.csproj" />
   <Project Path="FS.SDK.GraphQL.Model/FS.SDK.GraphQL.Model.csproj" Id="8707f161-9bce-4f59-bd35-f30c73f446bf" />

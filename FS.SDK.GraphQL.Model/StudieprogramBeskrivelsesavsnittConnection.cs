@@ -27,7 +27,7 @@ namespace FS.SDK.GraphQL.Model
         [JsonProperty("nodes")]
         #endif
         [System.Text.Json.Serialization.JsonPropertyName("nodes")]
-        public ICollection<Studieprogrambeskrivelsesavsnitt> Nodes { get; set; }
+        public List<Studieprogrambeskrivelsesavsnitt> Nodes { get; set; }
         #if !GRAPHQL_GENERATOR_DISABLE_NEWTONSOFT_JSON
         [JsonProperty("totalCount")]
         #endif

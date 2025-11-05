@@ -40,7 +40,7 @@ public class FSApiClientConfig
     }
     public TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(30);
 
-    public ProductInfoHeaderValue UserAgent { get; set; } = new("FS.SDK.NET", "0.0.1-beta");
+    public ProductInfoHeaderValue UserAgent { get; set; } = new("FS.SDK.NET", "0.0.2-alpha");
 
     public HttpMessageHandler? MessageHandler { get; set; } = new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
 }

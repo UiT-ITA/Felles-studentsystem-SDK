@@ -27,7 +27,7 @@ namespace FS.SDK.GraphQL.Model
             new() { Name = "arbeidsadresse", IsComplex = true, QueryBuilderType = typeof(ArbeidsadresseForFagpersonQueryBuilder) },
             new() { Name = "bilde", IsComplex = true, QueryBuilderType = typeof(PersonbildeQueryBuilder) },
             new() { Name = "navn", IsComplex = true, QueryBuilderType = typeof(PersonnavnQueryBuilder) },
-            new() { Name = "emneroller", IsComplex = true, QueryBuilderType = typeof(FagpersonVedLarestedEmnerollerConnectionEdgeQueryBuilder) },
+            new() { Name = "emneroller", IsComplex = true, QueryBuilderType = typeof(FagpersonVedLarestedEmnerollerConnectionQueryBuilder) },
             new() { Name = "studieprogramroller", IsComplex = true, QueryBuilderType = typeof(StudieprogramrolleQueryBuilder) },
             new() { Name = "kullroller", IsComplex = true, QueryBuilderType = typeof(KullrolleQueryBuilder) },
             new() { Name = "klasseroller", IsComplex = true, QueryBuilderType = typeof(KlasserolleQueryBuilder) },
@@ -94,7 +94,7 @@ namespace FS.SDK.GraphQL.Model
 
         public FagpersonVedLarestedQueryBuilder ExceptNavn() => ExceptField("navn");
 
-        public FagpersonVedLarestedQueryBuilder WithEmneroller(FagpersonVedLarestedEmnerollerConnectionEdgeQueryBuilder fagpersonVedLarestedEmnerollerConnectionQueryBuilder, QueryBuilderParameter<FagpersonEmnerollerFilter> filter = null, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
+        public FagpersonVedLarestedQueryBuilder WithEmneroller(FagpersonVedLarestedEmnerollerConnectionQueryBuilder fagpersonVedLarestedEmnerollerConnectionQueryBuilder, QueryBuilderParameter<FagpersonEmnerollerFilter> filter = null, QueryBuilderParameter<int?> first = null, QueryBuilderParameter<string> after = null, string alias = null, IncludeDirective include = null, SkipDirective skip = null)
         {
             var args = new List<QueryBuilderArgumentInfo>();
             if (filter != null)
