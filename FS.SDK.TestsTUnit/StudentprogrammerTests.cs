@@ -1,11 +1,12 @@
 ﻿using FS.SDK.GraphQL.Model;
 using FS.SDK.qryPubliseringAvStudieprograminformasjon;
 using FS.SDK.TestsTUnit.Data;
+using FS.SDK;
 
 namespace FS.SDK.TestsTUnit;
 
 [MicrosoftDependencyInjectionDataSource]
-public class StudentprogrammerTests(FSApiClient fsApiClient)
+public class StudentprogrammerTests(FSClient fsClient)
 {
     [Test]
     public async Task Basic()
@@ -21,14 +22,13 @@ public class StudentprogrammerTests(FSApiClient fsApiClient)
 
 
         //await FS.SDK.StudieprogramInformasjon.GetAllStudieprogrammer(fsApiClient);
-        await StudieprogramInformasjon.GetAllStudieprogrammerRaw(fsApiClient);
+        var result = await fsClient.GetAll_Studieprogrammer(2025, "HØST");
         
 
         //    Console.WriteLine("This one can accept arguments from an attribute");
+        //var result = a + b;
 
-        var result = a + b;
-
-        await Assert.That(result).IsEqualTo(c);
+        //await Assert.That(result).IsEqualTo(c);
     }
 
     //[Test]

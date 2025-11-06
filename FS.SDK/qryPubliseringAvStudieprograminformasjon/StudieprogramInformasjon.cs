@@ -9,7 +9,14 @@ namespace FS.SDK.qryPubliseringAvStudieprograminformasjon;
 
 internal static class StudieprogramInformasjon
 {
-    internal static async Task<(List<Studieprogram>, Exception?)> GetAllStudieprogrammerRaw(FSApiClient client, CancellationToken cancellationToken = default)
+    internal static async Task<(List<Studieprogram>?, Exception?)> GetAllStudieprogrammerRaw(
+        FSApiClient client, 
+        string eierInstitusjonsnummer, 
+        int year, 
+        string terminbetegnelse = "HØST",
+        int pageSize = 10,
+        int delay = 0,
+        CancellationToken cancellationToken = default)
     {
         List<Studieprogram> allStudieprogrammer = [];
 
@@ -19,7 +26,7 @@ internal static class StudieprogramInformasjon
 
         while (hasMore)
         {
-            string qryParams = string.Format(queryStudieprogramParam, "186", "HØST", 2025, 10, (after is null? "null": "\""+after+"\""));
+            string qryParams = string.Format(queryStudieprogramParam, eierInstitusjonsnummer, terminbetegnelse, year, pageSize, (after is null? "null": "\""+after+"\""));
             string qry = "query publiseringAvStudieprograminformasjon { " + qryParams + queryStudieprogram + "}";
 
             // Run it
@@ -35,6 +42,10 @@ internal static class StudieprogramInformasjon
 
             // Extract data
             result.Data.PubliseringsklareStudieprogram.Nodes.ToList().ForEach(sp => { allStudieprogrammer.Add(sp); });
+
+            // Delay if needed
+            if(delay > 0) await Task.Delay(delay, cancellationToken);
+            if (cancellationToken.IsCancellationRequested) return (null, new Exception("Cancellation is called"));
         }
 
         return (allStudieprogrammer, null);

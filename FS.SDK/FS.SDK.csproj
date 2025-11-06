@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GraphQlClientGenerator" Version="0.9.29" />
+    <PackageReference Include="GraphQlClientGenerator" Version="0.9.30" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.0-rc.2.25502.107" />
   </ItemGroup>
 
   <ItemGroup>
